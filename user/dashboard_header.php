@@ -4,7 +4,7 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
 ?>
 </head>
     <body>
-        <div class="Polaris-Page__Header Polaris-Page__Header--hasPagination Polaris-Page__Header--hasBreadcrumbs Polaris-Page__Header--hasRollup Polaris-Page__Header--hasSecondaryActions" style="padding-bottom: 2.4rem;box-shadow: 0px 1px #dfe3e8;">
+        <div class="Polaris-Page__Header Polaris-Page__Header--hasPagination Polaris-Page__Header--hasBreadcrumbs Polaris-Page__Header--hasRollup Polaris-Page__Header--hasSecondaryActions logoheader">
             <div class="Polaris-Page Polaris-Page--fullWidth">
                 <div class="Polaris-Page-Header Polaris-Page-Header__Header--hasBreadcrumbs">
                     <div class="Polaris-Page-Header__MainContent polaris-nav-menu">
@@ -12,7 +12,19 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                             <div class="Polaris-Page__Title cls_header_logo_image">
                                 <a href="index.php?store=<?php echo $_SESSION['store']; ?>" class="Polaris-DisplayText Polaris-DisplayText--sizeLarge">  <img  src="<?php echo CLS_SITE_URL; ?>/assets/images/logo-icon.png" alt="your image" class="logoimg" /></a>
                             </div>
-                        
+                            <div class="shopifybtn">
+
+<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button Polaris-Button--primary" type="button" target="_blank">
+    <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">Shopify Admin</span>
+    </span>
+</a>
+<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button Polaris-Button--custom-purple" type="button">
+    <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">Home</span>
+    </span>
+</a>
+</div>
                         <div class=" cls_enbledisable_msg">
                             <div class="Polaris-Page__Title cls_msg_enadisa_for_mobile">
                                 <span class="app-setting-msg" style="display: none;">
@@ -31,8 +43,9 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                                         </div>
                                 </span>
                             </div></div>
+                            
                              <div class="cls_enbledisable_btn ">
-        
+
           <a href="setting.php?store=<?php echo $store; ?>"  class="Polaris-Button" style="text-decoration: none;">
             <span class="Polaris-Button__Content">
               <span>App Setting</span>

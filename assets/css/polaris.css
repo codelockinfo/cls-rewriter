@@ -7275,3 +7275,37 @@ html {
 	padding: 0!important;
 	border: 0!important
 }
+.logoheader{
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	box-shadow: 0px 1px #dfe3e8;
+}
+.pagemargin{
+	margin-top: 3%;
+}
+.Polaris-Button--custom-purple{
+	background: #6C7BCF;
+    color: #fff;
+}
+.Polaris-Page-Header .polaris-nav-menu .cls_menu_mobile{
+	display: none !important;
+}
+.Polaris-Page-Header  .cls_enbledisable_btn ,.shopifybtn{
+	width: 15%;
+}
+.Polaris-Page-Header .cls_header_logo_image{
+	width: 20%;
+}
+.Polaris-Page-Header  .cls_enbledisable_msg{
+	width: 50%;
+}
+@media (max-width:1405px) {
+	.shopifybtn{
+		width: 16%;
+	}
+}
+@media (max-width:1350px) {
+	.shopifybtn{
+		width: 20%;
+	}
+}

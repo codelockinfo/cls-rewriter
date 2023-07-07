@@ -40,7 +40,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
     }
 </style>
 <body>
-    <div class="Polaris-Page">
+    <div class="Polaris-Page pagemargin">
                             <div class="Polaris-Page__Title">
                                         <div class="Polaris-Banner Polaris-Banner--statusSuccess  Polaris-Banner--withinPage" tabindex="0" role="alert" aria-live="polite" aria-labelledby="Banner7Heading" aria-describedby="Banner7Content">
                                             <div class="Polaris-Banner__Ribbon">
