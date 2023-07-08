@@ -1,5 +1,13 @@
-<?php 
 
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>INCLUDE HELLOOO</h1>
+    </body>
+</html>
+<?php 
+die;
 include_once ('../append/connection.php');
 include_once 'cls_functions.php';
 include_once '../append/Login.php';
