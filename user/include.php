@@ -1,16 +1,17 @@
 <?php 
 include_once ('../append/connection.php');
-include_once 'cls_functions.php';
 ?>
 <!DOCTYPE html>
 <html>
     <head></head>
     <body>
-        <h1>HELLOOO</h1>
+        <h1>HELLOOO 000000000000</h1>
     </body>
 </html>
-<?php 
-die;
+
+<?php
+include_once 'cls_functions.php';
+
 include_once '../append/Login.php';
 if(isset($_GET['destroy'])){
     session_destroy();
