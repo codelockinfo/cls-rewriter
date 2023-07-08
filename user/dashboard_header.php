@@ -1,5 +1,6 @@
  
 <?php 
+echo "SETP-3";
 $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "managedashboard.myshopify.com";
 ?>
 </head>
