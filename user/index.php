@@ -1,5 +1,4 @@
 <?php
-echo "SETP-1";
 require_once('include.php');
 include_once('cls_header.php');
 $common_function = new common_function();

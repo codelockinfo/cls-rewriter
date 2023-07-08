@@ -1,5 +1,4 @@
 <?php
-echo "SETP-2";
 ob_start();
 include_once('cls_header.php');
 //include_once('../append/session.php');
