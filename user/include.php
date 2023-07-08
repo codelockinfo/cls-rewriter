@@ -2,8 +2,8 @@
 
 include_once ('../append/connection.php');
 include_once 'cls_functions.php';
-echo "HiSs";die;
 include_once '../append/Login.php';
+echo "HiSswdw";die;
 if(isset($_GET['destroy'])){
     session_destroy();
 }
