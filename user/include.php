@@ -1,7 +1,7 @@
 <?php 
 
-echo "Hi";die;
 include_once ('../append/connection.php');
+echo "Hi";die;
 include_once 'cls_functions.php';
 include_once '../append/Login.php';
 if(isset($_GET['destroy'])){
