@@ -1,7 +1,5 @@
 <?php
 require_once('include.php');
-
-echo "STEPpp";die;
 include_once('cls_header.php');
 $common_function = new common_function();
 include 'dashboard.php';
