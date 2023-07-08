@@ -1,4 +1,5 @@
 <?php
+echo "..";
 include_once 'append/connection.php';
 if(isset($_GET['shop'])){
    header('X-Frame-Options:ALLOW-FROM '.$_GET['shop']);
