@@ -1,4 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>HELLOOO HOWOWOW</h1>
+    </body>
+</html>
 <?php
+die;
 ob_start();
 include_once('cls_header.php');
 //include_once('../append/session.php');

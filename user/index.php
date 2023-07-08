@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <h1>HELLOOO</h1>
-    </body>
-</html>
+
 <?php
-die;
 require_once('include.php');
 include_once('cls_header.php');
 $common_function = new common_function();
