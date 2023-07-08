@@ -30,6 +30,7 @@ include('https://codelocksolutions.in/cls-rewriter/assets/js/jquery-2.1.1.js', f
                 'routine_name': 'btn_enable_disable' ,
             },
             success: function(comeback) {
+                console.log(comeback + " ....COMEBACK");
                 console.log(comeback['outcome']['data']['status']);
                 if (comeback['data'] == 'success') {
                    
