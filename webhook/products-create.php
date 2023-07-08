@@ -18,6 +18,7 @@ function verify_webhook($data, $hmac_header)
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 generate_log('server_data', json_encode($_SERVER));
 $data = file_get_contents('php://input');
+generate_log('product_create-webhook', json_encode($data) . "  DATA"); 
 $product = json_decode($data);
 $verified = verify_webhook($data, $hmac_header);
 generate_log('product_create-webhook' , var_export($verified, true)); //check error.log to see the result
@@ -34,6 +35,7 @@ if($verified == true){
         if(!empty($product)){
 			$shopinfo = $cls_functions->get_store_detail_obj();
 			$productid = isset($product->id) ? $product->id : '';
+			generate_log('product_create-webhook', json_encode($productid) . "  DATA PRODUCT ID"); 
 			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
 			generate_log('product_create-webhook', json_encode($comeback['data'])   . "product DATA");
