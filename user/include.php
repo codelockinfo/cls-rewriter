@@ -3,11 +3,11 @@
 include_once ('../append/connection.php');
 include_once 'cls_functions.php';
 include_once '../append/Login.php';
-echo "HiSswdw";die;
 if(isset($_GET['destroy'])){
     session_destroy();
 }
 $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "managedashboard.myshopify.com";
 $ologin = new Login($store);
+echo "STEP";die;
 $functions = new Client_functions();
 ?>
