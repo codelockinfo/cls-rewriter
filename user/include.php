@@ -8,6 +8,6 @@ if(isset($_GET['destroy'])){
 }
 $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "managedashboard.myshopify.com";
 $ologin = new Login($store);
-echo "STEP";die;
 $functions = new Client_functions();
+echo "STEP";die;
 ?>
