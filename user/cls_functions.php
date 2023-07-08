@@ -23,6 +23,7 @@ class Client_functions extends common_function {
     public $msg = array();
 
     public function __construct($shop = '') {
+        echo "HEREREERE";die;
         parent::__construct($shop);
 
         $this->db = $GLOBALS['conn'];
