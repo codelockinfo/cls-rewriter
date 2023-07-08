@@ -33,6 +33,7 @@ include('https://codelocksolutions.in/cls-rewriter/assets/js/jquery-2.1.1.js', f
                 console.log(comeback['outcome']['data']['status'] + "...APP STATUS");
                 if (comeback['data'] == 'success') {
                    if(comeback['outcome']['data']['status'] == 1){
+                    console.log("in iff");
                     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Limelight&display=swap') );
                     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Secular+One&display=swap') );
                     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Courgette&display=swap') );
