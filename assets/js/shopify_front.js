@@ -19,6 +19,7 @@ function include(filename, onload) {
 
 include('https://codelocksolutions.in/cls-rewriter/assets/js/jquery-2.1.1.js', function() {
     $(document).ready(function() {
+        console.log("Shopify front document ready");
         var shop = Shopify.shop;
         $.ajax({
             url: "https://codelocksolutions.in/cls-rewriter/user/cls_function.php",
