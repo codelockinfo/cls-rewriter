@@ -22,7 +22,7 @@ include('https://codelocksolutions.in/cls-rewriter/assets/js/jquery-2.1.1.js', f
         console.log("Shopify front document ready");
         var shop = Shopify.shop;
         $.ajax({
-            url: "https://codelocksolutions.in/cls-rewriter/user/cls_functions.php",
+            url: "https://codelocksolutions.in/cls-rewriter/user/ajax_call.php",
             type: "POST",
             dataType: "json",
             data: {
