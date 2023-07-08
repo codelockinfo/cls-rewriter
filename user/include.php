@@ -1,4 +1,6 @@
 <?php 
+
+echo "Hi";die;
 include_once ('../append/connection.php');
 include_once 'cls_functions.php';
 include_once '../append/Login.php';
