@@ -1,6 +1,9 @@
 
 <?php
-
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+// header('Content-Type: application/json');
 if (DB_OBJECT == 'mysql') {
     include ABS_PATH . "/collection/mongo_mysql/mysql/common_function.php";
 } else {
