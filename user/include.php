@@ -1,6 +1,3 @@
-<?php 
-include_once ('../append/connection.php');
-?>
 <!DOCTYPE html>
 <html>
     <head></head>
@@ -8,8 +5,8 @@ include_once ('../append/connection.php');
         <h1>HELLOOO 000000000000</h1>
     </body>
 </html>
-
-<?php
+<?php 
+include_once ('../append/connection.php');
 include_once 'cls_functions.php';
 
 include_once '../append/Login.php';
