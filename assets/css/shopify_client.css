@@ -818,7 +818,8 @@ nav.prdocut-detail-view a {
     }
     .imagepre {
         height: 205px;
-        width: 417px;
+        /* width: 417px; */
+        margin: auto;
     }
    
     tbody tr:hover{
@@ -1129,7 +1130,7 @@ nav.prdocut-detail-view a {
     width: 100%;
 }
 /* start add success color */
-.shopifybtn .Polaris-Button--success {
+.shopifybtn .Polaris-Button--success,.clsmain_green .Polaris-Button--success {
 	background: linear-gradient(180deg, #007a5c, #007a5c);
 	border-color: #007a5c;
 	box-shadow: inset 0 1px 0 0 #007a5c, 0 1px 0 0 rgba(22, 29, 37, .05), 0 0 0 0 transparent;
@@ -1137,7 +1138,7 @@ nav.prdocut-detail-view a {
 	fill: #fff
 }
 
-.shopifybtn .Polaris-Button--success:hover {
+.shopifybtn .Polaris-Button--success:hover,.clsmain_green.Polaris-Button--success:hover {
 	background: linear-gradient(180deg, #125443, #125443);
     box-shadow: 0rem 0.0625rem 0.0625rem rgba(31,33,36,.1);
 	border-color: #125443;
@@ -1177,4 +1178,26 @@ nav.prdocut-detail-view a {
 .dis_flex_jus_sp_bt_coll{
     display: flex;
     justify-content: space-between;
+}
+.content_gtp{
+    display: none;
+    margin-top: 20px;
+}
+.content_gtp_block{
+    display: block;
+}
+.padd_2rem_addblog{
+    padding: 2rem;
+}
+.d-flex-alert-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.d-flex-alert-box .mar_l_padding_change{
+    padding: 10px;
+    margin-left: 15px;
+    width: 77%;
+}
+.get_content_drop{
+    width: 20%;
 }

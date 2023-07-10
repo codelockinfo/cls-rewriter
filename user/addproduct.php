@@ -70,7 +70,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="Polaris-Stack__Item"><span class="Polaris-TextStyle--variationSubdued">or drop images to upload</span></div>
-                                                                </div>
+                                                            </div>
                                                             </div>
                                                         </div>
                                                            
@@ -80,7 +80,7 @@
                                                         <div class="Polaris-Card__Section ">
                                                             <div class="Polaris-DropZone Polaris-DropZone--hasOutline Polaris-DropZone--sizeExtraLarge" >
                                                                 <div class="Polaris-DropZone__Container ">
-                                                                            <img id="ImagePreview" class="imagepre" src="<?php echo CLS_SITE_URL; ?>/assets/images/no-image.png" alt="your image" />
+                                                                            <img id="ImagePreview" class="imagepre" src="<?php echo CLS_SITE_URL; ?>/assets/images/drag_drop.jpg" alt="your image" />
                                                                     </div>
                                                             </div>
                                                     </div>
