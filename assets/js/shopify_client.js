@@ -763,3 +763,27 @@ $(document).on("click", ".enable-btn", function(event) {
             }
         });
     });
+    $(document).on("click", ".chatGPTBtn", function(event) {
+        event.preventDefault();
+        console.log("chatGPTBtn");
+        var chatgptreq = $(this).closest(".Polaris-Connected").find("#chatgptinput").val();
+        console.log(chatgptreq);
+        $.ajax({
+            url: "ajax_call.php",
+            type: "post",
+            dataType: "json",
+            data: {'store': store,'routine_name' : 'chatgpt_req_res','chatgptreq':chatgptreq}, 
+              beforeSend: function () {
+                loading_show('.save_loader_show');
+            },
+            success: function (response) {
+                 if (response['code'] != undefined && response['code'] == '403') {
+                    redirect403();
+                }else if(response['data'] == "fail"){
+
+                }else{ 
+
+                }
+            }
+        })
+    });

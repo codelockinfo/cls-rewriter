@@ -122,6 +122,20 @@ include "dashboard_header.php";
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div>
+                                                <div class="Polaris-Connected">
+                                                    <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
+                                                        <div class="Polaris-TextField">
+                                                            <input id="chatgptinput" name="" placeholder="Search content here using ChatGPT" class="Polaris-TextField__Input" maxlength="255" aria-labelledby="" aria-invalid="false" value="">
+                                                            <div class="Polaris-TextField__Backdrop">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div><button class="Polaris-Button save_loader_show chatGPTBtn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Search</button></div>
+                                                </div>
+                                                <span class="message title"></span> 
+                                            </div>
+                                        </div>
                                         </div>
                                         <div class="Polaris-Layout">
                                             <div class="Polaris-Layout__Section">
