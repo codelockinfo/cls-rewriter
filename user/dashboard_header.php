@@ -14,15 +14,16 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                             </div>
                             <div class="shopifybtn">
 
-<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button Polaris-Button--primary font_weight_sp" type="button" target="_blank">
+<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button Polaris-Button--primary" type="button" target="_blank">
     <span class="Polaris-Button__Content">
         <span class="Polaris-Button__Text">Shopify Admin</span>
     </span>
 </a>
-<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button Polaris-Button--custom-purple color_green_home font_weight_sp" type="button">
-    <span class="Polaris-Button__Content">
-        <span class="Polaris-Button__Text">Home</span>
-    </span>
+
+<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button Polaris-Button--success" type="button">
+  <span class="Polaris-Button__Content">
+    <span class="Polaris-Button__Text">Home</span>
+  </span>
 </a>
 </div>
                         <div class=" cls_enbledisable_msg">
