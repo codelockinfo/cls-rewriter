@@ -37,7 +37,7 @@ $store = ($params['store']);
                                         </a>
                                     </nav>
                                      <div>
-                                           <h2 class="Polaris-Heading" style="margin-left: 830px; margin-top: -25px;">Collection</h2>
+                                           <h2 class="Polaris-Heading editor-label">Collection</h2>
                                        </div>
                                  <form class="m-t" id="register_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
                                     <div class="">

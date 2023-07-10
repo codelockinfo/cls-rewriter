@@ -26,7 +26,7 @@ if (isset($_REQUEST['shop']) && $_REQUEST['shop'] != "") {
         </script>
     </head>
     <body>
-        <div class="Polaris-Page Polaris-Page--fullWidth" style="text-align: center;">
+        <div class="Polaris-Page Polaris-Page--fullWidth decline-conteiner-center">
             <div class="Polaris-Page__Content">
                 <div class="Polaris-Card">
                     <div class="Polaris-Card__Header">

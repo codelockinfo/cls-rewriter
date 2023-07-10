@@ -34,7 +34,7 @@ include "cls_header.php";
                                         <span class="Polaris-Breadcrumbs__Content">Back</span>
                                     </a>
                                 </nav> <div>
-                                           <h2 class="Polaris-Heading" style="    margin-left: 845px; margin-top: -25px;">Pages</h2>
+                                           <h2 class="Polaris-Heading editor-label">Pages</h2>
                                        </div>
                                 
                                 <form class="m-t" id="register_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">

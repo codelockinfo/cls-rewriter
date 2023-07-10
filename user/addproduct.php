@@ -32,7 +32,7 @@
                                             </a>
                                         </nav>
                                       <div>
-                                           <h2 class="Polaris-Heading" style="    margin-left: 830px; margin-top: -25px;">Product</h2>
+                                           <h2 class="Polaris-Heading editor-label" >Product</h2>
                                        </div>
                                     <form class="m-t" id="addproduct_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
                                          <div class="">

@@ -18,11 +18,11 @@
                             <div class="Polaris-Card__Section">     
                             <div class="Polaris-Card">
                                 <div class="Polaris-Card__Header">
-                                    <div class="Polaris-Stack Polaris-Stack--alignmentBaseline">
+                                    <div class="Polaris-Stack Polaris-Stack--alignmentBaseline jus-con-sp-bt">
                                         <div class="Polaris-Stack__Item Polaris-Stack__Item--fill">
                                             <h2 class="Polaris-Heading">Collection's list</h2>
                                               <div class="btncollection">
-                                                    <a  class="Polaris-Button Polaris-Button--primary save_loader_show"  onclick="loading_show('.save_loader_show')" href="addcollection.php?store=<?php echo $_SESSION['store']; ?>">
+                                                    <a  class="Polaris-Button Polaris-Button--primary save_loader_show editor-btn-width"  onclick="loading_show('.save_loader_show')" href="addcollection.php?store=<?php echo $_SESSION['store']; ?>">
                                                         <span>Add Collection</span>
                                                     </a>
                                                 </div>

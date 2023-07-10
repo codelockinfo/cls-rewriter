@@ -33,7 +33,7 @@ include "dashboard_header.php";
                                             </a>
                                         </nav>
                                       <div>
-                                           <h2 class="Polaris-Heading" style="    margin-left: 830px; margin-top: -25px;">Article</h2>
+                                           <h2 class="Polaris-Heading editor-label">Article</h2>
                                        </div>
                                     <form class="m-t" id="addblog_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
                                           

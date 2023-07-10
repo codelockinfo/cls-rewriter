@@ -18,10 +18,10 @@ include_once('dashboard_header.php');
                                 <div class="Polaris-Card__Section">     
                                     <div class="Polaris-Card">
                                         <div class="Polaris-Card__Header">
-                                            <div class="Polaris-Stack Polaris-Stack--alignmentBaseline">
+                                            <div class="Polaris-Stack Polaris-Stack--alignmentBaseline jus-con-sp-bt">
                                                 <h2 class="Polaris-Heading"><div class="allist">Product's list</div></h2>
                                                 <div class="btnadd">
-                                                    <a  class="Polaris-Button Polaris-Button--primary save_loader_show" onclick="loading_show('.save_loader_show')" href="addproduct.php?store=<?php echo $_SESSION['store']; ?>">
+                                                    <a  class="Polaris-Button Polaris-Button--primary save_loader_show editor-btn-width" onclick="loading_show('.save_loader_show')" href="addproduct.php?store=<?php echo $_SESSION['store']; ?>">
                                                         <span>Add Product</span>
                                                     </a>
                                                 </div>

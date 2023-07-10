@@ -1086,7 +1086,7 @@ nav.prdocut-detail-view a {
 		margin-top: unset !important;
 	}
 	.Polaris-Button {
-		width: 49% !important;
+		width: 49%;
 	}
 	.enable-btn{
 		width: 100% !important;
@@ -1109,4 +1109,26 @@ nav.prdocut-detail-view a {
 		margin-bottom: 11% !important;
 	}
 }
+.decline-conteiner-center{
+    text-align: center;
+}
+.clsdesign_for_msg .Polaris-Icon--colorYellowDark {
+	fill: #0d8f7b
+}
+.cls_msg_enadisa_for_mobile .Polaris-Banner--withinPage.Polaris-Banner--statusWarning {
+	transition: box-shadow .2s cubic-bezier(.64, 0, .35, 1);
+	transition-delay: .1s;
+	box-shadow: rgb(40, 182, 11) 0px 3px 0px 0px inset, transparent 0px 0px 0px 0px inset, rgba(63, 63, 68, 0.05) 0px 0px 0px 1px, rgba(63, 63, 68, 0.15) 0px 1px 3px 0px;
+	background-color: #e3fde6;
+}
 /* endcls014 */
+.editor-label{
+    float: right;
+    margin-top: -25px;
+}
+.Polaris-Card__Header .jus-con-sp-bt{
+    justify-content: space-between;
+}
+.editor-btn-width{
+    width: 100%;
+}
