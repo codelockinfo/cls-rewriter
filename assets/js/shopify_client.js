@@ -440,7 +440,7 @@ $.ajax({
                      $(".enable-btn").val(1);
                       $(".red").html("Disable"); 
                 } else {
-                     $(".app-setting-msg").hide();
+                    //  $(".app-setting-msg").hide();
                     $(".enable-btn").html("Disable");
                     $(".enable-btn").val(0);
                      $(".red").html("Enable"); 
@@ -720,14 +720,23 @@ $(document).on("click", ".enable-btn", function(event) {
        console.log(btnval);
        if (btnval == 0) {
         $(".app-setting-msg").show();
-        $(".red").html("Disable");
+        // $(".red").html("Disable");
         $(".enable-btn").val(1);
         $(".enable-btn").html("Enable");
+        $(".clsdesign_for_msg .Polaris-Heading").html(" Re Writer App is Disable");
+        $(".clsdesign_for_msg .Polaris-Banner__Ribbon span").css("fill","#9c6f19");
+        $(".clsdesign_for_msg").css("background-color","#fdf7e3");
+        $(".clsdesign_for_msg").css("box-shadow","inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)");
     } else {
-        $(".app-setting-msg").hide();
-        $(".red").html("Enable");
+        $(".clsdesign_for_msg .Polaris-Heading").html(" Re Writer App is Enable");
+        // $(".app-setting-msg").hide();
+        // $(".red").html("Enable");
         $(".enable-btn").val(0);
         $(".enable-btn").html("Disable");
+        // $(".clsdesign_for_msg").addClass("disable_and_enable_color");
+        $(".clsdesign_for_msg .Polaris-Banner__Ribbon span").css("fill","#0d8f7b");
+        $(".clsdesign_for_msg").css("background-color","#e3fde6");
+        $(".clsdesign_for_msg").css("box-shadow","inset 0 3px 0 0 #28b60b, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)");
     }
         $.ajax({
             url: "ajax_call.php",

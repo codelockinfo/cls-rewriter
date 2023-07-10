@@ -20,7 +20,7 @@ include_once('dashboard_header.php');
                                 <div class="Polaris-Card__Section">     
                                     <div class="Polaris-Card">
                                         <div class="Polaris-Card__Header">
-                                            <div class="Polaris-Stack Polaris-Stack--alignmentBaseline">
+                                            <div class="Polaris-Stack Polaris-Stack--alignmentBaseline jus_con_sp_bt_new">
                                                 <h2 class="Polaris-Heading"><div class="allist">Article's list</div></h2>
                                                 <div class="btnadd">
                                                     <a  class="Polaris-Button Polaris-Button--primary save_loader_show"  onclick="loading_show('.save_loader_show')" href="addblog.php?store=<?php echo $_SESSION['store']; ?>">

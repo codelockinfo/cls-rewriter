@@ -998,15 +998,17 @@ $shopinfo = $this->current_store_obj;
             foreach ($table_data_arr as $dataObj) {
                 $dataObj = (object) $dataObj;
                 $truncated = $dataObj->description;
-                $truncated = (strpos($truncated, '<iframe') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = (strpos($truncated, '<table>') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = (strpos($truncated, 'component-theme') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = (strpos($truncated, '<img') !== false) ? $truncated = "Plase view on description ." : $truncated;
+                $truncated = (strpos($truncated, '<iframe') == true) ? "There is Iframe if you want to see click on eye icon ." : $truncated;
+                $truncated = (strpos($truncated, '<table>') == true || strpos($truncated, '<table') == true) ? "There is table data if you want to see click on eye icon" : $truncated;
+                $truncated = (strpos($truncated, 'component-theme') == true) ? "Plase view on description ." : $truncated;
+                $truncated = (strpos($truncated, '<img') == true) ? "Plase view on description ." : $truncated;
+                
+                $truncated = ($dataObj->description  == "") ? " --NO DATA FOUND-- " : $truncated;
                 $tr_html.='<tr class="Polaris-ResourceList__ItemWrapper trhover">';
                 $tr_html.='<td>' . $dataObj->id . '</td>';
                 $tr_html.='<td>' . $dataObj->page_id . '</td>';
                 $tr_html.='<td >' . $dataObj->title . '</td>';
-                $tr_html.='<td><div class="pages-description-cls">' . $truncated . '</div><p>......</p></td>';
+                $tr_html.='<td><div class="pages-description-cls">' . $truncated . '</div></td>';
                 if ($dataObj->status == '1') {
                     $svg_icon_status = CLS_SVG_EYE;
                     $data_hover = 'View';

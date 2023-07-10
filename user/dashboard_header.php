@@ -14,12 +14,12 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                             </div>
                             <div class="shopifybtn">
 
-<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button Polaris-Button--primary" type="button" target="_blank">
+<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button Polaris-Button--primary font_weight_sp" type="button" target="_blank">
     <span class="Polaris-Button__Content">
         <span class="Polaris-Button__Text">Shopify Admin</span>
     </span>
 </a>
-<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button Polaris-Button--custom-purple" type="button">
+<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button Polaris-Button--custom-purple color_green_home font_weight_sp" type="button">
     <span class="Polaris-Button__Content">
         <span class="Polaris-Button__Text">Home</span>
     </span>
@@ -27,7 +27,7 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
 </div>
                         <div class=" cls_enbledisable_msg">
                             <div class="Polaris-Page__Title cls_msg_enadisa_for_mobile">
-                                <span class="app-setting-msg" style="display: none;">
+                                <span class="app-setting-msg">
                                         <div class="Polaris-Banner Polaris-Banner--statusWarning Polaris-Banner--withinPage clsdesign_for_msg" tabindex="0" role="alert" aria-live="polite" aria-labelledby="Banner7Heading" aria-describedby="Banner7Content">
                                             <div class="Polaris-Banner__Ribbon">
                                                 <span class="Polaris-Icon Polaris-Icon--colorYellowDark Polaris-Icon--isColored Polaris-Icon--hasBackdrop">
@@ -38,7 +38,7 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                                                 </span>
                                             </div>
                                             <div class="Polaris-Banner__Heading" id="Banner7Heading">
-                                                <p class="Polaris-Heading">Please Enable App</p>
+                                                <p class="Polaris-Heading">Re Writer App is Enable</p>
                                             </div>
                                         </div>
                                 </span>

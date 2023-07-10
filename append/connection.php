@@ -207,7 +207,7 @@ function  generate_log($inventory = 'General', $log_information = 'test') {
         fwrite($cls_myfile, $str);
         fclose($cls_myfile);
     } else {
-        echo $str = str_replace('\n', '<br>', "\n\n" . '---------------------' . date('H:i:s') . "\n" . $log_information . "\n" . '-*-*-*-*-*-*-*-*-*');
+        // echo $str = str_replace('\n', '<br>', "\n\n" . '---------------------' . date('H:i:s') . "\n" . $log_information . "\n" . '-*-*-*-*-*-*-*-*-*');
     }
 }
 
