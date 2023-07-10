@@ -1164,3 +1164,17 @@ nav.prdocut-detail-view a {
 	color: #fff
 }
 /* end add success color */
+.main_button_home .Polaris-CalloutCard__Buttons {
+	margin-top: 2rem;
+}
+.Polaris-Page.max_width_change {
+	max-width: 125.8rem;
+}
+.mar_left_and_mar_top{
+    margin-left: 0;
+    margin-top: 0;
+}
+.dis_flex_jus_sp_bt_coll{
+    display: flex;
+    justify-content: space-between;
+}
