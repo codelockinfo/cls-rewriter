@@ -774,16 +774,21 @@ $(document).on("click", ".enable-btn", function(event) {
             dataType: "json",
             data: {'store': store,'routine_name' : 'chatgpt_req_res','chatgptreq':chatgptreq}, 
               beforeSend: function () {
-                loading_show('.save_loader_show');
+                loading_show('.chatGPTBtn.save_loader_show');
             },
             success: function (response) {
+                console.log(response);
+                console.log(response['data']);
+                console.log(response['outcome']);
                  if (response['code'] != undefined && response['code'] == '403') {
                     redirect403();
-                }else if(response['data'] == "fail"){
-
+                }else if(response['data'] == "success"){
+                    console.log("SUCCESS");
+                    tinyMCE.activeEditor.setContent(response['outcome']);
                 }else{ 
-
+                    console.log("FAIL");
                 }
+                loading_hide('.save_loader_show','save');
             }
         })
     });

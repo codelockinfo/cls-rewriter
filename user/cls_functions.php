@@ -1388,32 +1388,39 @@ function chatgpt_req_res(){
         if (isset($_POST['store']) && $_POST['store'] != '') {
             $store= $_POST['store'];
             $chatgptreq= $_POST['chatgptreq'];
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-              CURLOPT_URL => 'https://api.openai.com/v1/chat/completions',
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '',
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 0,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => 'POST',
-              CURLOPT_POSTFIELDS =>'{
-                "model": "gpt-3.5-turbo",
-                "messages": [{"role": "user", "content": "'. $chatgptreq .'"}],
-                "temperature": 0.7
-              }',
-              CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json',
-                'Authorization: Bearer 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'
-              ),
+            $url = 'https://api.openai.com/v1/chat/completions';
+            $data = array(
+                'model' => 'gpt-3.5-turbo', // Specify the model to use
+                'messages' => array(
+                    array('role' => 'user', 'content' => "'.$chatgptreq .'")
+                ),
+                'max_tokens' => 100,
+                'temperature' => 0.8
+            );
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+              'Content-Type: application/json',
+              'Authorization: Bearer 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'
             ));
-            $response_data = curl_exec($curl);      
-            curl_close($curl);            
-            echo "<pre>";
-            print_r($response_data);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $response = curl_exec($ch);
+            if(curl_errno($ch)){
+              echo 'Error: ' . curl_error($ch);
+            }
+            
+            curl_close($ch);
+            if ($response) {
+                $response = json_decode($response);
+                $response_data = $response->choices[0]->message->content;
+                $response_data = array('data' => 'success', 'msg' => 'select successfully','outcome' => $response_data);
+            } else {
+                $response_data = array('data' => 'Fail', 'msg' => 'Result Empty','outcome' => $response_data);
+            }
+            
         }
-        die;
         return $response_data;
 }
 
