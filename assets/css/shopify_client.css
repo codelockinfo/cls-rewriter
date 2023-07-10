@@ -1129,7 +1129,7 @@ nav.prdocut-detail-view a {
     width: 100%;
 }
 /* start add success color */
-.Polaris-Button--success {
+.shopifybtn .Polaris-Button--success {
 	background: linear-gradient(180deg, #007a5c, #007a5c);
 	border-color: #007a5c;
 	box-shadow: inset 0 1px 0 0 #007a5c, 0 1px 0 0 rgba(22, 29, 37, .05), 0 0 0 0 transparent;
@@ -1137,7 +1137,7 @@ nav.prdocut-detail-view a {
 	fill: #fff
 }
 
-.Polaris-Button--success:hover {
+.shopifybtn .Polaris-Button--success:hover {
 	background: linear-gradient(180deg, #125443, #125443);
     box-shadow: 0rem 0.0625rem 0.0625rem rgba(31,33,36,.1);
 	border-color: #125443;
@@ -1145,18 +1145,18 @@ nav.prdocut-detail-view a {
 	text-decoration: none
 }
 
-.Polaris-Button--success:focus {
+.shopifybtn .Polaris-Button--success:focus {
 	border-color: #125443;
 	box-shadow: inset 0 1px 0 0 #007a5c, 0 1px 0 0 rgba(22, 29, 37, .05), 0 0 0 1px #125443
 }
 
-.Polaris-Button--success:active {
+.shopifybtn .Polaris-Button--success:active {
 	background: linear-gradient(180deg, #007a5c, #007a5c);
 	border-color: #007a5c;
 	box-shadow: inset 0 0 0 0 transparent, 0 1px 0 0 rgba(22, 29, 37, .05), 0 0 1px 0 #007a5c
 }
 
-.Polaris-Button--success.Polaris-Button--disabled {
+.shopifybtn .Polaris-Button--success.Polaris-Button--disabled {
 	fill: #fff;
 	background: linear-gradient(180deg, #bac0e6, #bac0e6);
 	border-color: #a7aedf;
