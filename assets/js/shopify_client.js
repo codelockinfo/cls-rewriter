@@ -792,3 +792,7 @@ $(document).on("click", ".enable-btn", function(event) {
             }
         })
     });
+    $(document).on("click",".get_content_drop",function(){
+         console.log("start chat gpt");
+         $(".content_gtp").toggleClass("content_gtp_block");
+      });
