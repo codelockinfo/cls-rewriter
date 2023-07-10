@@ -46,6 +46,7 @@ if($verified == true){
 							  ["", "product_id", "=", $product->id],
 						  );
 						  $comeback = $cls_functions->put_data(TABLE_PRODUCT_MASTER, $fields, $where_query);
+						  generate_log('product_update-webhook', json_encode($comeback) . "  comeback"); 
 			}
     }
     else {
@@ -59,10 +60,6 @@ else {
 }
 
 ?>
-
-
-
-
 
 
 

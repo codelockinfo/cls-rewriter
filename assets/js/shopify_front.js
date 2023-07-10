@@ -17,8 +17,24 @@ function include(filename, onload) {
     head.appendChild(script);
 }
 
-include('https://codelocksolutions.com/cls-rewriter/assets/js/jquery-2.1.1.js', function() {
+include('https://codelocksolutions.in/cls-rewriter/assets/js/jquery-2.1.1.js', function() {
     $(document).ready(function() {
+        var shop = Shopify.shop;
+        $.ajax({
+            url: "https://codelocksolutions.in/cls-rewriter/user/cls_function.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                'store': shop,
+                'routine_name': 'btn_enable_disable' ,
+            },
+            success: function(comeback) {
+                console.log(comeback['outcome']['data']['status']);
+                if (comeback['data'] == 'success') {
+                   
+                }
+            }
+        });
         $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Limelight&display=swap') );
         $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Secular+One&display=swap') );
         $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Courgette&display=swap') );
