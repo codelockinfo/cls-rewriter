@@ -352,9 +352,9 @@ p {
 	fill: #9c6f19
 }
 
-/* .Polaris-Icon--colorYellowDark:after {
+.Polaris-Icon--colorYellowDark:after {
 	background-color: #ffea8a
-} */
+}
 
 .Polaris-Icon--colorOrange {
 	fill: #f49342

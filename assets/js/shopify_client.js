@@ -426,29 +426,33 @@ $.ajax({
             }
     });
 }
-function seeting_enable_disable(store){
+seeting_enable_disable();
+function seeting_enable_disable(){
 $.ajax({
         url: "ajax_call.php",
         type: "post",
         dataType: "json",
         data: {'routine_name': 'btn_enable_disable' ,'store' : store},
         success: function (comeback) {
-//            console.log(comeback['outcome']['data']['status']);
                 if (comeback['outcome']['data']['status'] != undefined && comeback['outcome']['data']['status'] == 0) {
                     $(".app-setting-msg").show();
                     $(".enable-btn").val(1);
                     $(".enable-btn").html("Enable");
-                    $(".clsdesign_for_msg .Polaris-Heading").html(" Re Writer App is Disable");
-                    $(".clsdesign_for_msg .Polaris-Banner__Ribbon span").css("fill","#9c6f19");
+                    $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorGreenDark");
+                    $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorYellowDark");
+                    $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusWarning");
+                    $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
                     $(".clsdesign_for_msg").css("background-color","#fdf7e3");
-                    $(".clsdesign_for_msg").css("box-shadow","inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)");
+                    $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
                 } else {
-                    $(".clsdesign_for_msg .Polaris-Heading").html(" Re Writer App is Enable");
-                    $(".enable-btn").val(0);
-                    $(".enable-btn").html("Disable");
-                    $(".clsdesign_for_msg .Polaris-Banner__Ribbon span").css("fill","#0d8f7b");
-                    $(".clsdesign_for_msg").css("background-color","#e3fde6");
-                    $(".clsdesign_for_msg").css("box-shadow","inset 0 3px 0 0 #28b60b, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)");
+                    $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
+                        $(".enable-btn").val(0);
+                        $(".enable-btn").html("Disable");
+                        $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorGreenDark");
+                        $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorYellowDark");
+                        $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusWarning");
+                        $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
+                        $(".clsdesign_for_msg").css("background-color","#eff7ed");
                 }
             }
     });
@@ -722,27 +726,6 @@ $(document).on("click", ".enable-btn", function(event) {
      event.preventDefault();
 //       $(".enable-btn").toggle();
        var btnval = $(this).val();
-       console.log(btnval);
-       if (btnval == 0) {
-        $(".app-setting-msg").show();
-        // $(".red").html("Disable");
-        $(".enable-btn").val(1);
-        $(".enable-btn").html("Enable");
-        $(".clsdesign_for_msg .Polaris-Heading").html(" Re Writer App is Disable");
-        $(".clsdesign_for_msg .Polaris-Banner__Ribbon span").css("fill","#9c6f19");
-        $(".clsdesign_for_msg").css("background-color","#fdf7e3");
-        $(".clsdesign_for_msg").css("box-shadow","inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)");
-    } else {
-        $(".clsdesign_for_msg .Polaris-Heading").html(" Re Writer App is Enable");
-        // $(".app-setting-msg").hide();
-        // $(".red").html("Enable");
-        $(".enable-btn").val(0);
-        $(".enable-btn").html("Disable");
-        // $(".clsdesign_for_msg").addClass("disable_and_enable_color");
-        $(".clsdesign_for_msg .Polaris-Banner__Ribbon span").css("fill","#0d8f7b");
-        $(".clsdesign_for_msg").css("background-color","#e3fde6");
-        $(".clsdesign_for_msg").css("box-shadow","inset 0 3px 0 0 #28b60b, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)");
-    }
         $.ajax({
             url: "ajax_call.php",
             type: "post",
@@ -754,6 +737,27 @@ $(document).on("click", ".enable-btn", function(event) {
             success: function (response) {
                  if (response['code'] != undefined && response['code'] == '403') {
                     redirect403();
+                }else{      
+                    if (btnval == 0) {
+                        $(".app-setting-msg").show();
+                        $(".enable-btn").val(1);
+                        $(".enable-btn").html("Enable");
+                        $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorGreenDark");
+                        $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorYellowDark");
+                        $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusWarning");
+                        $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
+                        $(".clsdesign_for_msg").css("background-color","#fdf7e3");
+                        $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
+                    } else {
+                        $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
+                        $(".enable-btn").val(0);
+                        $(".enable-btn").html("Disable");
+                        $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorGreenDark");
+                        $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorYellowDark");
+                        $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusWarning");
+                        $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
+                        $(".clsdesign_for_msg").css("background-color","#eff7ed");
+                    }
                 }
                 loading_hide('.save_loader_show', 'Save');
             }

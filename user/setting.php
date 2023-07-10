@@ -64,8 +64,3 @@
     </div>
 </body>
 </html> 
-<script>
-    
-   seeting_enable_disable(store);
-
-</script>
