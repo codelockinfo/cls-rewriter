@@ -56,12 +56,12 @@ $view = (isset($_GET["view"]) && $_GET["view"]) ? $_GET["view"] : FALSE;
 	<script src="<?php echo main_url('assets/js/select2.full.min.js'); ?>"></script>
         <script src="<?php echo main_url('assets/js/shopify_client.js'); ?>"></script>
         <script src="<?php echo main_url('assets/js/shopify_custom.js');?>"></script> 
-        <script src="../assets/js/tinymce.min.js" type="text/javascript" /></script>
-   
-     <?php  if($view == true){  ?>
-        <script src="../assets/js/viewscript.js" type="text/javascript" /></script>
-    <?php }else{ ?>
-        <script src="../assets/js/script.js" type="text/javascript" /></script>
+        <script src="<?php echo main_url('assets/js/tinymce.min.js');?>"></script> 
+        
+        <?php  if($view == true){  ?>
+            <script src="<?php echo main_url('assets/js/viewscript.js');?>"></script>
+        <?php }else{ ?>
+            <script src="<?php echo main_url('assets/js/script.js');?>"></script>
     <?php 
     } ?>
    

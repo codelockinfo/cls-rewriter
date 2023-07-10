@@ -25,6 +25,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
 
     header('Location:https://accounts.shopify.com/store-login');
 }
+
 ?>
 
 <style>
