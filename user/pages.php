@@ -9,7 +9,7 @@ include_once('dashboard_header.php');
     <link rel="stylesheet" href="../assets/css/polaris.min.css" rel="stylesheet"> 
     </head>    
     <body>
-<div class="Polaris-Page">
+<div class="Polaris-Page max_width_change">
     <div class="Polaris-Page__Content">
         <div class="Polaris-Layout">
             <div class="Polaris-Layout__AnnotatedSection">

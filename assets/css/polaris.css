@@ -1181,8 +1181,7 @@ p {
 }
 
 .Polaris-Card__Header {
-	/* padding: 2rem 2rem 0 */
-	padding: 2rem 2rem 2rem
+	padding: 2rem 2rem 0
 }
 
 .Polaris-Card__Section {
@@ -1843,7 +1842,7 @@ p {
 }
 
 .Polaris-CalloutCard__Buttons {
-	/* margin-top: 2rem */
+	margin-top: 2rem;
 
 	display: flex;
     justify-content: space-between;
@@ -4507,8 +4506,7 @@ html {
 .Polaris-Page {
 	margin: 0 auto;
 	padding: 0;
-	max-width: 125.8rem;
-	/* max-width: 99.8rem */
+	max-width: 99.8rem
 }
 
 @media (min-width:30.625em) {
