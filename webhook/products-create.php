@@ -35,8 +35,10 @@ if($verified == true){
         if(!empty($product)){
 			$shopinfo = $cls_functions->get_store_detail_obj();
 			$productid = isset($product->id) ? $product->id : '';
-			generate_log('product_create-webhook', json_encode($productid) . "  DATA PRODUCT ID"); 
 			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
+			generate_log('product_create-webhook', json_encode($productid) . "  DATA PRODUCT ID"); 
+			generate_log('product_create-webhook', json_encode($shopinfo) . "  ARRAY SHOPINFO"); 
+			generate_log('product_create-webhook', json_encode($shopinfo->store_user_id) . "  STORE USER ID"); 
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
 			generate_log('product_create-webhook', json_encode($comeback['data'])   . "product DATA");
 			generate_log('product_create-webhook', json_encode($comeback['data']->product_id)   . "DATA  product ID");
