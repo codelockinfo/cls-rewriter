@@ -90,7 +90,7 @@ include "dashboard_header.php";
                                         <div class="Polaris-Card__Header">
                                             <h2 class="Polaris-Heading">Images</h2>
                                         </div>
-                                        <div class="Polaris-Card__Section clsmain_green">
+                                        <div class=" clsmain_green">
                                             <div class="Polaris-Layout maincontainer">
                                                 <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary" style="width: 50%;">
                                                     <div class="Polaris-DropZone Polaris-DropZone--hasOutline Polaris-DropZone--sizeExtraLarge" >
@@ -112,8 +112,8 @@ include "dashboard_header.php";
                                                            
                                                     </div>
                                                 </div>
-                                                <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary" style="width: 50%;margin-top: -2px;">
-                                                        <div class="Polaris-Card__Section ">
+                                                <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary" style="width: 50%;">
+                                                        <div class=" ">
                                                             <div class="Polaris-DropZone Polaris-DropZone--hasOutline Polaris-DropZone--sizeExtraLarge" >
                                                                 <div class="Polaris-DropZone__Container ">
                                                                             <img id="ImagePreview" class="imagepre newone" src="<?php echo CLS_SITE_URL; ?>/assets/images/drag_drop.jpg" alt="your image" />
@@ -138,7 +138,9 @@ include "dashboard_header.php";
                                                 </span>
                                             </div>
                                             <div class="Polaris-Banner__Heading">
-                                                <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p>
+                                                <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
+                                                <p class="Polaris-Heading">Efficient Product Description Generation: Quickly generate product descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.
+</p>
                                             </div>
                                         </div>
                                             </div>

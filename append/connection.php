@@ -114,7 +114,7 @@ define('CLS_TABLE_FONT_FAMILYS', 'font_family');
 define('CLS_TABLE_SHIPMENT_METHOD', 'shipping_type');
 define('CLS_TABLE_LOGIN_USER','login_user');
 define('DATE', date('Y-m-d H:i:s'));
-define('CLS_PAGE_PER', '5');
+define('CLS_PAGE_PER', '10');
 define("ENTITY_WENT_INCORRECT_report", "Something went incorrect");
 define("BACKDROP_GENERATED_SUCCESS_report", "Report updated successfully");
 define("PRODUCT_WORD_COLOR_REQUIRED_report", "The Product subject text color required");

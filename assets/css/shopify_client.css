@@ -1066,6 +1066,7 @@ nav.prdocut-detail-view a {
 	.shopifybtn {
 		width: 100%;
 		order: 3;
+        margin-top: 1rem;
 	}
 	.cls_header_css {
 		align-items: unset;
@@ -1093,7 +1094,7 @@ nav.prdocut-detail-view a {
 		width: 100% !important;
 	}
 	.cls_header_css .cls_header_logo_image {
-		margin-bottom: 5% !important;
+		margin-bottom: 0% !important;
 		margin-left: 0% !important;
 	}
 	.cls_enbledisable_btn {
@@ -1191,13 +1192,47 @@ nav.prdocut-detail-view a {
 }
 .d-flex-alert-box{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 .d-flex-alert-box .mar_l_padding_change{
     padding: 10px;
-    margin-left: 15px;
-    width: 77%;
+    margin-left: 10px;
+    width: 79%;
 }
 .get_content_drop{
     width: 20%;
+}
+#addpages_frm .Polaris-Connected{
+    margin-bottom: 0.5rem;
+}
+#addblog{
+    margin-right: 20px;
+}
+#addblog_frm .Polaris-Card__Header{
+    padding: 2rem 0rem
+
+}
+.login-frm .Polaris-Layout__AnnotationWrapper {
+    margin-bottom: 5rem;
+}
+@media (max-width: 600px) {
+    .d-flex-alert-box{
+        flex-wrap: wrap;
+    }
+    button.Polaris-Button.Polaris-Button--success.get_content_drop {
+        width: 100%;
+    }
+    .Polaris-Banner.Polaris-Banner--withinPage.Polaris-Banner--statusInfo.mar_l_padding_change {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+@media (max-width: 420px) {
+    button#addblog {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        float: none!important;
+    }
 }
