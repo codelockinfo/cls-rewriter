@@ -426,7 +426,7 @@ $.ajax({
             }
     });
 }
-seeting_enable_disable();
+
 function seeting_enable_disable(){
 $.ajax({
         url: "ajax_call.php",
@@ -435,6 +435,7 @@ $.ajax({
         data: {'routine_name': 'btn_enable_disable' ,'store' : store},
         success: function (comeback) {
                 if (comeback['outcome']['data']['status'] != undefined && comeback['outcome']['data']['status'] == 0) {
+                    $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
                     $(".app-setting-msg").show();
                     $(".enable-btn").val(1);
                     $(".enable-btn").html("Enable");
@@ -443,7 +444,6 @@ $.ajax({
                     $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusWarning");
                     $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
                     $(".clsdesign_for_msg").css("background-color","#fdf7e3");
-                    $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
                 } else {
                     $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
                         $(".enable-btn").val(0);
@@ -457,6 +457,7 @@ $.ajax({
             }
     });
 }
+seeting_enable_disable();
 function get_api_data(routineName,shopify_api){
     var routineName = routineName;
     var shopify_api = shopify_api;
