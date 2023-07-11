@@ -143,7 +143,7 @@ include "dashboard_header.php";
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
                                                         <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
-                                                        <p class="Polaris-Heading">Efficient Product Description Generation: Quickly generate product descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
+                                                        <p class="Polaris-Heading">Efficient Blog Description Generation: Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
                                             </div>
