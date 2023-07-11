@@ -155,7 +155,7 @@ include "dashboard_header.php";
                                                     </div>
                                                     <div><button class="Polaris-Button save_loader_show chatGPTBtn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Search</button></div>
                                                 </div>
-                                                <span class="message title"></span> 
+                                                <span class="message chatgpterror"></span> 
                                             </div>
                                         </div>
                                         </div>
