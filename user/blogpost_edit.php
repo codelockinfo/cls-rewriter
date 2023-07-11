@@ -37,7 +37,7 @@ $store = ($params['store']);
                                        <div>
                                            <h2 class="Polaris-Heading editor-label">Article</h2>
                                        </div>
-                                <form class="m-t" id="register_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
+                                <form class="m-t formforparent" id="register_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
                                     <div class="">
                                         <div class="Polaris-Labelled__LabelWrapper">
                                             <div class="Polaris-Label">

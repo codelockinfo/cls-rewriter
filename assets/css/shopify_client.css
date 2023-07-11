@@ -1208,12 +1208,15 @@ nav.prdocut-detail-view a {
 #addblog{
     margin-right: 20px;
 }
-#addblog_frm .Polaris-Card__Header{
+.formforparent .Polaris-Card__Header{
     padding: 2rem 0rem
 
 }
 .login-frm .Polaris-Layout__AnnotationWrapper {
     margin-bottom: 5rem;
+}
+.sectionchatgpt{
+    margin: 2% 0;
 }
 @media (max-width: 600px) {
     .d-flex-alert-box{

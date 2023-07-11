@@ -785,6 +785,8 @@ $(document).on("click", ".enable-btn", function(event) {
                 }else if(response['data'] == "success"){
                     console.log("SUCCESS");
                     $(".chatgpterror").html("");
+                    // console.log(tinyMCE.get('description').getContent());
+                    // tinyMCE.activeEditor.getContent() !== '' ? '' : tinyMCE.activeEditor.setContent(response['outcome']);
                     tinyMCE.activeEditor.setContent(response['outcome']);
                 }else{ 
                     console.log("FAIL");
