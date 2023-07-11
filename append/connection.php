@@ -113,6 +113,7 @@ define("CLS_API_KEY",'9875728c6b382b21f2b77786a7b11d06');
 define('CLS_TABLE_FONT_FAMILYS', 'font_family');
 define('CLS_TABLE_SHIPMENT_METHOD', 'shipping_type');
 define('CLS_TABLE_LOGIN_USER','login_user');
+define('CLS_TABLE_THIRDPARTY_APIKEY','thirdparty_apikey');
 define('DATE', date('Y-m-d H:i:s'));
 define('CLS_PAGE_PER', '5');
 define("ENTITY_WENT_INCORRECT_report", "Something went incorrect");

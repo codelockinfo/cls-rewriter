@@ -1386,39 +1386,53 @@ function btn_enable_disable(){
 function chatgpt_req_res(){
     $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
         if (isset($_POST['store']) && $_POST['store'] != '') {
+            $error_array = array();
             $store= $_POST['store'];
             $chatgptreq= $_POST['chatgptreq'];
-            $url = 'https://api.openai.com/v1/chat/completions';
-            $data = array(
-                'model' => 'gpt-3.5-turbo', // Specify the model to use
-                'messages' => array(
-                    array('role' => 'user', 'content' => "'.$chatgptreq .'")
-                ),
-                'max_tokens' => 100,
-                'temperature' => 0.8
-            );
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-              'Content-Type: application/json',
-              'Authorization: Bearer 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'
-            ));
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-            $response = curl_exec($ch);
-            if(curl_errno($ch)){
-              echo 'Error: ' . curl_error($ch);
+             if (isset($chatgptreq) && $chatgptreq == '') {
+                $error_array['chatgpt'] = "Please Enter Request";
             }
-            
-            curl_close($ch);
-            if ($response) {
-                $response = json_decode($response);
-                $response_data = $response->choices[0]->message->content;
-                $response_data = array('data' => 'success', 'msg' => 'select successfully','outcome' => $response_data);
-            } else {
-                $response_data = array('data' => 'Fail', 'msg' => 'Result Empty','outcome' => $response_data);
-            }
+            if (empty($error_array)) {
+                $where_query = array(["", "status", "=", "1"]);
+                $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+                $apikey = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+                $url = 'https://api.openai.com/v1/chat/completions';
+                $data = array(
+                    'model' => 'gpt-3.5-turbo', // Specify the model to use
+                    'messages' => array(
+                        array('role' => 'user', 'content' => "'.$chatgptreq .'")
+                    ),
+                    'max_tokens' => 100,
+                    'temperature' => 0.8
+                );
+                $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                  'Content-Type: application/json',
+                  'Authorization: Bearer '.$apikey,
+                  'OpenAI-Organization: org-O1tNBiMDfv05FSn5qmgj5VQ2'
+                ));
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+                $response = curl_exec($ch);
+                if(curl_errno($ch)){
+                  echo 'Error: ' . curl_error($ch);
+                }
+                
+                curl_close($ch);
+                if ($response) {
+                    $response = json_decode($response);
+                    $response_data = (isset($response->choices[0]->message->content) && $response->choices[0]->message->content !== '') ? $response->choices[0]->message->content : '';
+                    if(empty($response_data)){
+                        $response_data = array('data' => 'Fail', 'outcome' => 'Our server is busy at this moment ,Please try again later');
+                    }else{
+                        $response_data = array('data' => 'success', 'msg' => 'select successfully','outcome' => $response_data);
+                    }
+                }
+            }else{
+                $response_data = array('data' => 'Fail', 'outcome' => $error_array);
+            }    
             
         }
         return $response_data;

@@ -784,9 +784,11 @@ $(document).on("click", ".enable-btn", function(event) {
                     redirect403();
                 }else if(response['data'] == "success"){
                     console.log("SUCCESS");
+                    $(".chatgpterror").html("");
                     tinyMCE.activeEditor.setContent(response['outcome']);
                 }else{ 
                     console.log("FAIL");
+                    response['outcome']['chatgpt'] !== undefined ? $(".chatgpterror").html(response['outcome']['chatgpt']) : $(".chatgpterror").html(response['outcome']);
                 }
                 loading_hide('.save_loader_show','save');
             }
