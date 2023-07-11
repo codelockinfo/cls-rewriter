@@ -834,7 +834,7 @@ nav.prdocut-detail-view a {
    }
 
    .logoimg{
-       width:65px;
+       width:50px;
    }
 
    .mce-notification{
@@ -1002,6 +1002,7 @@ nav.prdocut-detail-view a {
 .disp_fle_ju{
 	display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .disable_and_enable_color{
 	background-color: #e3fde6;

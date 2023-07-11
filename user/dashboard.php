@@ -115,7 +115,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         <div class="Polaris-CalloutCard__Title">
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
-                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto content for your Article</span></div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto content for your Pages</span></div>
                                                                         
                                                                         <h2 class="Polaris-Heading">
                                                                             <p>Page Creation Made Easy: Creating stunning pages for your Shopify store is a breeze with ReWriter. It offers a range of customizable templates and provides creative prompts to guide you through the process. Whether you're building an About Us page, FAQs, or a landing page, ReWriter ensures your content stands out and leaves a lasting impression.</p>
