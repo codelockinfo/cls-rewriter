@@ -1181,8 +1181,8 @@ p {
 }
 
 .Polaris-Card__Header {
-	padding: 2rem 2rem 2rem;
-/* padding: 2rem 0rem */
+	/* padding: 2rem 2rem 2rem; */
+		padding: 2rem 0rem
 }
 
 .Polaris-Card__Section {
@@ -1839,18 +1839,18 @@ p {
 }
 
 .Polaris-CalloutCard__Title {
-	margin-bottom: 2rem
+	/* margin-bottom: 2rem */
 }
 
 .Polaris-CalloutCard__Buttons {
-	margin-top: 2rem;
+	/* margin-top: 2rem; */
 
 	display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .min_height120 .Polaris-Heading{
-	min-height: 140px;
+	/* min-height: 140px; */
 }
 .min_height120 .Polaris-Heading p{
 	text-align: justify;
