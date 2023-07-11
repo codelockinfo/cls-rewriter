@@ -49,7 +49,7 @@
                                                 <table id="collectionData" data-listing="true" data-from="table" data-apiName="custom_collections" class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
+                                                            <!-- <th>ID</th> -->
                                                             <th>Image</th>
                                                             <th>Title</th>
                                                             <th>Description</th>                                                   

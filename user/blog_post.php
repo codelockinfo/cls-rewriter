@@ -49,9 +49,9 @@ include_once('dashboard_header.php');
                                                         <table id="blogpostData" data-search="title" data-listing="true" data-from="table" data-apiName="articles" class="table">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>ID</th>
+                                                                    <!-- <th>ID</th>
+                                                                    <th>Article Id</th> -->
                                                                     <th>Images</th>
-                                                                    <th>Article Id</th>
                                                                     <th>Title</th> 
                                                                     <th>Description</th>                                                                                
                                                                     <th width="220">Action</th>
