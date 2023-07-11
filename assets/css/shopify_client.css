@@ -1232,7 +1232,15 @@ nav.prdocut-detail-view a {
     }
 
 }
-
+.Polaris-FooterHelp__Text{
+    border: 1px solid #dfe3e8;
+    border-radius: 999px;
+    padding: 10px 20px;
+}
+.footermargin{
+    display: flex;
+    justify-content: center;
+}
 @media (max-width: 420px) {
     button#addblog {
         width: 90%;

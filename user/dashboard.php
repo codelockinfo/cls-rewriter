@@ -229,10 +229,10 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
             </div>
         </div>  
     </div>
-    <center><div class="Polaris-FooterHelp__Content footermargin">
+    <div class="footermargin">
                            <div class="Polaris-FooterHelp__Text">
-                                    ReWriter © 2021 - Developed by <a target="_blank" href="http://codelocksolutions.com/">Codelock Solutions</a>  team </div> 
-        </div></center>
+                                    ReWriter©2023 - Developed by <a target="_blank" href="http://codelocksolutions.com/">Codelock Solutions</a>  team </div> 
+        </div>
 </body>
 </html> 
 <script>
