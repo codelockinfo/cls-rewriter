@@ -29,12 +29,12 @@
                                 <div id="collapseFour" class="collapse" data-parent="#accordion" >
                                     <div class="card-body">
                                             <div class="col-sm-12">
-                                                Very simple, you just need to deactivate the ReEriter App or remove the fonts. it will revert to original font of the theme.
+                                                Very simple, you just need to deactivate the ReWriter App or remove the fonts. it will revert to original font of the theme.
                                             </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mb-2">
+                            <!-- <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                                     <a class="card-title">
                                        Why  i must pay to using Upload font?
@@ -47,7 +47,7 @@
                                             </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                                     <a class="card-title">

@@ -29,14 +29,17 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                         <div class=" cls_enbledisable_msg">
                             <div class="Polaris-Page__Title cls_msg_enadisa_for_mobile">
                                 <span class="app-setting-msg">
-                                        <div class="Polaris-Banner Polaris-Banner--withinPage clsdesign_for_msg" tabindex="0" role="alert" aria-live="polite" aria-labelledby="Banner7Heading" aria-describedby="Banner7Content">
+                                        <div class="Polaris-Banner Polaris-Banner--withinPage clsdesign_for_msg" tabindex="0" role="alert" aria-live="polite" aria-labelledby="Banner7Heading" aria-describedby="Banner7Content" style="    display: flex;
+    align-items: center;">
                                             <div class="Polaris-Banner__Ribbon">
-                                                <span class="Polaris-Icon Polaris-Icon--isColored Polaris-Icon--hasBackdrop">
-                                                    <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
-                                                    <circle fill="currentColor" cx="10" cy="10" r="9"></circle>
-                                                    <path d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-13a1 1 0 0 0-1 1v4a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1m0 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2"></path>
-                                                    </svg>
-                                                </span>
+                                                <a href="setting.php?store=<?php echo $store; ?>" style="text-decoration: none;">
+                                                    <span class="Polaris-Icon Polaris-Icon--isColored Polaris-Icon--hasBackdrop">
+                                                        <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+                                                        <circle fill="currentColor" cx="10" cy="10" r="9"></circle>
+                                                        <path d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-13a1 1 0 0 0-1 1v4a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1m0 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2"></path>
+                                                        </svg>
+                                                    </span>
+                                                </a>
                                             </div>
                                             <div class="Polaris-Banner__Heading" id="Banner7Heading">
                                                 <p class="Polaris-Heading">Re Writer App is Enable</p>

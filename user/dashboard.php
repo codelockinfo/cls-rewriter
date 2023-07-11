@@ -78,10 +78,11 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         <div class="Polaris-CalloutCard__Title">
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto content for your Blog</span></div>
                                                                         <h2 class="Polaris-Heading">
                                                                             <p>Beautifully Written Articles: Engage your audience and boost your store's credibility with well-crafted articles. ReWriter assists you in writing blog posts, articles, and other content that captivates readers. From fashion tips to product reviews, ReWriter helps you create content that keeps customers coming back for more.</p>
                                                                         </h2>
-                                                                        <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Blog</span></span></a>
+                                                                        <div class="Polaris-CalloutCard__Buttons" ><a class="Polaris-Button" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Blog</span></span></a>
                                                                         <img src="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg" alt="" class="Polaris-CalloutCard__Image">
                                                                     </div>
                                                                     </div>
@@ -93,7 +94,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                 </div>
                                                 <div class="Polaris-Card">                                            
                                                     <div class="Polaris-Card__Header header-data">
-                                                        <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Article</a></h2>
+                                                        <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Articles</a></h2>
                                                         <h2 class="Polaris-Heading-number numberConvertBlog"></h2>
                                                     </div>
                                                     <div class="Polaris-Card__Section">
@@ -114,6 +115,8 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         <div class="Polaris-CalloutCard__Title">
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto content for your Article</span></div>
+                                                                        
                                                                         <h2 class="Polaris-Heading">
                                                                             <p>Page Creation Made Easy: Creating stunning pages for your Shopify store is a breeze with ReWriter. It offers a range of customizable templates and provides creative prompts to guide you through the process. Whether you're building an About Us page, FAQs, or a landing page, ReWriter ensures your content stands out and leaves a lasting impression.</p>
                                                                         </h2>
@@ -152,6 +155,8 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         <div class="Polaris-CalloutCard__Title">
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto content for your Product</span></div>
+                                                                        
                                                                         <h2 class="Polaris-Heading">
                                                                             <p>Product Description Enhancement: ReWriter takes your product descriptions to the next level. It provides intelligent suggestions and alternatives to help you craft compelling and persuasive descriptions. Say goodbye to generic and mundane descriptions and say hello to captivating copy that converts visitors into customers.</p>
                                                                         </h2>
@@ -167,12 +172,12 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                 </div>
                                                 <div class="Polaris-Card">                                            
                                                     <div class="Polaris-Card__Header header-data">
-                                                        <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Product</a></h2>
+                                                        <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Products</a></h2>
                                                         <h2 class="Polaris-Heading-number numberConvertProduct"></h2>
                                                     </div>
                                                     <div class="Polaris-Card__Section">
                                                         <a href="products.php?store=<?php echo $_SESSION['store']; ?>" style="display:block; width:100%; height:100%;">
-                                                            <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><img src="<?php echo CLS_SITE_URL; ?>/assets/images/home_page/Purple_Modern_Login_Page_Desktop_Prototype.jpg" style="width:100%;height:100%;"> </p>
+                                                            <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><img src="<?php echo CLS_SITE_URL; ?>/assets/images/home_page/Purple_Modern_Login_Page_Desktop_Prototype.png" style="width:100%;height:100%;"> </p>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -187,6 +192,8 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         <div class="Polaris-CalloutCard__Title">
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto content for your Collection</span></div>
+                                                                        
                                                                         <h2 class="Polaris-Heading">
                                                                             <p>Collection Descriptions: With ReWriter, you can effortlessly enhance your collection descriptions, making them more informative and enticing. Utilize the power of intelligent suggestions to create collections that resonate with your target audience and drive more sales.</p>
                                                                         </h2>
@@ -202,7 +209,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                 </div>
                                                 <div class="Polaris-Card">                                            
                                                     <div class="Polaris-Card__Header header-data">
-                                                        <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Collection</a></h2>
+                                                        <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Collections</a></h2>
                                                         <h2 class="Polaris-Heading-number numberConvertCollection"></h2>
                                                     </div>
                                                     <div class="Polaris-Card__Section">
