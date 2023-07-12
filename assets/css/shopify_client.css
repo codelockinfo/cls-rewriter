@@ -1219,7 +1219,7 @@ nav.prdocut-detail-view a {
 .sectionchatgpt{
     margin: 2% 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .d-flex-alert-box{
         flex-wrap: wrap;
     }
@@ -1229,6 +1229,9 @@ nav.prdocut-detail-view a {
     .Polaris-Banner.Polaris-Banner--withinPage.Polaris-Banner--statusInfo.mar_l_padding_change {
         width: 100%;
         margin-left: 0;
+    }
+    .get_content_drop{
+        margin-bottom: 15px;
     }
 
 }
@@ -1252,3 +1255,18 @@ nav.prdocut-detail-view a {
 .footermargin{
     margin-bottom: 1%;
 }
+.save_loader_show {
+    margin-left: 10px;
+}
+.get_content_drop{
+    animation: glowing 2s infinite ;
+}
+
+@keyframes glowing {
+    0% { background-color: #023427; box-shadow: 2px 2px 2px #000000; }
+    25% { background-color: #023427;box-shadow: 3px 3px 5px #000000; }
+    50% { background-color: #01100c; box-shadow: 4px 4px 8px #000000; }
+    75% { background-color: #023427;     box-shadow: 3px 3px 11px #0000008c; }
+    100% {  background-color: #023427; box-shadow: 2px 2px 6px #00000070;
+    }
+  }

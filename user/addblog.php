@@ -128,6 +128,7 @@ include "dashboard_header.php";
                                             </div>
                                             <div class="d-flex-alert-box">
                                                 <button class="Polaris-Button Polaris-Button--success get_content_drop" type="button">
+                                                  
                                                     <span class="Polaris-Button__Content">
                                                         <span class="Polaris-Button__Text">Generate By ChatGPT</span>
                                                     </span>
@@ -143,7 +144,7 @@ include "dashboard_header.php";
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
                                                         <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
-                                                        <p class="Polaris-Heading">Efficient Blog Description Generation: Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
+                                                        <p class="Polaris-Heading">Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
                                             </div>
