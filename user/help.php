@@ -111,4 +111,6 @@
             </div>
         </div>
     </div>
+    
+<?php include_once('dashboard_footer.php'); ?>
     <!-- <?php include_once('cls_footer.php'); ?> -->

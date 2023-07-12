@@ -64,3 +64,4 @@
     </div>
 </body>
 </html> 
+<?php include_once('dashboard_footer.php'); ?>

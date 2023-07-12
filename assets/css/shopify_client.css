@@ -1248,6 +1248,11 @@ nav.prdocut-detail-view a {
     display: flex;
     justify-content: center;
 }
+.div_evowap_btn{
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+}
 @media (max-width: 420px) {
     button#addblog {
         width: 90%;

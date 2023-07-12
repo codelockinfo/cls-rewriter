@@ -1422,7 +1422,13 @@ function chatgpt_req_res(){
                 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
                 $response = curl_exec($ch);
                 if(curl_errno($ch)){
-                  echo 'Error: ' . curl_error($ch);
+                    $message = curl_error($ch);
+                    $to = "codelockinfo@gmail.com";	
+                    $subject="Rewriter App";      
+                    $headers = "MIME-Version: 1.0\r\n";
+                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                    $flgchk = mail ($to, $subject, $message, $headers);	
+                    echo 'Error: ' . curl_error($ch);
                 }
                 
                 curl_close($ch);
@@ -1430,7 +1436,13 @@ function chatgpt_req_res(){
                     $response = json_decode($response);
                     $response_data = (isset($response->choices[0]->message->content) && $response->choices[0]->message->content !== '') ? $response->choices[0]->message->content : '';
                     if(empty($response_data)){
-                        $response_data = array('data' => 'Fail', 'outcome' => 'Our server is busy at this moment ,Please try again later');
+                        $message = (isset($response->error->message) && $response->error->message !== '') ? $response->error->message : '';
+                        $to = "codelockinfo@gmail.com";	
+                        $subject="Rewriter App";      
+                        $headers = "MIME-Version: 1.0\r\n";
+                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                        $flgchk = mail ($to, $subject, $message, $headers);	
+                        $response_data = array('data' => 'Fail', 'data'=>$data , 'outcome' => 'Our server is busy at this moment ,Please try again later');
                     }else{
                         $response_data = array('data' => 'success', 'msg' => 'select successfully','outcome' => $response_data);
                     }
