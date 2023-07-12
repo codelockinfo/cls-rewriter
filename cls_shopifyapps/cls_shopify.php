@@ -112,7 +112,8 @@ class ShopifyClient {
 	{
 		$header_lines = preg_split("/\r\n|\n|\r/", $message_headers);
 		$headers = array();
-		list(, $headers['http_status_code'], $headers['http_status_message']) = explode(' ', trim(array_shift($header_lines)), 3);
+		
+		list( $headers['http_status_code'], $headers['http_status_message']) = explode(' ', trim(array_shift($header_lines)), 3);
 		foreach ($header_lines as $header_line)
 		{
 			list($name, $value) = explode(':', $header_line, 2);
