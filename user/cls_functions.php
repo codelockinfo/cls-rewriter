@@ -1392,6 +1392,7 @@ function chatgpt_req_res(){
     $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
         if (isset($_POST['store']) && $_POST['store'] != '') {
             $error_array = array();
+            $shopinfo = $this->current_store_obj;
             $store= $_POST['store'];
             $chatgptreq= $_POST['chatgptreq'];
              if (isset($chatgptreq) && $chatgptreq == '') {
@@ -1424,7 +1425,8 @@ function chatgpt_req_res(){
                 if(curl_errno($ch)){
                     $message = curl_error($ch);
                     $to = "codelockinfo@gmail.com";	
-                    $subject="Rewriter App";      
+                    $subject="Rewriter App"; 
+                    $headers ="From:". $shopinfo->email ." \r\n";     
                     $headers = "MIME-Version: 1.0\r\n";
                     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                     $flgchk = mail ($to, $subject, $message, $headers);	
@@ -1438,7 +1440,9 @@ function chatgpt_req_res(){
                     if(empty($response_data)){
                         $message = (isset($response->error->message) && $response->error->message !== '') ? $response->error->message : '';
                         $to = "codelockinfo@gmail.com";	
-                        $subject="Rewriter App";      
+                        $subject="Rewriter App - ".$store; 
+                        
+                        $headers ="From:". $email ." \r\n";
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                         $flgchk = mail ($to, $subject, $message, $headers);	

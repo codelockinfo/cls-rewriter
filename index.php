@@ -52,7 +52,9 @@ if ($_GET['shop'] != "") {
             generate_log('URL_TRACKING', $password. "GET status 0");
             $shopuinfo = shopify_call($password, $shop, "/admin/".CLS_API_VERSIION."/shop.json", array(), 'GET');
              generate_log('URL_TRACKING', json_encode($shopuinfo['response']) ."shopuinfo");
-            $shopuinfo = $shopuinfo['response'];
+             $shopuinfo = $shopuinfo['response'];
+             generate_log('URL_TRACKING', json_encode($shopuinfo->shop) ."shopuinfo SHOP");
+             generate_log('URL_TRACKING', json_encode($shopuinfo->shop->email) ."shopuinfo EMAIL");
             
             $path = '/admin/api/2021-07/webhooks.json';
             $store_password = md5(SHOPIFY_SECRET . $password);
