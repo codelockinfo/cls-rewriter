@@ -789,8 +789,6 @@ $(document).on("click", ".enable-btn", function(event) {
                     $(".chatgpterror").html("");
                     var activeEditor = tinyMCE.get('description').getContent();
                     console.log(activeEditor);
-                    // console.log(tinyMCE.get('description').getContent());
-                    // tinyMCE.activeEditor.getContent() !== '' ? '' : tinyMCE.activeEditor.setContent(response['outcome']);
                     tinyMCE.activeEditor.setContent(response['outcome']);
                 }else{ 
                     console.log("FAIL");

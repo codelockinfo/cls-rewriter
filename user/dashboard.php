@@ -79,7 +79,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
                                                                         <div class="Polaris-Card__Header header-data">
-                                                                            <div class="Polaris-CalloutCard__Buttons" ><a class="Polaris-Button" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Blog</span></span></a>
+                                                                            <div class="Polaris-CalloutCard__Buttons" ><a class="Polaris-Button  Polaris-Button--primary" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Blog</span></span></a>
                                                                       
                                                                                 <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="blog_post.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Articles</a>
                                                                                 (<span class="Polaris-Heading-number numberConvertBlog"></span>)</h2>
@@ -121,7 +121,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         </div>
                                                                         <div class="Polaris-Card__Header header-data">
                                                        
-                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button" href="pages.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Pages</span></span></a>
+                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button  Polaris-Button--primary" href="pages.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Pages</span></span></a>
                                                                             <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="pages.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Pages</a>
                                                                             (<span class="Polaris-Heading-number numberConvertPages"></span>)</h2>
                                                                             </div>
@@ -164,7 +164,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
                                                                         <div class="Polaris-Card__Header header-data">
-                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Product</span></span></a>
+                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button  Polaris-Button--primary" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Product</span></span></a>
                                                                        
                                                                                 <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Products</a>
                                                                                 (<span class="Polaris-Heading-number numberConvertProduct"></span>)</h2>
@@ -204,7 +204,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                             <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
                                                                         </div>
                                                                         <div class="Polaris-Card__Header header-data">
-                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Collection</span></span></a>
+                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button Polaris-Button--primary" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Collection</span></span></a>
                                                                                 <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Collections</a>
                                                                                 (<span class="Polaris-Heading-number numberConvertCollection"></span>)</h2>
                                                                             </div>
@@ -242,7 +242,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
         </div>  
     </div>
     <div class="footermargin">
-                           <div class="Polaris-FooterHelp__Text">
+                           <div class="Polaris-FooterHelp__Text footermargin">
                                     ReWriter©2023 - Developed by <a target="_blank" href="http://codelocksolutions.com/">Codelock Solutions</a>  team </div> 
         </div>
 </body>
