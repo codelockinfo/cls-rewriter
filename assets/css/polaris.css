@@ -1181,8 +1181,8 @@ p {
 }
 
 .Polaris-Card__Header {
-	/* padding: 2rem 2rem 2rem; */
-		padding: 2rem 0rem
+	padding: 2rem 2rem 2rem;
+		/* padding: 2rem 0rem */
 }
 
 .Polaris-Card__Section {
