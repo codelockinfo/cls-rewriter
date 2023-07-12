@@ -51,7 +51,8 @@ if ($_GET['shop'] != "") {
         } else {
             generate_log('URL_TRACKING', $password. "GET status 0");
             $shopuinfo = shopify_call($password, $shop, "/admin/".CLS_API_VERSIION."/shop.json", array(), 'GET');
-             generate_log('URL_TRACKING', json_encode($shopuinfo['response']) ."shopuinfo");
+             generate_log('URL_TRACKING', json_encode($shopuinfo) ."shopuinfo");
+             generate_log('URL_TRACKING', json_encode($shopuinfo['response']) ."shopuinfo Response");
              $shopuinfo = $shopuinfo['response'];
              generate_log('URL_TRACKING', $shopuinfo->shop ."shopuinfo SHOP");
              generate_log('URL_TRACKING', $shopuinfo->shop->email ."shopuinfo EMAIL");
