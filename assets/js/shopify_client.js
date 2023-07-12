@@ -118,7 +118,8 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                 if (comeback['code'] != undefined && comeback['code'] == '403') {
                     redirect403();
                 } else if (comeback['outcome'] == 'true') {
-                    $('table#' + listingID + ' tbody').html(comeback['html']);
+                   var tablehtml =  comeback['html'] !== undefined && comeback['html'] != '' ? comeback['html'] : '<td  colspan="10" class="nodata"> NO DATA FOUND </td>';
+                    $('table#' + listingID + ' tbody').html(tablehtml);
                     $('#' + listingID + 'Pagination').html(comeback['pagination_html']);
                 } else {
                 }
@@ -786,6 +787,8 @@ $(document).on("click", ".enable-btn", function(event) {
                 }else if(response['data'] == "success"){
                     console.log("SUCCESS");
                     $(".chatgpterror").html("");
+                    var activeEditor = tinyMCE.get('description').getContent();
+                    console.log(activeEditor);
                     // console.log(tinyMCE.get('description').getContent());
                     // tinyMCE.activeEditor.getContent() !== '' ? '' : tinyMCE.activeEditor.setContent(response['outcome']);
                     tinyMCE.activeEditor.setContent(response['outcome']);
