@@ -898,61 +898,64 @@ $shopinfo = $this->current_store_obj;
                 $shopify_api = array("api_name" => 'blogs/' .$dataObj->blog_id);
                 $data_blog = $this->cls_get_shopify_list($shopify_api, '', 'GET'); 
                 $data_blog = (object) $data_blog;
-                $image = (empty($dataObj->image)) ? CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE : $dataObj->image;
-                $truncated = $dataObj->description;
-                $truncated = (strpos($truncated, '<iframe') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = (strpos($truncated, '<table>') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = (strpos($truncated, 'component-theme') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = (strpos($truncated, '<img') !== false) ? $truncated = "Plase view on description ." : $truncated;
-                $truncated = ($dataObj->description  == "") ? " --NO DATA FOUND-- " : $truncated;
-                $tr_html.='<tr class="Polaris-ResourceList__ItemWrapper trhover">';
-                // $tr_html.='<td>' . $dataObj->id . '</td>';
-                // $tr_html.='<td>' . $dataObj->blogpost_id . '</td>';
-                $tr_html .= '<td>' . '<img src="' . $image . '" width="50px" height="50px" >' . '</td>';
-                $tr_html.='<td>' . $dataObj->title . '</td>';
-                $tr_html.='<td class="more" style= "width: 100%;"><div class="blog-description-cls">' . $truncated . '</div></td>';
-                $after_delete_pageno = $pageno;
-                if ($dataObj->status == '1') {
-                    $svg_icon_status = CLS_SVG_EYE;
-                    $data_hover = 'View';
-                }
-                if ($total_record == 1) {
-                    $after_delete_pageno = $pageno - 1;
-                }
+                $blog = (isset($data_blog->blog) && $data_blog->blog != '') ? $data_blog->blog : '';
+                if(!empty($blog)){
+                            $image = (empty($dataObj->image)) ? CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE : $dataObj->image;
+                            $truncated = $dataObj->description;
+                            $truncated = (strpos($truncated, '<iframe') !== false) ? $truncated = "Plase view on description ." : $truncated;
+                            $truncated = (strpos($truncated, '<table>') !== false) ? $truncated = "Plase view on description ." : $truncated;
+                            $truncated = (strpos($truncated, 'component-theme') !== false) ? $truncated = "Plase view on description ." : $truncated;
+                            $truncated = (strpos($truncated, '<img') !== false) ? $truncated = "Plase view on description ." : $truncated;
+                            $truncated = ($dataObj->description  == "") ? " --NO DATA FOUND-- " : $truncated;
+                            $tr_html.='<tr class="Polaris-ResourceList__ItemWrapper trhover">';
+                            // $tr_html.='<td>' . $dataObj->id . '</td>';
+                            // $tr_html.='<td>' . $dataObj->blogpost_id . '</td>';
+                            $tr_html .= '<td>' . '<img src="' . $image . '" width="50px" height="50px" >' . '</td>';
+                            $tr_html.='<td>' . $dataObj->title . '</td>';
+                            $tr_html.='<td class="more"><div class="blog-description-cls">' . $truncated . '</div></td>';
+                            $after_delete_pageno = $pageno;
+                            if ($dataObj->status == '1') {
+                                $svg_icon_status = CLS_SVG_EYE;
+                                $data_hover = 'View';
+                            }
+                            if ($total_record == 1) {
+                                $after_delete_pageno = $pageno - 1;
+                            }
 
-                $tr_html.='
-                    <td>
-            <div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented highlight-text">                   
-             <div class="Polaris-ButtonGroup__Item highlight-text">
-                <span class="Polaris-Button Polaris-Button--sizeSlim tip loader_show" data-hover="' . $data_hover . '">
-               <a href="https://'.$shopinfo->shop_name.'/blogs/'. $data_blog->blog->handle .'/' . $dataObj->handle . '"  target="_blank">
-                        <span class="Polaris-custom-icon Polaris-Icon Polaris-Icon--hasBackdrop">
-                            ' . $svg_icon_status . '
-                        </span>
-                    </a>
-                </span>
-            </div>
-            <div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented highlight-text">                   
-              <div class="Polaris-ButtonGroup__Item highlight-text">
-                <span class="Polaris-Button Polaris-Button--sizeSlim tip loader_show" data-hover="Edit">
-                      <a href="blogpost_edit.php?blogpost_id=' . $dataObj->blogpost_id . '&store=' . $shopinfo->shop_name . '" >
-                        <span class="Polaris-custom-icon Polaris-Icon Polaris-Icon--hasBackdrop">
-                            ' . CLS_SVG_EDIT . '
-                        </span>
-                    </a>
-                </span>
-            </div>
-              <div class="Polaris-ButtonGroup__Item highlight-text">
-                    <span class="Polaris-Button Polaris-Button--sizeSlim tip " data-hover="Delete" onclick="removeFromTable(\'' . TABLE_BLOGPOST_MASTER . '\',' . $dataObj->blogpost_id . ',' . $dataObj->id . ',' . $after_delete_pageno . ', \'blogpostData\',\'articles\' ,this)">
-                        <a class="history-link" href="javascript:void(0)">
-                            <span class="Polaris-custom-icon Polaris-Icon Polaris-Icon--hasBackdrop save_loader_show' . $dataObj->blogpost_id . '    ">
-                                ' . CLS_SVG_DELETE . '
+                            $tr_html.='
+                                <td>
+                        <div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented highlight-text">                   
+                        <div class="Polaris-ButtonGroup__Item highlight-text">
+                            <span class="Polaris-Button Polaris-Button--sizeSlim tip loader_show" data-hover="' . $data_hover . '">
+                        <a href="https://'.$shopinfo->shop_name.'/blogs/'. $data_blog->blog->handle .'/' . $dataObj->handle . '"  target="_blank">
+                                    <span class="Polaris-custom-icon Polaris-Icon Polaris-Icon--hasBackdrop">
+                                        ' . $svg_icon_status . '
+                                    </span>
+                                </a>
                             </span>
-                        </a>
-                    </span>
-                </div>';
-                $tr_html.='</div></td></tr>';
+                        </div>
+                        <div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented highlight-text">                   
+                        <div class="Polaris-ButtonGroup__Item highlight-text">
+                            <span class="Polaris-Button Polaris-Button--sizeSlim tip loader_show" data-hover="Edit">
+                                <a href="blogpost_edit.php?blogpost_id=' . $dataObj->blogpost_id . '&store=' . $shopinfo->shop_name . '" >
+                                    <span class="Polaris-custom-icon Polaris-Icon Polaris-Icon--hasBackdrop">
+                                        ' . CLS_SVG_EDIT . '
+                                    </span>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="Polaris-ButtonGroup__Item highlight-text">
+                                <span class="Polaris-Button Polaris-Button--sizeSlim tip " data-hover="Delete" onclick="removeFromTable(\'' . TABLE_BLOGPOST_MASTER . '\',' . $dataObj->blogpost_id . ',' . $dataObj->id . ',' . $after_delete_pageno . ', \'blogpostData\',\'articles\' ,this)">
+                                    <a class="history-link" href="javascript:void(0)">
+                                        <span class="Polaris-custom-icon Polaris-Icon Polaris-Icon--hasBackdrop save_loader_show' . $dataObj->blogpost_id . '    ">
+                                            ' . CLS_SVG_DELETE . '
+                                        </span>
+                                    </a>
+                                </span>
+                            </div>';
+                        $tr_html.='</div></td></tr>';
                 }
+            }
         }
     
         return $tr_html;

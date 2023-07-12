@@ -1219,6 +1219,10 @@ nav.prdocut-detail-view a {
 .sectionchatgpt{
     margin: 2% 0;
 }
+
+.nodata{
+    text-align: center;
+}
 @media (max-width: 768px) {
     .d-flex-alert-box{
         flex-wrap: wrap;
