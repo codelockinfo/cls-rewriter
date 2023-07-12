@@ -54,8 +54,6 @@ if ($_GET['shop'] != "") {
              generate_log('URL_TRACKING', json_encode($shopuinfo) ."shopuinfo");
              generate_log('URL_TRACKING', json_encode($shopuinfo['response']) ."shopuinfo Response");
              $shopuinfo = json_decode($shopuinfo['response']);
-             generate_log('URL_TRACKING', $shopuinfo->shop ."shopuinfo SHOP");
-             generate_log('URL_TRACKING', $shopuinfo->shop->email ."shopuinfo EMAIL");
             
             $path = '/admin/api/2021-07/webhooks.json';
             $store_password = md5(SHOPIFY_SECRET . $password);
