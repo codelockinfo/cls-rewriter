@@ -1044,15 +1044,15 @@ nav.prdocut-detail-view a {
 		align-items: center;
 	}
 	.shopifybtn {
-		width: 31%;
+		width: 30%;
 		order: 3;
 	}
 	.Polaris-Page-Header .cls_enbledisable_msg {
-		width: 39%;
+		width: 30%;
 		order: 2;
 	}
 	.Polaris-Page-Header .cls_enbledisable_btn {
-		width: 26%;
+		width: 32%;
 		order: 4;
 	}
 	.Polaris-Page-Header .cls_header_logo_image {
@@ -1232,6 +1232,15 @@ nav.prdocut-detail-view a {
     }
 
 }
+.Polaris-FooterHelp__Text{
+    border: 1px solid #dfe3e8;
+    border-radius: 999px;
+    padding: 10px 20px;
+}
+.footermargin{
+    display: flex;
+    justify-content: center;
+}
 @media (max-width: 420px) {
     button#addblog {
         width: 90%;
@@ -1239,4 +1248,7 @@ nav.prdocut-detail-view a {
         display: flex;
         float: none!important;
     }
+}
+.footermargin{
+    margin-bottom: 1%;
 }

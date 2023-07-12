@@ -14,13 +14,13 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                             </div>
                             <div class="shopifybtn">
 
-<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button Polaris-Button--primary" type="button" target="_blank">
+<a  href="https://<?php echo $store; ?>/admin" class="Polaris-Button  Polaris-Button--success" type="button" target="_blank">
     <span class="Polaris-Button__Content">
         <span class="Polaris-Button__Text">Shopify Admin</span>
     </span>
 </a>
 
-<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button Polaris-Button--success" type="button">
+<a  href="index.php?store=<?php echo $store; ?>" class="Polaris-Button" type="button">
   <span class="Polaris-Button__Content">
     <span class="Polaris-Button__Text">Home</span>
   </span>
@@ -48,16 +48,16 @@ $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "man
                 </span>
             </div></div>
             
-                <div class="cls_enbledisable_btn ">
+                <div class="cls_enbledisable_btn shopifybtn">
 
           <a href="setting.php?store=<?php echo $store; ?>"  class="Polaris-Button" style="text-decoration: none;">
             <span class="Polaris-Button__Content">
-              <span>App Setting</span>
+              <span>Setting</span>
             </span>
          </a>
-        <a href="help.php?store=<?php echo $store; ?>"  class="Polaris-Button" style="text-decoration: none;" >
+        <a href="help.php?store=<?php echo $store; ?>"  class="Polaris-Button  Polaris-Button--success" style="text-decoration: none;" >
             <span class="Polaris-Button__Content">
-              <span>Help</span>
+              <span>Help & Pricing </span>
             </span>
          </a>
         

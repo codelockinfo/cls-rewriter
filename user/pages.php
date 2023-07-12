@@ -47,8 +47,8 @@ include_once('dashboard_header.php');
                                                 <table id="pagesData"   data-listing="true" data-search="title" data-from="table" data-apiName="pages" class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
-                                                            <th>Pages ID</th>
+                                                            <!-- <th>ID</th>
+                                                            <th>Pages ID</th> -->
                                                             <th>Title</th>
                                                             <th>Description</th>
                                                             <th>Action</th>

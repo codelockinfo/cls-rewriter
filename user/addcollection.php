@@ -113,12 +113,12 @@
                                                     <div class="Polaris-Connected">
                                                         <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
                                                             <div class="Polaris-TextField">
-                                                                <input id="chatgptinput" name="" placeholder="Search content here using ChatGPT" class="Polaris-TextField__Input" maxlength="255" aria-labelledby="" aria-invalid="false" value="">
+                                                                <input id="chatgptinput" name="" placeholder="Generate auto description by ChatGPT" class="Polaris-TextField__Input" maxlength="255" aria-labelledby="" aria-invalid="false" value="">
                                                                 <div class="Polaris-TextField__Backdrop">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div><button class="Polaris-Button save_loader_show chatGPTBtn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Search</button></div>
+                                                        <div><button class="Polaris-Button Polaris-Button--primary save_loader_show chatGPTBtn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Search</button></div>
                                                     </div>
                                                     <span class="message chatgpterror"></span> 
                                                 </div>
