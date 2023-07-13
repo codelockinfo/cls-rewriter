@@ -121,7 +121,7 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                                         </div>
                                                                         <div class="Polaris-Card__Header header-data">
                                                        
-                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button  Polaris-Button--primary" href="pages.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Pages</span></span></a>
+                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button  Polaris-Button--primary" href="pages.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Page</span></span></a>
                                                                             <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="pages.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Pages</a>
                                                                             (<span class="Polaris-Heading-number numberConvertPages">0</span>)</h2>
                                                                             </div>

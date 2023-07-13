@@ -20,6 +20,102 @@
                     </div>
                     <div class="Polaris-Card__Section">
                         <div id="accordion" class="accordion">
+                        <div class="card mb-2">
+                                <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                                    <a class="card-title">
+                                      How can i add/edit Blogpost?
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordion" >
+                                    <div class="card-body">
+                                        <div style="position:relative;padding-top:56.25%;">
+                                            <iframe src="https://screenpal.com/player/c0iI15VgHko?&ff=1&title=0&controls=0" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                                        </div>
+                                        <div class="videocontent">
+                                            <ul>
+                                                <li>Click <b>Add /Edit Blog</b> button.</li>
+                                                <li>Click <b>Add Article</b> button for add article content.</li>
+                                                <li>Step by step Add information in to form .
+                                                    Choose from a wide selection of font families to give your Blogpost descriptions a unique and personalized look that aligns with your brand's style.
+                                                    Enhance blogpost descriptions with vibrant colors: Use a color picker tool to select eye-catching colors that make your descriptions visually appealing and highlight important details.</li>
+                                                <li>Click <b>Save</b> button.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-2">
+                                <div class="card-header collapsed" data-toggle="collapse" href="#collapsefive">
+                                    <a class="card-title">
+                                      How can i add/edit Page?
+                                    </a>
+                                </div>
+                                <div id="collapsefive" class="collapse" data-parent="#accordion" >
+                                    <div class="card-body">
+                                        <div style="position:relative;padding-top:56.25%;">
+                                            <iframe src="https://screenpal.com/player/c0iIjhVgHsY?&ff=1&title=0&controls=0" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                                        </div>
+                                        <div class="videocontent">
+                                            <ul>
+                                                <li>Click <b>Add /Edit  Page</b> button.</li>
+                                                <li>Click <b>Add Page</b> button for add page content.</li>
+                                                <li>Step by step Add information in to form .
+                                                    Choose from a wide selection of font families to give your page descriptions a unique and personalized look that aligns with your brand's style.
+                                                    Enhance page descriptions with vibrant colors: Use a color picker tool to select eye-catching colors that make your descriptions visually appealing and highlight important details.</li>
+                                                <li>Click <b>Save</b> button.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-2">
+                                <div class="card-header collapsed" data-toggle="collapse" href="#collapsesix">
+                                    <a class="card-title">
+                                      How can i add/edit Product?
+                                    </a>
+                                </div>
+                                <div id="collapsesix" class="collapse" data-parent="#accordion" >
+                                    <div class="card-body">
+                                        <div style="position:relative;padding-top:56.25%;">
+                                            <iframe src="https://screenpal.com/player/c0iIjFVgHL2?width=100%&height=100%&ff=1&title=0" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                                        </div>
+                                        <div class="videocontent">
+                                            <ul>
+                                                <li>Click <b>Add /Edit  Product</b> button.</li>
+                                                <li>Click <b>Add Product</b> button for add product content.</li>
+                                                <li>Step by step Add information in to form.
+                                                    Choose from a wide selection of font families to give your product descriptions a unique and personalized look that aligns with your brand's style.
+                                                    Enhance product descriptions with vibrant colors: Use a color picker tool to select eye-catching colors that make your descriptions visually appealing and highlight important details.</li>
+                                                <li>Click <b>Save</b> button.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-2">
+                                <div class="card-header collapsed" data-toggle="collapse" href="#collapseseven">
+                                    <a class="card-title">
+                                      How can i add/edit Collection?
+                                    </a>
+                                </div>
+                                <div id="collapseseven" class="collapse" data-parent="#accordion" >
+                                    <div class="card-body">
+                                        <div style="position:relative;padding-top:56.25%;">
+                                            <iframe src="https://screenpal.com/player/c0iI6oVgJ63?width=100%&height=100%&ff=1&title=0" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                                        </div>
+                                        <div class="videocontent">
+                                            <ul>
+                                                <li>Click <b>Add /Edit Collection</b> button.</li>
+                                                <li>Click <b>Add Collection</b> button for add collection.</li>
+                                                <li>Step by step Add information in to form.
+                                                    Choose from a wide selection of font families to give your collection descriptions a unique and personalized look that aligns with your brand's style.
+                                                    Enhance collection descriptions with vibrant colors: Use a color picker tool to select eye-catching colors that make your descriptions visually appealing and highlight important details.</li>
+                                                <li>Click <b>Save</b> button.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
                                     <a class="card-title">
@@ -58,8 +154,7 @@
                                     <div class="card-body">
                                        <div class="row">
                                             <div class="col-sm-6">
-                                              ​To change font of anywhere on your site, please use Element Picker feature. ​When click on the magnifying icon, you can see your live store, then select all the element that you want to apply the new font. ​If it does not work, please let us know via Live chat. 
-​Thanks
+                                              ​To change font of anywhere on your site, please use Element Picker feature. ​When click on the magnifying icon, you can see your live store, then select all the element that you want to apply the new font. ​If it does not work, please let us know via Live chat. ​Thanks
                                             </div>
                                             <div class="col-sm-6">  
                                                 <a href="../assets/images/Screenshot_1.png" target="_BLANK">
