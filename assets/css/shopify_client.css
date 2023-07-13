@@ -1256,6 +1256,9 @@ nav.prdocut-detail-view a {
 .videocontent{
     margin-top:2%;
 }
+.bannermargin{
+    bottom: 10px;
+}
 @media (max-width: 420px) {
     button#addblog {
         width: 90%;
