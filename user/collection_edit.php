@@ -16,7 +16,7 @@ $store = ($params['store']);
 ?>
 <html>
 <body>
-    <div class="Polaris-Page login-frm">
+    <div class="Polaris-Page login-frm max_width_change">
         <div class="Polaris-Page__Content">
             <div class="Polaris-Layout">
                 <div class="Polaris-Layout__AnnotatedSection">
@@ -72,7 +72,7 @@ $store = ($params['store']);
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
                                                         <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
-                                                        <p class="Polaris-Heading">Efficient Blog Description Generation: Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
+                                                        <p class="Polaris-Heading">Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,7 +91,6 @@ $store = ($params['store']);
                                             </div>
                                         </div>
                                     </div>
-                                    </br>
                                     <div class="Polaris-Layout">
                                         <div class="Polaris-Layout__Section">
                                                <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>

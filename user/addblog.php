@@ -74,7 +74,6 @@ include "dashboard_header.php";
                                             <div id="PolarisPortalsContainer"></div>
                                         </div>
                                         
-                                        </br>
                                         <div class="">
                                             <div class="Polaris-Labelled__LabelWrapper">
                                                 <div class="Polaris-Label">

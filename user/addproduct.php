@@ -76,8 +76,8 @@
                                                            
                                                     </div>
                                                 </div>
-                                                <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary" style="width: 50%;margin-top: -2px;">
-                                                        <div class="Polaris-Card__Section ">
+                                                <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary" style="width: 50%;">
+                                                        <div class=" ">
                                                             <div class="Polaris-DropZone Polaris-DropZone--hasOutline Polaris-DropZone--sizeExtraLarge" >
                                                                 <div class="Polaris-DropZone__Container ">
                                                                             <img id="ImagePreview" class="imagepre" src="<?php echo CLS_SITE_URL; ?>/assets/images/drag_drop.jpg" alt="your image" />

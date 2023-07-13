@@ -3,7 +3,7 @@ include "login_header.php";
 $store = (isset($_GET['store']) && $_GET['store'] != '') ? $_GET['store'] : "managedashboard.myshopify.com";
 ?>
    <body>   
-        <div class="Polaris-Page login-frm" style="max-width: 49.8rem;">
+        <div class="Polaris-Page login-frm max_width_change">
             <div class="Polaris-Page__Content">
                 <div class="Polaris-Layout">
                     <div class="Polaris-Layout__AnnotatedSection">

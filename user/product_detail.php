@@ -14,7 +14,7 @@ if (isset($_GET['product_id']) && $_GET['product_id'] != '') {
    
     </style>
 
-<div class="Polaris-Page login-frm">
+<div class="Polaris-Page login-frm max_width_change">
     <div class="Polaris-Page__Content">
         <div class="Polaris-Layout">
             <div class="Polaris-Layout__AnnotatedSection">

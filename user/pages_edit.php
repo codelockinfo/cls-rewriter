@@ -14,7 +14,7 @@ include "cls_header.php";
     include_once('dashboard_header.php');   
 ?>
 
-<div class="Polaris-Page login-frm">
+<div class="Polaris-Page login-frm max_width_change">
     <div class="Polaris-Page__Content">
         <div class="Polaris-Layout">
             <div class="Polaris-Layout__AnnotatedSection">
@@ -70,7 +70,7 @@ include "cls_header.php";
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
                                                         <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
-                                                        <p class="Polaris-Heading">Efficient Blog Description Generation: Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
+                                                        <p class="Polaris-Heading"> Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +89,6 @@ include "cls_header.php";
                                             </div>
                                         </div>
                                     </div>
-                                    </br>
 
                                     <div class="Polaris-Layout">
                                         <div class="Polaris-Layout__Section">

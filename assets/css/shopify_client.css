@@ -1189,7 +1189,7 @@ nav.prdocut-detail-view a {
     display: block;
 }
 .padd_2rem_addblog{
-    padding: 2rem;
+    padding: 0 2rem;
 }
 .d-flex-alert-box{
     display: flex;
