@@ -742,6 +742,7 @@ class Client_functions extends common_function {
                 '`created_at`' => $mysql_date,
                 '`updated_at`' => $mysql_date
             );
+            generate_log('article_master', json_encode($fields_arr));
             $result = $this->post_data(TABLE_BLOG_MASTER, array($fields_arr));
             $response['blog'] = json_decode($result);
         }
