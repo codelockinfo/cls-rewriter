@@ -25,6 +25,7 @@ generate_log('Webhook verified: ' , var_export($verified, true)); //check error.
 //     // return ($hmac_header == $calculated_hmac);
 // }
 $topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
+generate_log('uninstall-webhook', $topic_header . "TOPIC");
 $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 // $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 // generate_log('testingwebhook', $hmac_header . "  hmac_header ");

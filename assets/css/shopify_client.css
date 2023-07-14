@@ -1260,6 +1260,9 @@ nav.prdocut-detail-view a {
 .bannermargin{
     bottom: 10px;
 }
+.Polaris-Select .Polaris-Select__Input{
+  width:100%;  
+}
 @media (max-width: 420px) {
     button#addblog {
         width: 90%;
