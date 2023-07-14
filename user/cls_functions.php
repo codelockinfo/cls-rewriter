@@ -416,6 +416,7 @@ class Client_functions extends common_function {
                         'created_at' => date('Y-m-d H:i:s'),
                         'updated_at' => date('Y-m-d H:i:s')
                     );
+                    generate_log('article_master', json_encode($fields_arr));
                     $comeback = $this->post_data(TABLE_BLOGPOST_MASTER, array($fields_arr));
                 }
                 $comeback = array("data" => true);
@@ -455,6 +456,7 @@ class Client_functions extends common_function {
                         'created_at' => date('Y-m-d H:i:s'),
                         'updated_at' => date('Y-m-d H:i:s')
                     );
+                    generate_log('page_master', json_encode($fields_arr));
                     $comeback = $this->post_data(TABLE_PAGE_MASTER, array($fields_arr));
                 }
                 $comeback = array("data" => true);
@@ -491,6 +493,7 @@ class Client_functions extends common_function {
                         'created_at' => date('Y-m-d H:i:s'),
                         'updated_at' => date('Y-m-d H:i:s')
                     );
+                    generate_log('collection_master', json_encode($fields_arr));
                     $comeback = $this->post_data(TABLE_COLLECTION_MASTER, array($fields_arr));
                 }
                 $comeback = array("data" => true);
@@ -531,6 +534,7 @@ class Client_functions extends common_function {
                         'created_at' => date('Y-m-d H:i:s'),
                         'updated_at' => date('Y-m-d H:i:s')
                     );
+                    generate_log('product_master', json_encode($fields_arr));
                     $comeback = $this->post_data(TABLE_PRODUCT_MASTER, array($fields_arr));
 //                    generate_log('product_update', json_encode($comeback));
                     $comeback = array("data" => true);
@@ -876,6 +880,7 @@ $shopinfo = $this->current_store_obj;
                 '`created_at`' => $mysql_date,
                 '`updated_at`' => $mysql_date
             );
+            generate_log('collection_master', json_encode($fields_arr));
             $result = $this->post_data(TABLE_COLLECTION_MASTER, array($fields_arr));
             $response = json_decode($result);
         }
@@ -988,6 +993,7 @@ $shopinfo = $this->current_store_obj;
                 '`created_at`' => $mysql_date,
                 '`updated_at`' => $mysql_date
             );
+            generate_log('page_master', json_encode($fields_arr));
             $result = $this->post_data(TABLE_PAGE_MASTER, array($fields_arr));
             $response = json_decode($result);
         }
@@ -1096,6 +1102,7 @@ $shopinfo = $this->current_store_obj;
                 '`created_at`' => $mysql_date,
                 '`updated_at`' => $mysql_date
             );
+            generate_log('product_master', json_encode($fields_arr));
             $result = $this->post_data(TABLE_PRODUCT_MASTER, array($fields_arr));
             $response = json_decode($result);
         }
@@ -1202,6 +1209,7 @@ $shopinfo = $this->current_store_obj;
                 if (isset($set_position->article->image)) {
                     $fields_arr['`image`'] = $set_position->article->image->src;
                 }
+                generate_log('article_master', json_encode($fields_arr));
                 $response_data = $this->post_data(TABLE_BLOGPOST_MASTER, array($fields_arr));
             } else {
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
@@ -1246,7 +1254,7 @@ $shopinfo = $this->current_store_obj;
                         }
                     }
                     
-                        generate_log('product_testing', json_encode(array($fields_arr)));
+                    generate_log('product_master', json_encode($fields_arr));
                     $response_data = $this->post_data(TABLE_PRODUCT_MASTER, array($fields_arr));
                   
                 }
@@ -1280,6 +1288,7 @@ $shopinfo = $this->current_store_obj;
                     '`created_at`' => $mysql_date,
                     '`updated_at`' => $mysql_date
                 );
+                generate_log('page_master', json_encode($fields_arr));
                 $response_data = $this->post_data(TABLE_PAGE_MASTER, array($fields_arr));
             } else {
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
@@ -1317,6 +1326,7 @@ $shopinfo = $this->current_store_obj;
                         '`created_at`' => $mysql_date,
                         '`updated_at`' => $mysql_date
                     );
+                    generate_log('collection_master', json_encode($fields_arr));
                       $response_data = $this->post_data(TABLE_COLLECTION_MASTER, array($fields_arr));
                 } else {
                     $api_fields = array("custom_collection" => array("title" => $_POST["title"], "body_html" => $_POST["description"]));
@@ -1334,6 +1344,7 @@ $shopinfo = $this->current_store_obj;
                         '`created_at`' => $mysql_date,
                         '`updated_at`' => $mysql_date
                     );
+                    generate_log('collection_master', json_encode($fields_arr));
                       $response_data = $this->post_data(TABLE_COLLECTION_MASTER, array($fields_arr));
                 }
 
