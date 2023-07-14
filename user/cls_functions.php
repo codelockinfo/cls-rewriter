@@ -717,6 +717,7 @@ class Client_functions extends common_function {
         return $response;
     }
     function get_store_blog(){
+        $shopinfo = $this->current_store_obj;
         $shopify_api = array("api_name" => "blogs");
         $data_blogs = $this->cls_get_shopify_list($shopify_api, '', 'GET');
         $total_record_blog = count($data_blogs->blogs);
@@ -732,13 +733,12 @@ class Client_functions extends common_function {
                 );
                 continue;
             }
-            $img_src = (isset($article->image) && $article->image == '') ? '' : $article->image->src;
             $fields_arr = array(
                 '`id`' => '',
                 '`blog_id`' => $blogs->id,
                 'title' => $blogs->title,
                 '`store_user_id`' => $shopinfo->store_user_id,
-                '`handle`' => $article->handle,
+                '`handle`' => $blogs->handle,
                 '`created_at`' => $mysql_date,
                 '`updated_at`' => $mysql_date
             );
