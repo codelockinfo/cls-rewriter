@@ -1122,6 +1122,7 @@ $shopinfo = $this->current_store_obj;
                 // $tr_html.='<td>' . $dataObj->product_id . '</td>';
                 $tr_html .= '<td>' . '<img src="' . $image . '" alt="' . $dataObj->title . '" width="50px" height="50px" >' . '</td>';
                 $tr_html.='<td>' . $dataObj->title . '</td>';
+                $tr_html.='<td>' . $dataObj->description . '</td>';
                 $tr_html.='<td>' . $dataObj->price . '</td>';
                 $after_delete_pageno = $pageno;
                 if ($dataObj->status == '1') {
@@ -1394,10 +1395,8 @@ function chatgpt_req_res(){
             $error_array = array();
             $shopinfo = $this->current_store_obj;
             $store= $_POST['store'];
-            $chatgptreq= $_POST['chatgptreq'];
-             if (isset($chatgptreq) && $chatgptreq == '') {
-                $error_array['chatgpt'] = "Please Enter Request";
-            }
+            $chatGPT_Prerequest = (isset($_POST['chatGPT_Prerequest']) && $_POST['chatGPT_Prerequest'] !== '') ? $_POST['chatGPT_Prerequest'] : '';
+            $chatgptreq = (isset($_POST['chatgptreq']) && $_POST['chatgptreq'] != '' )  ? $_POST['chatgptreq'] : $error_array["chatgpt"] = 'Please Enter Request';
             if (empty($error_array)) {
                 $where_query = array(["", "status", "=", "1"]);
                 $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
@@ -1406,7 +1405,7 @@ function chatgpt_req_res(){
                 $data = array(
                     'model' => 'gpt-3.5-turbo', // Specify the model to use
                     'messages' => array(
-                        array('role' => 'user', 'content' => "'.$chatgptreq .'")
+                        array('role' => 'user', 'content' => "' $chatGPT_Prerequest.$chatgptreq .'")
                     ),
                     'max_tokens' => 100,
                     'temperature' => 0.8

@@ -23,7 +23,7 @@
                         <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                                     <a class="card-title">
-                                      How can i add/edit Blogpost?
+                                      How can I add/edit Blogpost?
                                     </a>
                                 </div>
                                 <div id="collapseOne" class="collapse show" data-parent="#accordion" >
@@ -47,7 +47,7 @@
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" href="#collapsefive">
                                     <a class="card-title">
-                                      How can i add/edit Page?
+                                      How can I add/edit Page?
                                     </a>
                                 </div>
                                 <div id="collapsefive" class="collapse" data-parent="#accordion" >
@@ -71,7 +71,7 @@
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" href="#collapsesix">
                                     <a class="card-title">
-                                      How can i add/edit Product?
+                                      How can I add/edit Product?
                                     </a>
                                 </div>
                                 <div id="collapsesix" class="collapse" data-parent="#accordion" >
@@ -95,7 +95,7 @@
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseseven">
                                     <a class="card-title">
-                                      How can i add/edit Collection?
+                                      How can I add/edit Collection?
                                     </a>
                                 </div>
                                 <div id="collapseseven" class="collapse" data-parent="#accordion" >
@@ -119,7 +119,7 @@
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
                                     <a class="card-title">
-                                     How can i revert my font back to original?
+                                     How can I revert my font back to original?
                                     </a>
                                 </div>
                                 <div id="collapseFour" class="collapse" data-parent="#accordion" >
@@ -147,7 +147,7 @@
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                                     <a class="card-title">
-                                       How can i change the font for an element only?
+                                       How can I change the font for an element only?
                                     </a>
                                 </div>
                                 <div id="collapseTwo" class="collapse" data-parent="#accordion" >
@@ -176,7 +176,7 @@
                             <div class="card mb-2">
                                 <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
                                     <a class="card-title">
-                                     Why i can't find the fonts in Theme Customize?
+                                     Why I can't find the fonts in Theme Customize?
                                     </a>
                                 </div>
                                 <div id="collapseThree" class="collapse" data-parent="#accordion" >

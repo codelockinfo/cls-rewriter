@@ -51,6 +51,7 @@ include_once('dashboard_header.php');
                                                                     <th>PRODUCT ID</th>                                                             -->
                                                                     <th>IMAGES</th> 
                                                                     <th>TITLE</th>                                                            
+                                                                    <th width="40%">Description</th>                                                            
                                                                     <th>PRICE</th>
                                                                     <th width="220">ACTION</th>
                                                                 </tr>

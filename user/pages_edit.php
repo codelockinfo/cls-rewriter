@@ -75,6 +75,7 @@ include "cls_header.php";
                                                 </div>
                                             </div>
                                             <div class="content_gtp">
+                                            <input type="hidden"  class="chatGPT_Prerequest" value="Can you write page description for"/>
                                                 <div class="Polaris-Connected">
                                                     <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
                                                         <div class="Polaris-TextField">
@@ -97,7 +98,7 @@ include "cls_header.php";
                                             <input type="hidden" id="" name="for_data" value="<?php echo 'page'; ?>">
                                             <textarea class="textdetails" name="description">                                          
                                             </textarea>
-                                            <button type="submit" name="submit" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show" style="float: right; margin-top: 20px;">Save</button>        
+                                            <button type="submit" name="submit" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px;">Save</button>        
                                         </div>
                                     </div>
                                 </form>

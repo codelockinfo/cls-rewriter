@@ -75,6 +75,7 @@ include_once('dashboard_header.php');
                                                 </div>
                                             </div>
                                             <div class="content_gtp">
+                                            <input type="hidden"  class="chatGPT_Prerequest" value="Can you write product description for"/>
                                                 <div class="Polaris-Connected">
                                                     <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
                                                         <div class="Polaris-TextField">
@@ -97,7 +98,7 @@ include_once('dashboard_header.php');
                                             <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>                                          
                                             <textarea class="textdetails" name="description">                                          
                                             </textarea>
-                                                <button type="submit" name="sign_up" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show"  style="float: right; margin-top: 20px;">Save</button>
+                                                <button type="submit" name="sign_up" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn"  style="float: right; margin-top: 20px;">Save</button>
                                         </div>
                                     </div>
                                 </form>

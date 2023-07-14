@@ -366,7 +366,7 @@ $(document).on("submit", "#register_frm", function (e) {
             processData: false,
             data: frmData, 
              beforeSend: function () { 
-                loading_show('.save_loader_show');
+                loading_show('.saveBtn.save_loader_show');
              
             },
             success: function (response) {
@@ -383,7 +383,7 @@ $(document).on("submit", "#register_frm", function (e) {
                     }else{
                     window.location.href = 'products.php?store='+store;
                     }
-                     loading_hide('.save_loader_show','save');
+                     loading_hide('.saveBtn.save_loader_show','save');
                 }
             }
         });
@@ -501,7 +501,7 @@ $(document).on("submit", "#addblog_frm", function (e) {
             processData: false,
             data: form_data, 
              beforeSend: function () {
-                loading_show('.save_loader_show');
+                loading_show('.saveBtn.save_loader_show');
             },
             success: function (response) {
                 var response = JSON.parse(response);
@@ -514,7 +514,7 @@ $(document).on("submit", "#addblog_frm", function (e) {
                     $(".title").html("");
                    window.location.href = "blog_post.php?store="+ store;
                 }
-                loading_hide('.save_loader_show','Save');
+                loading_hide('.saveBtn.save_loader_show','Save');
             }
         });
 });
@@ -534,7 +534,7 @@ $(document).on("submit", "#addproduct_frm", function (e) {
             processData: false,
             data: form_data, 
               beforeSend: function () {
-                loading_show('.save_loader_show');
+                loading_show('.saveBtn.save_loader_show');
             },
             success: function (response) {
                   var response = JSON.parse(response);
@@ -547,7 +547,7 @@ $(document).on("submit", "#addproduct_frm", function (e) {
                     $(".title").html("");
                    window.location.href = "products.php?store="+ store;
                 }
-                loading_hide('.save_loader_show', 'Save');
+                loading_hide('.saveBtn.save_loader_show', 'Save');
             }
         });
 });
@@ -565,7 +565,7 @@ $(document).on("submit", "#addpages_frm", function (e) {
             processData: false,
             data: form_data, 
               beforeSend: function () {
-                loading_show('.save_loader_show');
+                loading_show('.saveBtn.save_loader_show');
             },
             success: function (response) {
                  var response = JSON.parse(response);
@@ -578,7 +578,7 @@ $(document).on("submit", "#addpages_frm", function (e) {
                     $(".title").html("");
                    window.location.href = "pages.php?store="+ store;
                 }
-                loading_hide('.save_loader_show', 'Save');
+                loading_hide('.saveBtn.save_loader_show', 'Save');
             }
         });
 });
@@ -597,7 +597,7 @@ $(document).on("submit", "#addcollection_frm", function (e) {
             processData: false,
             data: form_data, 
               beforeSend: function () {
-                loading_show('.save_loader_show');
+                loading_show('.saveBtn.save_loader_show');
             },
             success: function (response) {
                   var response = JSON.parse(response);
@@ -610,7 +610,7 @@ $(document).on("submit", "#addcollection_frm", function (e) {
                     $(".title").html("");
                    window.location.href = "collection.php?store="+ store;
                 }
-                loading_hide('.save_loader_show', 'Save');
+                loading_hide('.saveBtn.save_loader_show', 'Save');
             }
         });
 });
@@ -767,14 +767,13 @@ $(document).on("click", ".enable-btn", function(event) {
     });
     $(document).on("click", ".chatGPTBtn", function(event) {
         event.preventDefault();
-        console.log("chatGPTBtn");
+        var chatGPT_Prerequest = $(".chatGPT_Prerequest").val();
         var chatgptreq = $(this).closest(".Polaris-Connected").find("#chatgptinput").val();
-        console.log(chatgptreq);
         $.ajax({
             url: "ajax_call.php",
             type: "post",
             dataType: "json",
-            data: {'store': store,'routine_name' : 'chatgpt_req_res','chatgptreq':chatgptreq}, 
+            data: {'store': store,'routine_name' : 'chatgpt_req_res','chatgptreq':chatgptreq,'chatGPT_Prerequest':chatGPT_Prerequest}, 
               beforeSend: function () {
                 loading_show('.chatGPTBtn.save_loader_show');
             },
@@ -785,16 +784,14 @@ $(document).on("click", ".enable-btn", function(event) {
                  if (response['code'] != undefined && response['code'] == '403') {
                     redirect403();
                 }else if(response['data'] == "success"){
-                    console.log("SUCCESS");
                     $(".chatgpterror").html("");
                     var activeEditor = tinyMCE.get('description').getContent();
                     console.log(activeEditor);
                     tinyMCE.activeEditor.setContent(response['outcome']);
                 }else{ 
-                    console.log("FAIL");
                     response['outcome']['chatgpt'] !== undefined ? $(".chatgpterror").html(response['outcome']['chatgpt']) : $(".chatgpterror").html(response['outcome']);
                 }
-                loading_hide('.save_loader_show','save');
+                loading_hide('.chatGPTBtn.save_loader_show','save');
             }
         })
     });

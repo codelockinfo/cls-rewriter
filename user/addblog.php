@@ -148,6 +148,7 @@ include "dashboard_header.php";
                                                 </div>
                                             </div>
                                             <div class="content_gtp">
+                                                <input type="hidden"  class="chatGPT_Prerequest" value="Can you write blog description for"/>
                                                 <div class="Polaris-Connected">
                                                     <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
                                                         <div class="Polaris-TextField">
@@ -170,7 +171,7 @@ include "dashboard_header.php";
                                                         </textarea>
                                             </div>
                                         </div>
-                                        <button type="submit" name="submit" id="addblog"  data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order" class="Polaris-Button Polaris-Button--primary save_loader_show" style="float: right; margin-top: 20px; margin-bottom: 10px;">Save</button>                                                    
+                                        <button type="submit" name="submit" id="addblog"  data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px; margin-bottom: 10px;">Save</button>                                                    
                                     </form>
                                 </div>
                             </div>
