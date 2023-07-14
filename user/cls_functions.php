@@ -684,7 +684,7 @@ class Client_functions extends common_function {
         foreach ($data_blog->articles as $article) {
             $mysql_date = date('Y-m-d H:i:s');
             $fields = 'blogpost_id';
-            $where_query = array(["", "blogpost_id", "=", "$article->id"]);
+            $where_query = array(["", "blogpost_id", "=", "$article->id"],["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
             $options_arr = array('single' => true);
             $comeback = $this->select_result(TABLE_BLOGPOST_MASTER, $fields, $where_query, $options_arr);
             if (isset($comeback["data"]->blogpost_id) && $comeback["data"]->blogpost_id == $article->id) {
@@ -697,13 +697,12 @@ class Client_functions extends common_function {
             $fields_arr = array(
                 '`id`' => '',
                 '`blogpost_id`' => $article->id,
-                 '`blog_id`' => $blogs->id,
+                '`blog_id`' => $article->blog_id,
                 'image' => $img_src,
                 'title' => $article->title,
                 '`store_user_id`' => $shopinfo->store_user_id,
                 '`description`' => str_replace("'", "\'", $article->body_html),
                 '`handle`' => $article->handle,
-                '`blog_id`' => $article->blog_id,
                 '`created_at`' => $mysql_date,
                 '`updated_at`' => $mysql_date
             );
