@@ -29,8 +29,9 @@ include('https://codelocksolutions.in/cls-rewriter/assets/js/jquery-2.1.1.js', f
                 'routine_name': 'btn_enable_disable' ,
             },
             success: function(comeback) {
-                console.log(comeback['outcome']['data']['status'] +".....STATUS");
-                if (comeback['outcome']['data']['status'] == 1) {
+                $status = comeback.outcome.status !== undefined ? comeback.outcome.status : '';
+                console.log(comeback.outcome.status +".....STATUS");
+                if ($status == 1) {
                     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Limelight&display=swap') );
                     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Secular+One&display=swap') );
                     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://fonts.googleapis.com/css2?family=Courgette&display=swap') );
