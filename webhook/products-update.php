@@ -8,8 +8,10 @@ $cls_functions = new Client_functions($_GET['store']);
  
 
 function verify_webhook($data, $hmac_header)
-{   generate_log('product_update-webhook',  "  verified webhook calling"); 
+{   
+	generate_log('product_update-webhook',  "  verified webhook calling"); 
 	$where_query = array(["", "status", "=", "1"]);
+	generate_log('product_update-webhook', CLS_TABLE_THIRDPARTY_APIKEY."  COMEBACK"); 
 	$comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
 	generate_log('product_update-webhook', json_encode($comeback) . "  COMEBACK"); 
 	$SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
