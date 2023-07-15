@@ -11,8 +11,6 @@ $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 
 $cls_functions = new Client_functions($shop);
  
-
-
 function verify_webhook($data, $hmac_header, $cls_functions)
 {
 	$where_query = array(["", "status", "=", "1"]);
@@ -22,14 +20,12 @@ function verify_webhook($data, $hmac_header, $cls_functions)
 	return hash_equals($hmac_header, $calculated_hmac);
 }
 
-
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
 
 if($verified == true){
     if( $topic_header == "collections/update" ) {
 		$collection = json_decode($data);
-		generate_log('collection_update-webhook', json_encode($collection));
 		if(!empty($collection) && isset($collection->id)){
 			$field_array = array();
 			$p_id = '';

@@ -19,22 +19,17 @@ function verify_webhook($data, $hmac_header, $cls_functions)
     return hash_equals($hmac_header, $calculated_hmac);
 }
 
-
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
-generate_log('collection_delete-webhook' , var_export($verified, true)); //check error.log to see the result
-
 
 if($verified == true){
-   generate_log('collection_delete-webhook', json_encode($verified) . "  verified"); 
     if( $topic_header == "collections/delete" ) {
-			$collection = json_decode($data);
-			generate_log('collection_delete-webhook', json_encode($collection));
-			$shopinfo = $cls_functions->get_store_detail_obj();
-            $store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : "";
-			$where_query = array(['', 'collection_id', '=', $collection->id, ' ', 'store_user_id', '=', $store_user_id]);
-			$data = $cls_functions->delete_data(TABLE_COLLECTION_MASTER, $where_query);
-			echo $cls_functions->last_query();
+        $collection = json_decode($data);
+        $shopinfo = $cls_functions->get_store_detail_obj();
+        $store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : "";
+        $where_query = array(['', 'collection_id', '=', $collection->id, ' ', 'store_user_id', '=', $store_user_id]);
+        $data = $cls_functions->delete_data(TABLE_COLLECTION_MASTER, $where_query);
+        echo $cls_functions->last_query();
     }
     else {
         echo "Access Denied";
