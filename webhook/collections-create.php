@@ -35,25 +35,22 @@ if($verified == true){
 				}
 				$where_query = array(["", "collection_id", "=", "$collectionid"], ["AND", "store_user_id", "=", "$store_user_id"]);
 				$comeback = $cls_functions->select_result(TABLE_COLLECTION_MASTER, '*', $where_query);
-			
-			    generate_log('collection_create-webhook', json_encode($comeback['data']->collection_id)   . "DATA  collection ID");
 				$CollectionId = isset($comeback['data']->collection_id) ? $comeback['data']->collection_id : '';
+
 				if(empty($CollectionId) || $CollectionId == ""){
-				$field_array = array();
-				$img_src = ($collection->image == '') ? '' : $collection->image->src;     
-				$field_array = array(
-					'`collection_id`' => $collection->id,
-					'`title`' => $collection->title,
-					'`image`' =>$img_src,
-					'`description`' =>str_replace("'", "\'",$collection->body_html),
-					'`handle`' =>$collection->handle,
-					'`store_user_id`' => $store_user_id,
-					'`created_at`' => date('Y-m-d H:i:s'),
-					'`updated_at`' => date('Y-m-d H:i:s'),
-				);
-				generate_log('collection_create-webhook', json_encode(array($field_array)));
-				$sql_prod_id = $cls_functions->post_data(TABLE_COLLECTION_MASTER, array($field_array));
-				generate_log('collection_create-webhook', json_encode($sql_prod_id));
+					$field_array = array();
+					$img_src = ($collection->image == '') ? '' : $collection->image->src;     
+					$field_array = array(
+						'`collection_id`' => $collection->id,
+						'`title`' => $collection->title,
+						'`image`' =>$img_src,
+						'`description`' =>str_replace("'", "\'",$collection->body_html),
+						'`handle`' =>$collection->handle,
+						'`store_user_id`' => $store_user_id,
+						'`created_at`' => date('Y-m-d H:i:s'),
+						'`updated_at`' => date('Y-m-d H:i:s'),
+					);
+					$sql_prod_id = $cls_functions->post_data(TABLE_COLLECTION_MASTER, array($field_array));
 				}
 			}
     }
