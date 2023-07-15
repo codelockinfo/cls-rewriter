@@ -38,6 +38,7 @@ if($verified == true){
 			$productid = isset($product->id) ? $product->id : '';
 			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
 			generate_log('product_create-webhook', json_encode($shopinfo) . "  ARRAY SHOPINFO"); 
+			generate_log('product_create-webhook', json_encode($shopinfo["store_user_id"]) . " CHECOK OBJECT ARRAY SHOPINFO"); 
 			generate_log('product_create-webhook', json_encode($shopinfo->store_user_id) . "  STORE USER ID"); 
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
 			generate_log('product_create-webhook', json_encode($comeback['data'])   . "product DATA");
