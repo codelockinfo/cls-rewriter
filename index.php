@@ -27,7 +27,12 @@ $__webhook_arr = array(
     'collections/update',
     'collections/delete'
 );
-
+$where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_API_KEY"]);
+$comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+$CLS_API_KEY = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+$wherequery = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
+$comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$wherequery);
+$SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
 generate_log('URL_TRACKING', "STEP 1");
 if ($_GET['shop'] != "") {
     generate_log('URL_TRACKING', "GET SHOP");
@@ -38,7 +43,7 @@ if ($_GET['shop'] != "") {
     }
     if (isset($_GET['code'])) {
          generate_log('location', json_encode($_GET) . "GET SHOP");
-        $shopifyClient = new ShopifyClient($_GET['shop'], "", CLS_SHOPIFY_API_KEY, SHOPIFY_SECRET);
+        $shopifyClient = new ShopifyClient($_GET['shop'], "", $CLS_API_KEY, $SHOPIFY_SECRET);
         $password = $shopifyClient->getEntrypassword($_GET['code']);
         $shop = $_GET['shop'];
         $where_query = array(["", "shop_name", "=", "$shop"],["AND", "status", "=", "1"]);
@@ -56,8 +61,8 @@ if ($_GET['shop'] != "") {
              $shopuinfo = json_decode($shopuinfo['response']);
             
             $path = '/admin/api/2021-07/webhooks.json';
-            $store_password = md5(SHOPIFY_SECRET . $password);
-            $baseurl = "https://" . CLS_SHOPIFY_API_KEY . ":" . $password . "@" . $shop . "/";
+            $store_password = md5($SHOPIFY_SECRET . $password);
+            $baseurl = "https://" . $CLS_API_KEY . ":" . $password . "@" . $shop . "/";
             $shopify_url = $baseurl . ltrim($path, '/');
             if (!empty($__webhook_arr)) {
                 
@@ -103,7 +108,7 @@ if ($_GET['shop'] != "") {
             generate_log('location', 'Location: ' . SITE_CLIENT_URL . '?store=' . $shop);
             // header('Location: ' . SITE_CLIENT_URL . '?store=' . $shop);
             
-            header('Location: https://' . $shop . '/admin/apps/' . CLS_SHOPIFY_API_KEY);
+            header('Location: https://' . $shop . '/admin/apps/' . $CLS_API_KEY);
             exit;
         }
     } else {
@@ -117,7 +122,7 @@ if ($_GET['shop'] != "") {
             generate_log('Location: ' . SITE_CLIENT_URL . '?store=' . $shop    . "install - uninstall location");
             header('Location: ' . SITE_CLIENT_URL . '?store=' . $shop);
         } else {
-            $install_url = "https://" . $shop . "/admin/oauth/authorize?client_id=" . CLS_SHOPIFY_API_KEY . "&scope=" . urlencode(SHOPIFY_SCOPE) . "&redirect_uri=" . urlencode(SITE_PATH);
+            $install_url = "https://" . $shop . "/admin/oauth/authorize?client_id=" . $CLS_API_KEY . "&scope=" . urlencode(SHOPIFY_SCOPE) . "&redirect_uri=" . urlencode(SITE_PATH);
             header("Location: " . $install_url);
             exit;
         }

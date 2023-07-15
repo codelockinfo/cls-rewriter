@@ -40,7 +40,10 @@ class Client_functions extends common_function {
         $shopify_url_array = array_merge(array('/admin/' . CLS_API_VERSIION), $shopify_api_name_arr);
         $shopify_main_url = implode('/', $shopify_url_array) . '.json';
 //           generate_log("collection",$shopify_main_url  . "url");
-        $shopify_data_list = cls_api_call(CLS_API_KEY, $password, $store_name, $shopify_main_url, $shopify_url_param_array, $type);
+        $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_API_KEY"]);
+        $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+        $CLS_API_KEY = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+        $shopify_data_list = cls_api_call($CLS_API_KEY, $password, $store_name, $shopify_main_url, $shopify_url_param_array, $type);
         
         if ($shopify_is_object) {
             return json_decode($shopify_data_list['response']);
@@ -1410,7 +1413,7 @@ function chatgpt_req_res(){
             $chatGPT_Prerequest = (isset($_POST['chatGPT_Prerequest']) && $_POST['chatGPT_Prerequest'] !== '') ? $_POST['chatGPT_Prerequest'] : '';
             $chatgptreq = (isset($_POST['chatgptreq']) && $_POST['chatgptreq'] != '' )  ? $_POST['chatgptreq'] : $error_array["chatgpt"] = 'Please Enter Request';
             if (empty($error_array)) {
-                $where_query = array(["", "status", "=", "1"]);
+                $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "ChatGPT"]);
                 $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
                 $apikey = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
                 $url = 'https://api.openai.com/v1/chat/completions';
@@ -1453,7 +1456,7 @@ function chatgpt_req_res(){
                         $to = "codelockinfo@gmail.com";	
                         $subject="Rewriter App - ".$store; 
                         
-                        $headers ="From:". $email ." \r\n";
+                        $headers ="From:". $shopinfo->email ." \r\n";
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                         $flgchk = mail ($to, $subject, $message, $headers);	

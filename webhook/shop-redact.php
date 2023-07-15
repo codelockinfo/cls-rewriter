@@ -7,13 +7,15 @@ generate_log('shop-redact-webhook' , json_encode($_SERVER));
 $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 $user_obj = new Client_functions($shop);
 
-
-define('CLIENT_SECRET', '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');
+$where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
+$comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+$SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+// define('CLIENT_SECRET', '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');
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 
 function verify_webhook($data, $hmac_header)
 {
-  $calculated_hmac = base64_encode(hash_hmac('sha256', $data, CLIENT_SECRET, true));
+  $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
   generate_log('shop-redact-webhook' , $calculated_hmac . "calculated_hmac"); 
   return hash_equals($calculated_hmac, $hmac_header);
 }

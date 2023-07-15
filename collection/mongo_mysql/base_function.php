@@ -1036,7 +1036,10 @@ class base_function {
         return $this->query($sql);
     }
       public function verify_webhook($data, $hmac_header) {
-        $calculated_hmac = base64_encode(hash_hmac('sha256', $data, SHOPIFY_SECRET, true));
+        $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
+        $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+        $SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+        $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
         generate_log('testingwebhook ', json_encode($calculated_hmac) . " calculated_hmac");
         return ($hmac_header == $calculated_hmac);
     }
