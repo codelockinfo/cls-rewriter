@@ -160,6 +160,7 @@ class base_function {
     }
     function cls_recurring_application_charge($shop, $array) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $store_user_id = $shopinfo->store_user_id;
         $recurring_application_charge = cls_shopify_call($shopinfo->password, $shopinfo->store_name, "/admin/recurring_application_charges.json", $array, 'POST');
         $recurring_application_charge = json_decode($recurring_application_charge['response']);
@@ -168,6 +169,7 @@ class base_function {
     function charge_activate($cls_price_id) {
         $flg = 0;
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $store_user_id = $shopinfo->store_user_id;
         $charge = cls_shopify_call($shopinfo->password, $shopinfo->store_name, "/admin/recurring_application_charges/{$cls_price_id}.json", array(), 'GET');
         $charge = json_decode($charge['response']);
@@ -650,6 +652,7 @@ class base_function {
             $comeback = array("data" => true);
             
             $shopinfo = $this->current_store_obj;
+            $shopinfo = (object)$shopinfo;
             $login_user_id = isset($shopinfo->store_user_id) ? $shopinfo->store_user_id : '0';
             $table_name = $_POST['table_name'];
             $field_name = $this->get_primary_field($table_name);
@@ -769,6 +772,7 @@ class base_function {
     }
      public function take_table_listing_data($table_id, $limit, $offset, $search_word = NULL, $select_seller = NULL) {
          $shopinfo = $this->current_store_obj;
+         $shopinfo = (object)$shopinfo;
         $select_array = array();
         $seller_cond_str = '';
         $select_array_customer = array();
@@ -1036,9 +1040,9 @@ class base_function {
         return $this->query($sql);
     }
       public function verify_webhook($data, $hmac_header) {
-        $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
+        $where_query = array(["", "status", "=", "1"]);
         $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-        $SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+        $SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
         $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
         generate_log('testingwebhook ', json_encode($calculated_hmac) . " calculated_hmac");
         return ($hmac_header == $calculated_hmac);

@@ -35,16 +35,15 @@ class Client_functions extends common_function {
 
     function cls_get_shopify_list($shopify_api_name_arr = array(), $shopify_url_param_array = [], $type = '', $shopify_is_object = 1) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $store_name = $shopinfo->shop_name;
         $password = $shopinfo->password;
         $shopify_url_array = array_merge(array('/admin/' . CLS_API_VERSIION), $shopify_api_name_arr);
         $shopify_main_url = implode('/', $shopify_url_array) . '.json';
-//           generate_log("collection",$shopify_main_url  . "url");
-        $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_API_KEY"]);
+        $where_query = array(["", "status", "=", "1"]);
         $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-        $CLS_API_KEY = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+        $CLS_API_KEY = (isset($comeback['data'][1]['thirdparty_apikey']) && $comeback['data'][1]['thirdparty_apikey'] !== '') ? $comeback['data'][1]['thirdparty_apikey'] : '';
         $shopify_data_list = cls_api_call($CLS_API_KEY, $password, $store_name, $shopify_main_url, $shopify_url_param_array, $type);
-        
         if ($shopify_is_object) {
             return json_decode($shopify_data_list['response']);
         } else {
@@ -57,6 +56,7 @@ class Client_functions extends common_function {
         if (isset($_POST['store']) && $_POST['store'] != '' && isset($_POST['shopify_api'])) {
             $shopify_api = $_POST['shopify_api'];
             $shopinfo = $this->current_store_obj;
+            $shopinfo = (object)$shopinfo;
             $pages = defined('PAGE_PER') ? PAGE_PER : 10;
             $limit = isset($_POST['limit']) ? $_POST['limit'] : $pages;
             $page_no = isset($_POST['pageno']) ? $_POST['pageno'] : '1';
@@ -94,6 +94,7 @@ class Client_functions extends common_function {
     function make_api_data_collectionData($api_data_list) {
 
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="5"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Data not found</p></center></td></tr>';
         $prifix = '<td>';
         $sufix = '</td>';
@@ -143,6 +144,7 @@ class Client_functions extends common_function {
 
     function make_api_data_orderData($api_data_list) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="5"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Data not found</p></center></td></tr>';
         $prifix = '<td>';
         $sufix = '</td>';
@@ -197,6 +199,7 @@ class Client_functions extends common_function {
         $items = count($api_data_list->order->line_items);
         $payment_html = $product_html = $table_html = $customer_html = '';
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $return_arary = array();
         $table_html .= '<div class="Polaris-Stack">
                         <div class="Polaris-Stack__Item"><span class="Polaris-Badge">' . $api_data_list->order->financial_status . '</span></div>
@@ -298,6 +301,7 @@ class Client_functions extends common_function {
 
     function make_api_data_productData($api_data_list) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="5"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Data not found</p></center></td></tr>';
         $prifix = '<td>';
         $sufix = '</td>';
@@ -349,6 +353,7 @@ class Client_functions extends common_function {
 
     function make_api_data_pagesData($api_data_list) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="5"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Data not found</p></center></td></tr>';
         $prifix = '<td>';
         $sufix = '</td>';
@@ -399,6 +404,7 @@ class Client_functions extends common_function {
 
     function allbutton_details() {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $comeback = array('result' => 'fail', 'msg' => CLS_SOMETHING_WENT_WRONG);
         if (isset($_POST["for_data"]) && $_POST["for_data"] == "blogpost") {
             $id = isset($_POST['blogpost_id']) ? $_POST['blogpost_id'] : '';
@@ -502,10 +508,8 @@ class Client_functions extends common_function {
                 $comeback = array("data" => true);
             } else {
                 $api_fields = array('custom_collection' => array('id' => $_POST['collection_id'], 'title' => $_POST["title"], 'body_html' => $_POST["description"]));
-//                   generate_log("collection",json_encode($api_fields)  . "    api_fields");
                 $main_api = array("api_name" => "custom_collections", 'id' => $_POST['collection_id']);
                 $set_position = $this->cls_get_shopify_list($main_api, $api_fields, 'PUT', 1, array("Content-Type: application/json"));
-//                   generate_log("collection",json_encode($set_position) ."put api collection");
                 if (!empty($set_position)) {
                     $fields = array(
                         'title' => $_POST['title'],
@@ -515,7 +519,6 @@ class Client_functions extends common_function {
                         ["", "collection_id", "=", $id],
                     );
                     $comeback = $this->put_data(TABLE_COLLECTION_MASTER, $fields, $where_query);
-//                       generate_log("collection",json_encode($comeback));
                 }
                 $comeback = array("data" => true, "for_data" => 'collections');
             }
@@ -539,7 +542,6 @@ class Client_functions extends common_function {
                     );
                     generate_log('product_master', json_encode($fields_arr));
                     $comeback = $this->post_data(TABLE_PRODUCT_MASTER, array($fields_arr));
-//                    generate_log('product_update', json_encode($comeback));
                     $comeback = array("data" => true);
                     
                 }
@@ -567,13 +569,16 @@ class Client_functions extends common_function {
 
     function blogpost_select() {
         $comeback = array('result' => 'fail', 'msg' => CLS_SOMETHING_WENT_WRONG);
+        $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $id = isset($_POST['id']) ? $_POST['id'] : '';
-        $where_query_arr = array(["", "blogpost_id", "=", "$id"]);
+        $where_query_arr = array(["", "blogpost_id", "=", "$id"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
         $comeback = $this->select_result(TABLE_BLOGPOST_MASTER, '*', $where_query_arr);
+        
         if (!empty($comeback)) {
-            $description = isset($comeback['data']->description) ? $comeback['data']->description : '';
-            $title = isset($comeback['data']->title) ? $comeback['data']->title : '';
-            $image = (isset($comeback['data']->image) && $comeback['data']->image != '') ? $comeback['data']->image : CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE;
+            $description = isset($comeback['data'][0]['description']) ? $comeback['data'][0]['description'] : '';
+            $title = isset($comeback['data'][0]['title']) ? $comeback['data'][0]['title'] : '';
+            $image = (isset($comeback['data'][0]['image']) && $comeback['data'][0]['image'] != '') ? $comeback['data'][0]['image'] : CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE;
             $return_arary["description"] = $description;
             $return_arary["title"] = $title;
             $return_arary["image"] = $image;
@@ -584,13 +589,14 @@ class Client_functions extends common_function {
 
     function page_select() {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $comeback = array('result' => 'fail', 'msg' => CLS_SOMETHING_WENT_WRONG);
         $id = isset($_POST['id']) ? $_POST['id'] : '';
-        $where_query_arr = array(["", "page_id", "=", "$id"]);
+        $where_query_arr = array(["", "page_id", "=", "$id"],["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
         $comeback = $this->select_result(TABLE_PAGE_MASTER, '*', $where_query_arr);
         if (!empty($comeback)) {
-            $description = isset($comeback['data']->description) ? $comeback['data']->description : '';
-            $title = isset($comeback['data']->title) ? $comeback['data']->title : '';
+            $description = isset($comeback['data'][0]['description']) ? $comeback['data'][0]['description'] : '';
+            $title = isset($comeback['data'][0]['title']) ? $comeback['data'][0]['title'] : '';
             $return_arary["description"] = $description;
             $return_arary["title"] = $title;
             $comeback = array("outcome" => "true", "data" => $return_arary);
@@ -600,13 +606,15 @@ class Client_functions extends common_function {
 
     function collection_select() {
         $comeback = array('result' => 'fail', 'msg' => CLS_SOMETHING_WENT_WRONG);
+        $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $id = isset($_POST['id']) ? $_POST['id'] : '';
-        $where_query_arr = array(["", "collection_id", "=", "$id"]);
+        $where_query_arr = array(["", "collection_id", "=", "$id"],["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
         $comeback = $this->select_result(TABLE_COLLECTION_MASTER, '*', $where_query_arr);
         if (!empty($comeback)) {
-            $description = isset($comeback['data']->description) ? $comeback['data']->description : '';
-            $image = (isset($comeback['data']->image) && $comeback['data']->image != '') ? $comeback['data']->image : CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE;
-            $title = isset($comeback['data']->title) ? $comeback['data']->title : '';
+            $description = isset($comeback['data'][0]['description']) ? $comeback['data'][0]['description'] : '';
+            $title = isset($comeback['data'][0]['title']) ? $comeback['data'][0]['title'] : '';
+            $image = (isset($comeback['data'][0]['image']) && $comeback['data'][0]['image'] != '') ? $comeback['data'][0]['image'] : CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE;
             $return_arary["description"] = $description;
             $return_arary["title"] = $title;
             $return_arary["image"] = $image;
@@ -617,13 +625,15 @@ class Client_functions extends common_function {
 
     function product_select() {
         $comeback = array('result' => 'fail', 'msg' => CLS_SOMETHING_WENT_WRONG);
+        $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $product_id = isset($_POST['id']) ? $_POST['id'] : '';
         $where_query_arr = array(["", "product_id", "=", "$product_id"]);
         $comeback = $this->select_result(TABLE_PRODUCT_MASTER, '*', $where_query_arr);
         if (!empty($comeback)) {
-            $description = isset($comeback['data']->description) ? $comeback['data']->description : '';
-            $image = (isset($comeback['data']->image) && $comeback['data']->image != '') ? $comeback['data']->image : CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE;
-            $title = isset($comeback['data']->title) ? $comeback['data']->title : '';
+            $description = isset($comeback['data'][0]['description']) ? $comeback['data'][0]['description'] : '';
+            $title = isset($comeback['data'][0]['title']) ? $comeback['data'][0]['title'] : '';
+            $image = (isset($comeback['data'][0]['image']) && $comeback['data'][0]['image'] != '') ? $comeback['data'][0]['image'] : CLS_SITE_URL . '/assets/images/' . CLS_NO_IMAGE;
             $return_arary["description"] = $description;
             $return_arary["image"] = $image;
             $return_arary["title"] = $title;
@@ -634,6 +644,7 @@ class Client_functions extends common_function {
 
     function make_api_data_blogpostData($api_data_list) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="5"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Data not found</p></center></td></tr>';
         $prifix = '<td>';
         $sufix = '</td>';
@@ -685,6 +696,7 @@ class Client_functions extends common_function {
 
     function get_store_article() {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $shopify_api = array("api_name" => $_POST['shopify_api']);
         $data_blog = $this->cls_get_shopify_list($shopify_api, '', 'GET');
         $total_record_blog = count($data_blog->articles);
@@ -694,7 +706,7 @@ class Client_functions extends common_function {
             $where_query = array(["", "blogpost_id", "=", "$article->id"],["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
             $options_arr = array('single' => true);
             $comeback = $this->select_result(TABLE_BLOGPOST_MASTER, $fields, $where_query, $options_arr);
-            if (isset($comeback["data"]->blogpost_id) && $comeback["data"]->blogpost_id == $article->id) {
+            if (isset($comeback["data"]['blogpost_id']) && $comeback["data"]['blogpost_id'] == $article->id) {
                 $response = array("data" => true,
                     "total_record_blog" => intval($total_record_blog),
                 );
@@ -726,6 +738,7 @@ class Client_functions extends common_function {
     }
     function get_store_blog(){
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $shopify_api = array("api_name" => "blogs");
         $data_blogs = $this->cls_get_shopify_list($shopify_api, '', 'GET');
         $total_record_blog = count($data_blogs->blogs);
@@ -735,7 +748,7 @@ class Client_functions extends common_function {
             $where_query = array(["", "blog_id", "=", "$blogs->id"]);
             $options_arr = array('single' => true);
             $comeback = $this->select_result(TABLE_BLOG_MASTER, $fields, $where_query, $options_arr);
-            if (isset($comeback["data"]->blog_id) && $comeback["data"]->blog_id == $blogs->id) {
+            if (isset($comeback["data"]['blog_id']) && $comeback["data"]['blog_id'] == $blogs->id) {
                 $response = array("data" => true,
                     "total_record_blog" => intval($total_record_blog),
                 );
@@ -765,6 +778,7 @@ class Client_functions extends common_function {
         $response = array('result' => 'fail', 'msg' => __('Something went wrong'));
         if (isset($_POST['store']) && $_POST['store'] != '') {
             $shopinfo = $this->current_store_obj;
+            $shopinfo = (object)$shopinfo;
             $per_page = defined('CLS_PAGE_PER') ? CLS_PAGE_PER : 10;
             $limit = isset($_POST['limit']) ? $_POST['limit'] : $per_page;
             $pageno = isset($_POST['pageno']) ? $_POST['pageno'] : '1';
@@ -793,7 +807,8 @@ class Client_functions extends common_function {
     }
 
     function make_table_data_collectionData($table_data_arr, $pageno, $table_name) {
-$shopinfo = $this->current_store_obj;
+        $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $total_record = $table_data_arr->num_rows;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="7"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Records not found</p></center></td></tr>';
         if ($table_data_arr->num_rows > 0) {
@@ -859,6 +874,7 @@ $shopinfo = $this->current_store_obj;
 
     function get_store_collection() {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $shopify_api = array("api_name" => $_POST['shopify_api']);
         $data_collection = $this->cls_get_shopify_list($shopify_api, '', 'GET');
         $total_record_collection = count($data_collection->custom_collections);
@@ -868,8 +884,7 @@ $shopinfo = $this->current_store_obj;
             $where_query = array(["", "collection_id", "=", "$collection->id"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
             $options_arr = array('single' => true);
             $comeback = $this->select_result(TABLE_COLLECTION_MASTER, $fields, $where_query, $options_arr);
-
-            if (isset($comeback["data"]->collection_id) && $comeback["data"]->collection_id == $collection->id) {
+            if (isset($comeback["data"]['collection_id']) && $comeback["data"]['collection_id'] == $collection->id) {
                 $response = array("data" => true, "total_record_collection" => intval($total_record_collection));
                 continue;
             }
@@ -897,6 +912,7 @@ $shopinfo = $this->current_store_obj;
 
    function make_table_data_blogpostData($table_data_arr, $pageno, $table_name) {
      $shopinfo = $this->current_store_obj;
+     $shopinfo = (object)$shopinfo;
         $total_record = $table_data_arr->num_rows;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="7"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Records not found</p></center></td></tr>';
         if ($table_data_arr->num_rows > 0) {
@@ -972,6 +988,7 @@ $shopinfo = $this->current_store_obj;
 
     function get_store_pages() {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $shopify_api = array("api_name" => $_POST['shopify_api']);
         $data_pages = $this->cls_get_shopify_list($shopify_api, '', 'GET');
         $total_record_pages = count($data_pages->pages);
@@ -981,7 +998,7 @@ $shopinfo = $this->current_store_obj;
             $where_query = array(["", "page_id", "=", "$pages->id"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
             $options_arr = array('single' => true);
             $comeback = $this->select_result(TABLE_PAGE_MASTER, $fields, $where_query, $options_arr);
-            if (isset($comeback["data"]->page_id) && $comeback["data"]->page_id == $pages->id) {
+            if (isset($comeback["data"]['page_id']) && $comeback["data"]['page_id'] == $pages->id) {
                 $response = array("data" => true, "total_record_pages" => intval($total_record_pages));
                 continue;
             }
@@ -1010,6 +1027,7 @@ $shopinfo = $this->current_store_obj;
 
     function make_table_data_pagesData($table_data_arr, $pageno, $table_name) {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $total_record = $table_data_arr->num_rows;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="7"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Records not found</p></center></td></tr>';
         if ($table_data_arr->num_rows > 0) {
@@ -1075,6 +1093,7 @@ $shopinfo = $this->current_store_obj;
 
     function get_store_product() {
         $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $shopify_api = array("api_name" => $_POST['shopify_api']);
         $data_pages = $this->cls_get_shopify_list($shopify_api, '', 'GET');
         $total_record_product = count($data_pages->products);
@@ -1088,7 +1107,7 @@ $shopinfo = $this->current_store_obj;
             foreach ($product->variants as $i => $variants) {
                 $main_price = ($variants->position == "1") ? $variants->price : "";
             }
-            if (isset($comeback["data"]->product_id) && $comeback["data"]->product_id == $product->id) {
+            if (isset($comeback["data"]['product_id']) && $comeback["data"]['product_id'] == $product->id) {
                 $response = array("data" => true, "total_record_product" => intval($total_record_product));
                 continue;
             }
@@ -1120,7 +1139,8 @@ $shopinfo = $this->current_store_obj;
     }
 
     function make_table_data_productData($table_data_arr, $pageno, $table_name) {
-  $shopinfo = $this->current_store_obj;
+        $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $total_record = $table_data_arr->num_rows;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="7"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Records not found</p></center></td></tr>';
         if ($table_data_arr->num_rows > 0) {
@@ -1189,6 +1209,7 @@ $shopinfo = $this->current_store_obj;
             }
             if (empty($error_array)) {
                 $shopinfo = $this->current_store_obj;
+                $shopinfo = (object)$shopinfo;
                 $image_path = explode(",", $_POST['images']);
                 $api_fields = array('article' => array('title' => $_POST["title"], 'body_html' => $_POST["description"]));
                 if (isset($_FILES['upload_file']['name']) && $_FILES['upload_file']['name'] != "") {
@@ -1230,6 +1251,7 @@ $shopinfo = $this->current_store_obj;
             }
             if (empty($error_array)) {
                 $shopinfo = $this->current_store_obj;
+                $shopinfo = (object)$shopinfo;
                 $image_path = explode(",", $_POST['images']);
                 $api_fields = array('product' => array('title' => $_POST["title"], 'body_html' => $_POST["description"]));
                 
@@ -1276,6 +1298,7 @@ $shopinfo = $this->current_store_obj;
             }
             if (empty($error_array)) {
                 $shopinfo = $this->current_store_obj;
+                $shopinfo = (object)$shopinfo;
                 $api_fields = array('page' => array('title' => $_POST["title"], 'body_html' => $_POST["description"], 'author' => $_POST["store"]));
                 $api_articles = array("api_name" => "pages");
                 $set_position = $this->cls_get_shopify_list($api_articles, $api_fields, 'POST', 1, array("Content-Type: application/json"));
@@ -1309,7 +1332,7 @@ $shopinfo = $this->current_store_obj;
             }
             if (empty($error_array)) {
                 $shopinfo = $this->current_store_obj;
-
+                $shopinfo = (object)$shopinfo;
                 if (isset($_FILES['upload_file']['name']) && ($_FILES['upload_file']['name'] != "")) {
                     $image_path = explode(",", $_POST['images']);
                     $api_fields = array("custom_collection" => array("title" => $_POST["title"], "body_html" => $_POST["description"], "image" => array("attachment" => trim(end($image_path)))));
@@ -1409,13 +1432,14 @@ function chatgpt_req_res(){
         if (isset($_POST['store']) && $_POST['store'] != '') {
             $error_array = array();
             $shopinfo = $this->current_store_obj;
+            $shopinfo = (object)$shopinfo;
             $store= $_POST['store'];
             $chatGPT_Prerequest = (isset($_POST['chatGPT_Prerequest']) && $_POST['chatGPT_Prerequest'] !== '') ? $_POST['chatGPT_Prerequest'] : '';
             $chatgptreq = (isset($_POST['chatgptreq']) && $_POST['chatgptreq'] != '' )  ? $_POST['chatgptreq'] : $error_array["chatgpt"] = 'Please Enter Request';
             if (empty($error_array)) {
                 $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "ChatGPT"]);
                 $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-                $apikey = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
+                $apikey = (isset($comeback['data'][0]['thirdparty_apikey']) && $comeback['data'][0]['thirdparty_apikey'] !== '') ? $comeback['data'][0]['thirdparty_apikey'] : '';
                 $url = 'https://api.openai.com/v1/chat/completions';
                 $data = array(
                     'model' => 'gpt-3.5-turbo', // Specify the model to use
