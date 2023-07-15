@@ -22,7 +22,6 @@ $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header,$cls_functions);
 $topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
 
-
 if($verified == true){
     if( $topic_header == "products/update" ) {
         $product = json_decode($data);
@@ -32,19 +31,17 @@ if($verified == true){
 				$p_id = '';
 				foreach ($product->variants as $i => $variants) {
 					  $main_price = ($variants->price != '') ? $variants->price : "";
-				  }
+				}
 				$img_src = ($product->image == '') ? '' : $product->image->src;  
 				$fields = array(
-							  '`title`' => $product->title,
-							  '`image`' =>$img_src,
-							  '`description`' =>str_replace("'", "\'",$product->body_html),
-							  '`price`' =>$main_price,
-							  '`vendor`' =>$product->vendor,
-							  '`handle`' =>$product->handle,
-						  );
-						  $where_query = array(
-							  ["", "product_id", "=", $product->id],
-						  );
+					'`title`' => $product->title,
+					'`image`' =>$img_src,
+					'`description`' =>str_replace("'", "\'",$product->body_html),
+					'`price`' =>$main_price,
+					'`vendor`' =>$product->vendor,
+					'`handle`' =>$product->handle,
+				);
+				$where_query = array(["", "product_id", "=", $product->id]);
 						  $comeback = $cls_functions->put_data(TABLE_PRODUCT_MASTER, $fields, $where_query);
 			}
     }
