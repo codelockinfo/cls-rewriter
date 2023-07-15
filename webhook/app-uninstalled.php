@@ -2,7 +2,12 @@
 include_once '../append/connection.php';
 include_once ABS_PATH . '/user/cls_functions.php';
 require_once '../cls_shopifyapps/config.php';
-$cls_functions = new Client_functions($_GET['store']);
+
+$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
+$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
+$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+
+$cls_functions = new Client_functions($shop);
 
 function verify_webhook($data, $hmac_header, $cls_functions)
 {
@@ -14,7 +19,6 @@ function verify_webhook($data, $hmac_header, $cls_functions)
     return hash_equals($hmac_header, $calculated_hmac);
 }
 
-$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
 generate_log('uninstall-webhook' , json_encode($verified) . "     VERIFIED"); //check error.log to see the result
@@ -26,9 +30,6 @@ generate_log('uninstall-webhook' , var_export($verified, true)); //check error.l
 //     return hash_equals($hmac_header, $calculated_hmac);
 //     // return ($hmac_header == $calculated_hmac);
 // }
-$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
-generate_log('uninstall-webhook', $topic_header . "TOPIC");
-$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 // $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 // generate_log('testingwebhook', $hmac_header . "  hmac_header ");
 // $datas = file_get_contents('php://input');
@@ -46,9 +47,7 @@ if($verified == true){
             'is_demand_accept' => '0'
         );
         $where_query = array(["", "shop_name", "=",$shop]);
-        generate_log('uninstall-webhook', json_encode($where_query) . "were  result");
         $data =  $cls_functions->put_data(TABLE_USER_SHOP, $fields, $where_query);
-        generate_log('uninstall-webhook', $data);
     }
     else {
         echo "Access Denied";
