@@ -8,9 +8,9 @@ generate_log('uninstall-webhook', "STEP3");
 $cls_functions = new Client_functions($_GET['store']);
 generate_log('uninstall-webhook', "STEP4");
 
-
 function verify_webhook($data, $hmac_header)
 {
+    generate_log('uninstall-webhook' , " verify webhook function calling ");
     $where_query = array(["", "status", "=", "1"]);
     $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
     $SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
@@ -18,8 +18,8 @@ function verify_webhook($data, $hmac_header)
     return hash_equals($hmac_header, $calculated_hmac);
 }
 
-
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+generate_log('uninstall-webhook', $hmac_header . "   HMAC");
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header);
 generate_log('uninstall-webhook' , var_export($verified, true)); //check error.log to see the result
@@ -42,7 +42,7 @@ $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 
 
 if($verified == true){
-   generate_log('testingwebhook', json_encode($verified) . "  verified"); 
+   generate_log('uninstall-webhook', json_encode($verified) . "  verified"); 
     if( $topic_header == "app/uninstalled" ) {
         $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
         $fields = array(
