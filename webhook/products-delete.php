@@ -4,8 +4,12 @@ $__multiLanguageNotNeeded = TRUE ;
 include_once '../append/connection.php';
 include_once ABS_PATH . '/user/cls_functions.php';
 require_once '../cls_shopifyapps/config.php';
-$cls_functions = new Client_functions($_GET['store']);
- 
+
+$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
+$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
+$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+
+$cls_functions = new Client_functions($shop);
 
 function verify_webhook($data, $hmac_header, $cls_functions)
 {
@@ -16,18 +20,15 @@ function verify_webhook($data, $hmac_header, $cls_functions)
   return hash_equals($hmac_header, $calculated_hmac);
 }
 
-$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
 $product = json_decode($data);
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
-$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
-$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 
 
 if($verified == true){
     if( $topic_header == "products/delete" ) {
-        
         $shopinfo = $cls_functions->get_store_detail_obj();
+        generate_log('product_delete-webhook', json_encode($shopinfo) . " SHOPIFY INFO");
         $where_query = array(['', 'product_id', '=', $product->id, ' ', 'store_user_id', '=', $shopinfo->store_user_id]);
         $data = $cls_functions->delete_data(TABLE_PRODUCT_MASTER, $where_query);
         generate_log('product_delete-webhook', json_encode($data) . " data");
