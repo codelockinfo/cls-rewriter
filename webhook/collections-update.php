@@ -23,16 +23,12 @@ function verify_webhook($data, $hmac_header, $cls_functions)
 }
 
 
-generate_log('collection_update-webhook ' , $hmac_header . "   hmac_header"); 
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
-generate_log('collection_update-webhook' , var_export($verified, true)); //check error.log to see the result
-
 
 if($verified == true){
-   generate_log('collection_update-webhook', json_encode($verified) . "  verified"); 
     if( $topic_header == "collections/update" ) {
-		$collection = json_decode($collection_update);
+		$collection = json_decode($data);
 		generate_log('collection_update-webhook', json_encode($collection));
 		if(!empty($collection) && isset($collection->id)){
 			$field_array = array();
