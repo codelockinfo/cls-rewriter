@@ -10,11 +10,8 @@ function verify_webhook($data, $hmac_header, $cls_functions)
 {   
 	generate_log('product_update-webhook',  "  verified webhook calling"); 
 	$where_query = array(["", "status", "=", "1"]);
-	generate_log('product_update-webhook', CLS_TABLE_THIRDPARTY_APIKEY."  COMEBACK"); 
 	$comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-	generate_log('product_update-webhook', json_encode($comeback) . "  COMEBACK"); 
 	$SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
-	generate_log('product_update-webhook', json_encode($SHOPIFY_SECRET) . "  SHOPIFY_SECRET"); 
 	$calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET , true));
 	return hash_equals($hmac_header, $calculated_hmac);
 }
