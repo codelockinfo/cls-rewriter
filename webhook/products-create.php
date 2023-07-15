@@ -36,10 +36,8 @@ if($verified == true){
         if(!empty($product)){
 			$shopinfo = $cls_functions->get_store_detail_obj();
 			$productid = isset($product->id) ? $product->id : '';
-			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
-			generate_log('product_create-webhook', json_encode($shopinfo) . "  ARRAY SHOPINFO"); 
-			generate_log('product_create-webhook', json_encode($shopinfo["store_user_id"]) . " CHECOK OBJECT ARRAY SHOPINFO"); 
-			generate_log('product_create-webhook', json_encode($shopinfo->store_user_id) . "  STORE USER ID"); 
+			$store_user_id = $shopinfo["store_user_id"];
+			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$store_user_id"]);
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
 			generate_log('product_create-webhook', json_encode($comeback['data'])   . "product DATA");
 			generate_log('product_create-webhook', json_encode($comeback['data']->product_id)   . "DATA  product ID");
@@ -60,13 +58,13 @@ if($verified == true){
 				'`handle`' =>$product->handle,
 				'`price`' =>$main_price,
 				'`vendor`' =>$product->vendor,
-				'`store_user_id`' => $shopinfo->store_user_id,
+				'`store_user_id`' => $store_user_id,
 				'`created_at`' => date('Y-m-d H:i:s'),
 				'`updated_at`' => date('Y-m-d H:i:s'),
 			);
-			   generate_log('product_create-webhook', json_encode(array($field_array)));
+			generate_log('product_create-webhook', json_encode(array($field_array)));
 			$sql_prod_id = $cls_functions->post_data(TABLE_PRODUCT_MASTER, array($field_array));
-			 generate_log('product_create-webhook', json_encode($sql_prod_id) . " sql_prod_id");
+			generate_log('product_create-webhook', json_encode($sql_prod_id) . " sql_prod_id");
 		}
 		}
     }
