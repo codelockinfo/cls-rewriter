@@ -5,9 +5,8 @@ include_once '../append/connection.php';
 include_once ABS_PATH . '/user/cls_functions.php';
 require_once '../cls_shopifyapps/config.php';
 $cls_functions = new Client_functions($_GET['store']);
- 
 
-function verify_webhook($data, $hmac_header)
+function verify_webhook($data, $hmac_header, $cls_functions)
 {   
 	generate_log('product_update-webhook',  "  verified webhook calling"); 
 	$where_query = array(["", "status", "=", "1"]);
@@ -22,7 +21,7 @@ function verify_webhook($data, $hmac_header)
 
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
-$verified = verify_webhook($data, $hmac_header);
+$verified = verify_webhook($data, $hmac_header,$cls_functions);
 generate_log('product_update-webhook' , var_export($verified, true)); //check error.log to see the result
 $topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
 $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
