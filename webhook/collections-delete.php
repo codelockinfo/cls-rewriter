@@ -4,8 +4,11 @@ $__multiLanguageNotNeeded = TRUE ;
 include_once '../append/connection.php';
 include_once ABS_PATH . '/user/cls_functions.php';
 require_once '../cls_shopifyapps/config.php';
-$cls_functions = new Client_functions($_GET['store']);
- 
+
+$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
+$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
+$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+$cls_functions = new Client_functions($shop);
 
 function verify_webhook($data, $hmac_header, $cls_functions)
 {
@@ -17,15 +20,9 @@ function verify_webhook($data, $hmac_header, $cls_functions)
 }
 
 
-$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
 generate_log('collection_delete-webhook' , var_export($verified, true)); //check error.log to see the result
-
-
-$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
-$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
-
 
 
 if($verified == true){
@@ -34,7 +31,8 @@ if($verified == true){
 			$collection = json_decode($data);
 			generate_log('collection_delete-webhook', json_encode($collection));
 			$shopinfo = $cls_functions->get_store_detail_obj();
-			$where_query = array(['', 'collection_id', '=', $collection->id, ' ', 'store_user_id', '=', $shopinfo->store_user_id]);
+            $store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : "";
+			$where_query = array(['', 'collection_id', '=', $collection->id, ' ', 'store_user_id', '=', $store_user_id]);
 			$data = $cls_functions->delete_data(TABLE_COLLECTION_MASTER, $where_query);
 			echo $cls_functions->last_query();
     }
