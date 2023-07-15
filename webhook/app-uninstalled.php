@@ -13,7 +13,10 @@ function verify_webhook($data, $hmac_header)
     generate_log('uninstall-webhook' , " verify webhook function calling ");
     $where_query = array(["", "status", "=", "1"]);
     $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+    generate_log('uninstall-webhook' , json_encode($comeback)  ." COMEBACK ");
+    
     $SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
+    generate_log('uninstall-webhook' , $SHOPIFY_SECRET  ." SHOPIFY_SECRET ");
     $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
     generate_log('uninstall-webhook' , $calculated_hmac  ." calculated_hmac ");
     return hash_equals($hmac_header, $calculated_hmac);
