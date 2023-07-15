@@ -1,9 +1,12 @@
 <?php
 include_once '../append/connection.php';
+generate_log('uninstall-webhook', "STEP1");
 include_once ABS_PATH . '/user/cls_functions.php';
+generate_log('uninstall-webhook', "STEP2");
 require_once '../cls_shopifyapps/config.php';
+generate_log('uninstall-webhook', "STEP3");
 $cls_functions = new Client_functions($_GET['store']);
-
+generate_log('uninstall-webhook', "STEP4");
 
 
 function verify_webhook($data, $hmac_header)
