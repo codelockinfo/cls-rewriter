@@ -3,28 +3,25 @@
 include_once '../append/connection.php';
 include_once  ABS_PATH . '/user/cls_functions.php';
 require_once '../cls_shopifyapps/config.php';
-generate_log('shop-redact-webhook' , json_encode($_SERVER));
 $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 $user_obj = new Client_functions($shop);
 
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 
-function verify_webhook($data, $hmac_header)
+function verify_webhook($data, $hmac_header, $cls_functions)
 {
     $where_query = array(["", "status", "=", "1"]);
     $comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
     $SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
     $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
-    generate_log('shop-redact-webhook' , $calculated_hmac . "calculated_hmac"); 
     return hash_equals($calculated_hmac, $hmac_header);
 }
 
 
 
 $data = file_get_contents('php://input');
-$verified = verify_webhook($data, $hmac_header);
+$verified = verify_webhook($data, $hmac_header, $cls_functions);
 generate_log('Webhook verified: '.var_export($verified, true)); 
-generate_log('shop-redact-webhook' , $hmac_header . " hmac_header"); 
 
 
 

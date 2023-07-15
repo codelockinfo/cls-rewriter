@@ -7,7 +7,7 @@ require_once '../cls_shopifyapps/config.php';
 $cls_functions = new Client_functions($_GET['store']);
  
 
-function verify_webhook($data, $hmac_header)
+function verify_webhook($data, $hmac_header, $cls_functions)
 {
 	$where_query = array(["", "status", "=", "1"]);
 	$comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
@@ -22,7 +22,7 @@ generate_log('server_data', json_encode($_SERVER));
 $data = file_get_contents('php://input');
 generate_log('product_create-webhook', json_encode($data) . "  DATA"); 
 $product = json_decode($data);
-$verified = verify_webhook($data, $hmac_header);
+$verified = verify_webhook($data, $hmac_header, $cls_functions);
 generate_log('product_create-webhook' , var_export($verified, true)); //check error.log to see the result
 
 

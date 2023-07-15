@@ -7,7 +7,7 @@ require_once '../cls_shopifyapps/config.php';
 $cls_functions = new Client_functions($_GET['store']);
  
 
-function verify_webhook($data, $hmac_header)
+function verify_webhook($data, $hmac_header, $cls_functions)
 {
     $where_query = array(["", "status", "=", "1"]);
     $comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
@@ -19,7 +19,7 @@ function verify_webhook($data, $hmac_header)
 
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
-$verified = verify_webhook($data, $hmac_header);
+$verified = verify_webhook($data, $hmac_header, $cls_functions);
 generate_log('collection_delete-webhook' , var_export($verified, true)); //check error.log to see the result
 
 

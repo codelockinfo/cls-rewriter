@@ -8,21 +8,19 @@ $cls_functions = new Client_functions($_GET['store']);
  
 
 
-function verify_webhook($data, $hmac_header)
+function verify_webhook($data, $hmac_header, $cls_functions)
 {
 	$where_query = array(["", "status", "=", "1"]);
 	$comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
 	$SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
 	$calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
-	generate_log('collection_create-webhook' , $calculated_hmac . "calculated_hmac"); 
 	return hash_equals($hmac_header, $calculated_hmac);
 }
 
 
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
-generate_log('collection_create-webhook' , $hmac_header . " hmac_header"); 
 $data = file_get_contents('php://input');
-$verified = verify_webhook($data, $hmac_header);
+$verified = verify_webhook($data, $hmac_header, $cls_functions);
 generate_log('collection_create-webhook' , var_export($verified, true)); //check error.log to see the result
 
 
