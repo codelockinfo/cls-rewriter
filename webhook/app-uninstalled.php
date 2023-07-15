@@ -22,6 +22,7 @@ $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 generate_log('uninstall-webhook', $hmac_header . "   HMAC");
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header);
+generate_log('uninstall-webhook' , $verified . "     VERIFIED"); //check error.log to see the result
 generate_log('uninstall-webhook' , var_export($verified, true)); //check error.log to see the result
 
 // function verify_webhook($data, $hmac_header) {
