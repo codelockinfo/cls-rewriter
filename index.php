@@ -13,11 +13,9 @@ if (DB_OBJECT == 'mysql') {
 } else {
     include ABS_PATH . "/collection/mongo_mysql/mongo/common_function.php";
 }
-
 require_once(ABS_PATH . '/cls_shopifyapps/config.php');
 require_once(ABS_PATH . '/cls_shopifyapps/cls_shopify.php');
 require_once(ABS_PATH . '/cls_shopifyapps/cls_shopify_call.php');
-
 $__webhook_arr = array(
     'app/uninstalled',
     'products/create',
@@ -27,16 +25,14 @@ $__webhook_arr = array(
     'collections/update',
     'collections/delete'
 );
-$where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_API_KEY"]);
-$comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-$CLS_API_KEY = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
-$wherequery = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
-$comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$wherequery);
-$SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
 generate_log('URL_TRACKING', "STEP 1");
 if ($_GET['shop'] != "") {
     generate_log('URL_TRACKING', "GET SHOP");
     $cls_functions = new common_function($_GET['shop']);
+    $where_query = array(["", "status", "=", "1"]);
+    $comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+    $CLS_API_KEY = (isset($comeback['data'][1]['thirdparty_apikey']) && $comeback['data'][1]['thirdparty_apikey'] !== '') ? $comeback['data'][1]['thirdparty_apikey'] : '';
+    $SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
     if (mysqli_connect_errno()) {
         echo "Failed : connect to MySQL: " . mysqli_connect_error();
         die;

@@ -5,13 +5,12 @@ require_once '../cls_shopifyapps/config.php';
 $cls_functions = new Client_functions($_GET['store']);
 
 
-$where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
-$comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-$SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
 
-// define('SHOPIFY_APP_SECRET', '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');
 function verify_webhook($data, $hmac_header)
 {
+    $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "SHOPIFY_SECRET"]);
+    $comeback= $cls_functions->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+    $SHOPIFY_SECRET = (isset($comeback['data']->thirdparty_apikey) && $comeback['data']->thirdparty_apikey !== '') ? $comeback['data']->thirdparty_apikey : '';
   $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
   return hash_equals($hmac_header, $calculated_hmac);
 }
@@ -21,7 +20,6 @@ $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header);
 generate_log('Webhook verified: ' , var_export($verified, true)); //check error.log to see the result
-// define('SHOPIFY_APP_SECRET', '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'); // Replace with your SECRET KEY
 
 // function verify_webhook($data, $hmac_header) {
 //     $calculated_hmac = base64_encode(hash_hmac('sha256',$data,SHOPIFY_APP_SECRET,true));

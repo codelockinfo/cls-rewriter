@@ -56,7 +56,7 @@ include dirname(dirname(__FILE__)). "/base_function.php";
     }
     
     public function select_result($tbl_name, $columns, $where_query_arr = array(), $options_arr = array()) {
-         $format = isset($options_arr['format']) ? $options_arr['format'] : 'array';
+        $format = isset($options_arr['format']) ? $options_arr['format'] : 'array';
         $skip = isset($options_arr['skip']) ? $options_arr['skip'] : 0;
         $limit = isset($options_arr['limit']) ? $options_arr['limit'] : 20;
         $single = isset($options_arr['single']) ? $options_arr['single'] : false;
@@ -94,10 +94,9 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         } else {
             $sql = $this->db_connection->query("SELECT $columns FROM $tbl_name $where_query $groupBy $orderBy LIMIT $skip, $limit");
         }
-        $result_row = $sql->fetch_object();
         $c = 0;
         while ($cls_rows = $sql->fetch_object()) {
-                   if ($format == "object") {
+            if ($format == "object") {
                 if ($single) {
                     $return_data = $cls_rows;
                } else {
@@ -106,7 +105,7 @@ include dirname(dirname(__FILE__)). "/base_function.php";
             } else {
                 if ($single) {
                     foreach ($cls_rows as $key => $row) {
-                        $return_data[$row] = $row;
+                        $return_data[$key] = $row;
                     }
                     continue;
                 } else {
@@ -117,10 +116,11 @@ include dirname(dirname(__FILE__)). "/base_function.php";
             }
             $c++;            
         }
-        if (!$result_row) {
+        
+        if (!$return_data) {
             $status = 0;
         }
-        $final_arr = array('status' => $status,'data' => $result_row);
+        $final_arr = array('status' => $status,'data' => $return_data);
         if ($format == "object") {
             return json_encode($final_arr);
         }
