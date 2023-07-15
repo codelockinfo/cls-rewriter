@@ -22,7 +22,7 @@ function verify_webhook($data, $hmac_header)
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header);
-generate_log('Webhook verified: ' , var_export($verified, true)); //check error.log to see the result
+generate_log('uninstall-webhook' , var_export($verified, true)); //check error.log to see the result
 
 // function verify_webhook($data, $hmac_header) {
 //     $calculated_hmac = base64_encode(hash_hmac('sha256',$data,SHOPIFY_APP_SECRET,true));
@@ -50,9 +50,9 @@ if($verified == true){
             'is_demand_accept' => '0'
         );
         $where_query = array(["", "shop_name", "=",$shop]);
-        generate_log('resulr', json_encode($where_query) . "were  result");
+        generate_log('uninstall-webhook', json_encode($where_query) . "were  result");
         $data =  $cls_functions->put_data(TABLE_USER_SHOP, $fields, $where_query);
-        generate_log('resulr', $data);
+        generate_log('uninstall-webhook', $data);
     }
     else {
         echo "Access Denied";
@@ -60,7 +60,7 @@ if($verified == true){
     }    
 }
 else {
-    generate_log('testingwebhook', json_encode($verified) . "  not verified"); 
+    generate_log('uninstall-webhook', json_encode($verified) . "  not verified"); 
     echo "Access Denied main ";
 }
 
