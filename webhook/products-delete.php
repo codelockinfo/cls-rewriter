@@ -29,6 +29,7 @@ if($verified == true){
     if( $topic_header == "products/delete" ) {
         $shopinfo = $cls_functions->get_store_detail_obj();
         generate_log('product_delete-webhook', json_encode($shopinfo) . " SHOPIFY INFO");
+        generate_log('product_delete-webhook', json_encode($shopinfo->store_user_id) . " STORE USER ID");
         $where_query = array(['', 'product_id', '=', $product->id, ' ', 'store_user_id', '=', $shopinfo->store_user_id]);
         $data = $cls_functions->delete_data(TABLE_PRODUCT_MASTER, $where_query);
         generate_log('product_delete-webhook', json_encode($data) . " data");
