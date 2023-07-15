@@ -4,10 +4,13 @@ $__multiLanguageNotNeeded = TRUE ;
 include_once '../append/connection.php';
 include_once ABS_PATH . '/user/cls_functions.php';
 require_once '../cls_shopifyapps/config.php';
-$cls_functions = new Client_functions($_GET['store']);
+
+$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
+$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
+$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
+
+$cls_functions = new Client_functions($shop);
  
-
-
 function verify_webhook($data, $hmac_header, $cls_functions)
 {
 	$where_query = array(["", "status", "=", "1"]);
@@ -17,37 +20,26 @@ function verify_webhook($data, $hmac_header, $cls_functions)
 	return hash_equals($hmac_header, $calculated_hmac);
 }
 
-
-$hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $data = file_get_contents('php://input');
 $verified = verify_webhook($data, $hmac_header, $cls_functions);
-generate_log('collection_create-webhook' , var_export($verified, true)); //check error.log to see the result
-
-
-$topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
-$shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
-
-
 
 if($verified == true){
-   generate_log('collection_create-webhook', json_encode($verified) . "  verified"); 
     if( $topic_header == "collections/create" ) {
 			$collection = json_decode($data);
-			generate_log('collection_create-webhook', json_encode($collection));
 			if(!empty($collection)){
 				$shopinfo = $cls_functions->get_store_detail_obj();
 				$collectionid = isset($collection->id) ? $collection->id : '';
-						$where_query = array(["", "collection_id", "=", "$collectionid"], ["AND", "store_user_id", "=", "$shopinfo->store_user_id"]);
-						$comeback = $cls_functions->select_result(TABLE_COLLECTION_MASTER, '*', $where_query);
-						echo "<pre>";
-						print_r($comeback);
-						die;
-			   generate_log('collection_create-webhook', json_encode($comeback['data'])   . "collection DATA");
-			   generate_log('collection_create-webhook', json_encode($comeback['data']->collection_id)   . "DATA  collection ID");
+				$store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : "";
+				if($store_user_id  == ""){
+					generate_log('collection_create-webhook', "Store user id is not found");
+				}
+				$where_query = array(["", "collection_id", "=", "$collectionid"], ["AND", "store_user_id", "=", "$store_user_id"]);
+				$comeback = $cls_functions->select_result(TABLE_COLLECTION_MASTER, '*', $where_query);
+			
+			    generate_log('collection_create-webhook', json_encode($comeback['data']->collection_id)   . "DATA  collection ID");
 				$CollectionId = isset($comeback['data']->collection_id) ? $comeback['data']->collection_id : '';
-				if(empty($CollectionId)){
+				if(empty($CollectionId) || $CollectionId == ""){
 				$field_array = array();
-				// $p_id = '';
 				$img_src = ($collection->image == '') ? '' : $collection->image->src;     
 				$field_array = array(
 					'`collection_id`' => $collection->id,
@@ -55,7 +47,7 @@ if($verified == true){
 					'`image`' =>$img_src,
 					'`description`' =>str_replace("'", "\'",$collection->body_html),
 					'`handle`' =>$collection->handle,
-					'`store_user_id`' => $shopinfo->store_user_id,
+					'`store_user_id`' => $store_user_id,
 					'`created_at`' => date('Y-m-d H:i:s'),
 					'`updated_at`' => date('Y-m-d H:i:s'),
 				);
