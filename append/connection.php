@@ -107,6 +107,7 @@ define('TABLE_USER_SHOP', 'user_shops');
 define('TABLE_BACKDROPS', 'store_settings');
 define('TABLE_CUSTOMIZE', 'customize');
 define('TABLE_COLLECTION_MASTER', 'collection_master');
+define('TABLE_CUSTOMER_MASTER', 'customer_master');
 
 define("CLS_API_VERSIION",'api/2021-07');
 define('CLS_TABLE_FONT_FAMILYS', 'font_family');
