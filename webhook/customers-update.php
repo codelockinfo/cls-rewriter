@@ -44,7 +44,8 @@ if($verified == true){
                 generate_log('customer_update-webhook' , json_encode($field_array) . "ARRAY"); 
 				$where_query = array(["", "customer_id", "=", $customer->id]);
                 generate_log('customer_update-webhook' , json_encode($where_query) . "WHERE QUERY"); 
-				$comeback = $cls_functions->put_data(TABLE_CUSTOMER_MASTER, $fields, $where_query);
+				$comeback = $cls_functions->put_data(TABLE_CUSTOMER_MASTER, $field_array, $where_query);
+                generate_log('customer_update-webhook' , json_encode($comeback) . "COMEBACK"); 
 			}
     }
     else {
