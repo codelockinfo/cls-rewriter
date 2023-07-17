@@ -26,7 +26,6 @@ if($verified == true){
     if( $topic_header == "customers/update" ) {
         $customer = json_decode($data);
 			if(!empty($customer) && isset($customer->id)){
-				$shopinfo = $cls_functions->get_store_detail_obj();
 				$field_array = array();
 				$field_array = array(
 					'`email`' =>$customer->email,
@@ -42,9 +41,9 @@ if($verified == true){
 				  	'`country`' =>$customer->default_address->India,
 				  	'`zip`' =>$customer->default_address->zip,
 				);
-                generate_log('customer_create-webhook' , json_encode($field_array) . "ARRAY"); 
+                generate_log('customer_update-webhook' , json_encode($field_array) . "ARRAY"); 
 				$where_query = array(["", "customer_id", "=", $customer->id]);
-                generate_log('customer_create-webhook' , json_encode($where_query) . "WHERE QUERY"); 
+                generate_log('customer_update-webhook' , json_encode($where_query) . "WHERE QUERY"); 
 				$comeback = $cls_functions->put_data(TABLE_CUSTOMER_MASTER, $fields, $where_query);
 			}
     }
