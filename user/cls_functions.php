@@ -45,6 +45,8 @@ class Client_functions extends common_function {
         $CLS_API_KEY = (isset($comeback['data'][1]['thirdparty_apikey']) && $comeback['data'][1]['thirdparty_apikey'] !== '') ? $comeback['data'][1]['thirdparty_apikey'] : '';
         $shopify_data_list = cls_api_call($CLS_API_KEY, $password, $store_name, $shopify_main_url, $shopify_url_param_array, $type);
         if ($shopify_is_object) {
+            generate_log('cls_function' , json_encode($shopify_data_list['response'])  . " ...  CLS GET SHOPIFY LIST");
+
             return json_decode($shopify_data_list['response']);
         } else {
             return json_decode($shopify_data_list['response'], TRUE);
@@ -544,7 +546,7 @@ class Client_functions extends common_function {
             } else {
                 $api_fields = array('product' => array('id' => $_POST['product_id'], 'title' => $_POST["title"], 'body_html' => $_POST["description"]));
                 $main_api = array("api_name" => "products", 'id' => $_POST['product_id']);
-                $set_position = $this->cls_get_shopify_list($main_api, $api_fields, 'PUT', 1, array("Content-Type: application/json"));
+                $set_position = $this->cls_get_shopify_list($main_api, $api_fields, 'PUT', "1", array("Content-Type: application/json"));
                 if (!empty($set_position)) {
                     $fields = array(
                         'title' => $_POST['title'],
