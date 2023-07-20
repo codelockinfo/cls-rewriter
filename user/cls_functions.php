@@ -3,7 +3,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-// header('Content-Type: application/json');
+
 if (DB_OBJECT == 'mysql') {
     include ABS_PATH . "/collection/mongo_mysql/mysql/common_function.php";
 } else {
@@ -12,10 +12,7 @@ if (DB_OBJECT == 'mysql') {
 include_once ABS_PATH . '/collection/form_validation.php';
 include_once ABS_PATH . '/user/cls_load_language_file.php';
 include_once '../append/Login.php';
-//  $url = $_SERVER['HTTP_REFERER'];
-// $url_components = parse_url($url);
-// parse_str($url_components['query'], $params);
-// $store = ($params['store']);
+
 
 class Client_functions extends common_function {
 
