@@ -109,7 +109,7 @@ define('TABLE_CUSTOMIZE', 'customize');
 define('TABLE_COLLECTION_MASTER', 'collection_master');
 define('TABLE_CUSTOMER_MASTER', 'customer_master');
 
-define("CLS_API_VERSIION",'api/2021-07');
+define("CLS_API_VERSIION",'api/2022-10');
 define('CLS_TABLE_FONT_FAMILYS', 'font_family');
 define('CLS_TABLE_SHIPMENT_METHOD', 'shipping_type');
 define('CLS_TABLE_LOGIN_USER','login_user');
