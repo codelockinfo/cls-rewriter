@@ -76,7 +76,6 @@ if ($_GET['shop'] != "") {
             
             $script_add = shopify_call($password, $shop, "/admin/".CLS_API_VERSIION."/script_tags.json", $asset, 'POST',array("Content-Type: application/json"));
             $str = "\n" . date('H:i:s') ."Having a Some problem \n".  json_encode($script_add);
-            generate_log('fornt_js', $str);
             $store_information = array(
                 'email' => $shopuinfo->shop->email,
                 'shop_name' => $shop,

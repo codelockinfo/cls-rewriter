@@ -8,7 +8,6 @@ require_once '../cls_shopifyapps/config.php';
 $shop = $_SERVER['HTTP_X_SHOPIFY_SHOP_DOMAIN'];
 $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
 $topic_header = $_SERVER['HTTP_X_SHOPIFY_TOPIC'];
-generate_log('server_data', json_encode($_SERVER));
 $cls_functions = new Client_functions($shop);
 
 function verify_webhook($data, $hmac_header, $cls_functions)
@@ -60,7 +59,6 @@ if($verified == true){
 				  	'`created_at`' => date('Y-m-d H:i:s'),
 				  	'`updated_at`' => date('Y-m-d H:i:s'),
 				);
-                generate_log('customer_create-webhook' , json_encode($field_array) . "ARRAY"); 
 				$sql_prod_id = $cls_functions->post_data(TABLE_CUSTOMER_MASTER, array($field_array));
 			}
 		}

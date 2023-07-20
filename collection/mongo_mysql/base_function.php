@@ -1044,7 +1044,6 @@ class base_function {
         $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
         $SHOPIFY_SECRET = (isset($comeback['data'][2]['thirdparty_apikey']) && $comeback['data'][2]['thirdparty_apikey'] !== '') ? $comeback['data'][2]['thirdparty_apikey'] : '';
         $calculated_hmac = base64_encode(hash_hmac('sha256', $data, $SHOPIFY_SECRET, true));
-        generate_log('testingwebhook ', json_encode($calculated_hmac) . " calculated_hmac");
         return ($hmac_header == $calculated_hmac);
     }
     

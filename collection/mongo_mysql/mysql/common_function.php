@@ -178,7 +178,6 @@ include dirname(dirname(__FILE__)). "/base_function.php";
             }
             $sql = "UPDATE $tbl_name SET " . rtrim($columns, ",") . " $where_query $limit";
             $sql = str_replace(array("'NULL'", "'null'"), 'NULL', $sql);
-//            generate_log('query', $sql);
             $query = $this->db_connection->prepare($sql);
             $query->execute();
             $return_data['affected_rows'] = $query->num_rows();

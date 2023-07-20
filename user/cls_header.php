@@ -4,11 +4,8 @@ include_once ABS_PATH . '/user/cls_functions.php';
 include_once ABS_PATH . '/cls_shopifyapps/config.php';
 
 $default_shop = 'dashboardmanage.myshopify.com';
-generate_log('store_cls_header', json_encode($_GET));
 if ((isset($_GET['store']) && $_GET['store'] != '') || isset($default_shop)) {
-    generate_log('store', $_GET['store']);
     $store = isset($_GET['store']) ? $_GET['store'] : $default_shop;
-    generate_log('store',$store );
     $functions = new Client_functions($store);
     $current_user = $functions->get_store_detail_obj();
 } else {
