@@ -1,6 +1,8 @@
 <?php 
 function cls_api_call($api_key , $password, $store, $shopify_endpoint, $query = array(),$type = '', $request_headers = array()) {
     $cls_shopify_url = "https://" . $api_key .":". $password ."@". $store.  $shopify_endpoint;
+		echo "<pre>";
+		print_r($cls_shopify_url);
      if (!is_array($type) && !is_object($type)) {
         (array)$type;
     }
@@ -25,6 +27,8 @@ function cls_api_call($api_key , $password, $store, $shopify_endpoint, $query = 
     		curl_setopt($curl, CURLOPT_POSTFIELDS,$query);
 	}   
 	$comeback = curl_exec($curl);
+	echo  "<pre>";
+	print_r($comeback);
 	$error_number = curl_errno($curl);
 	$error_message = curl_error($curl);
 	curl_close($curl);
