@@ -53,7 +53,7 @@ if ($_GET['shop'] != "") {
             $shopuinfo = shopify_call($password, $shop, "/admin/".CLS_API_VERSIION."/shop.json", array(), 'GET');
             $shopuinfo = json_decode($shopuinfo['response']);
             
-            $path = '/admin/api/2021-07/webhooks.json';
+            $path = '/admin/api/2022-10/webhooks.json';
             $store_password = md5($SHOPIFY_SECRET . $password);
             $baseurl = "https://" . $CLS_API_KEY . ":" . $password . "@" . $shop . "/";
             $shopify_url = $baseurl . ltrim($path, '/');
