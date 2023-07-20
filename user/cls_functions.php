@@ -44,8 +44,8 @@ class Client_functions extends common_function {
         $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
         $CLS_API_KEY = (isset($comeback['data'][1]['thirdparty_apikey']) && $comeback['data'][1]['thirdparty_apikey'] !== '') ? $comeback['data'][1]['thirdparty_apikey'] : '';
         $shopify_data_list = cls_api_call($CLS_API_KEY, $password, $store_name, $shopify_main_url, $shopify_url_param_array, $type);
+        generate_log('cls_function' , json_encode($shopify_data_list['response'])  . " ...  CLS GET SHOPIFY LIST");
         if ($shopify_is_object) {
-            generate_log('cls_function' , json_encode($shopify_data_list['response'])  . " ...  CLS GET SHOPIFY LIST");
 
             return json_decode($shopify_data_list['response']);
         } else {
