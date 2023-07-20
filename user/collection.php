@@ -6,7 +6,8 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/polaris.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="../assets/css/polaris.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css" rel="stylesheet">  
     </head>    
 <body>
 <div class="Polaris-Page max_width_change">
@@ -80,5 +81,12 @@
                 get_api_data(routineName, shopify_api);
             });
         </script>
+         <style>
+                   /* Header spacing issue for spacific page cls015 */
+                    .Polaris-Page-Header__Header--hasBreadcrumbs{
+                        padding: 0;
+                    }
+        </style>
 </html>    
+
 <?php  include_once('dashboard_footer.php'); ?>
