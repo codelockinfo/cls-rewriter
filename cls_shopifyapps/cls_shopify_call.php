@@ -30,7 +30,7 @@ function cls_api_call($api_key , $password, $store, $shopify_endpoint, $query = 
 	curl_close($curl);
 	if ($error_number) {
 		return $error_message;
-	} else {
+	} else if(!empty($comeback)) {
 		$comeback = preg_split("/\r\n\r\n|\n\n|\r\r/",$comeback, 2);
 		$headers = array();
 		$header_data = explode("\n",$comeback[0]);
@@ -41,6 +41,8 @@ function cls_api_call($api_key , $password, $store, $shopify_endpoint, $query = 
 			$headers[trim($h[0])] = trim($h[1]);
 		}
 		return array('headers' => $headers, 'response' => $comeback[1]);
+	}else{
+		return array('result' => 'fail', 'msg' => CLS_SOMETHING_WENT_WRONG);
 	}
 }
 function shopify_call($token, $store, $api_endpoint, $query = array(), $method = 'GET', $request_headers = array()) {
