@@ -1,19 +1,16 @@
 <?php
-$page_id = isset($_GET['page_id']) ? $_GET['page_id'] : '';
-     $url = $_SERVER['HTTP_REFERER'];
-$url_components = parse_url($url);
-parse_str($url_components['query'], $params);
-$store = ($params['store']);
+    include "cls_header.php";
+    include_once('dashboard_header.php');  
+    $page_id = isset($_GET['page_id']) ? $_GET['page_id'] : '';
+    $url = $_SERVER['HTTP_REFERER'];
+    $url_components = parse_url($url);
+    parse_str($url_components['query'], $params);
+    $store = ($params['store']);
 ?>
 <script>
     var page_id = "<?php echo $page_id; ?>";
-        var store = "<?php echo $store; ?>";
+    var store = "<?php echo $store; ?>";
 </script>
-<?php
-include "cls_header.php";
-    include_once('dashboard_header.php');   
-?>
-
 <div class="Polaris-Page login-frm max_width_change">
     <div class="Polaris-Page__Content">
         <div class="Polaris-Layout">

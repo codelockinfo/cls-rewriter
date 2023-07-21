@@ -1,16 +1,14 @@
 <?php
-include "cls_header.php";
-include_once('dashboard_header.php');
-
+    include "cls_header.php";
+    include_once('dashboard_header.php');
 ?>
-
 <html>
-    <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/polaris.min.css" rel="stylesheet"> 
     <link rel="stylesheet" href="../assets/css/style.css" rel="stylesheet"> 
-    </head>    
+</head>    
 <body>
         <div class="Polaris-Page max_width_change">
             <div class="Polaris-Page__Content">
@@ -74,20 +72,22 @@ include_once('dashboard_header.php');
                         </div>
                     </div>
                 </div>
-                </body>
-                </html>  
-                <script>
-                    $(document).ready(function () {
-                        var routineName = 'get_store_article';
-                        var shopify_api = $('#blogpostData').attr('data-apiName');
-                        get_api_data(routineName, shopify_api);
-                        
-                    });
-                </script>
-                 <style>
-               /* Header spacing issue for spacific page cls015 */
-                    .Polaris-Page-Header__Header--hasBreadcrumbs{
-                        padding: 0;
-                    }
-                </style>
-                <?php include_once('dashboard_footer.php'); ?>
+            </div>
+        </div>
+</body>
+</html>  
+<script>
+    $(document).ready(function () {
+        var routineName = 'get_store_article';
+        var shopify_api = $('#blogpostData').attr('data-apiName');
+        get_api_data(routineName, shopify_api);
+        
+    });
+</script>
+<style>
+/* Header spacing issue for spacific page cls015 */
+.Polaris-Page-Header__Header--hasBreadcrumbs{
+    padding: 0;
+}
+</style>
+<?php include_once('dashboard_footer.php'); ?>
