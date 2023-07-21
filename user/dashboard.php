@@ -6,23 +6,7 @@ $common_function = new common_function();
 
 if (isset($_GET['store']) && $_GET['store'] != '') {
     include_once('dashboard_header.php');
-//    $mysql_date = date('Y-m-d H:i:s');
-//    $key = (isset($_GET['key']) ? $_GET['key'] : '');
-//    $fields = '*';
-//    $where_query = array(["", "url_key", "=", "$key"], ["AND", "used", "=", "0"]);
-//    $options_arr = array('single' => true);
-//    $comeback = $common_function->select_result(TABLE_CUSTOMIZE, $fields, $where_query, $options_arr);
-//    if (!empty($comeback["data"]) && isset($comeback["data"]->url_key)) {
-//        $row['used'] = '1';
-//        $where_query = array(["", "url_key", "=", "$key"]);
-//        $common_function->put_data(TABLE_CUSTOMIZE, $row, $where_query, false);
-//        $_SESSION["url_key"] = $key;
-//    } else if (!isset($_SESSION["url_key"])) {
-//        header('Location:index.php?store=' . $_GET['store']);
-//        exit;
-//    }
 } else {
-
     header('Location:https://accounts.shopify.com/store-login');
 }
 

@@ -1,17 +1,7 @@
-<?php    include "cls_header.php"; 
+<?php
+include "cls_header.php";
 include "dashboard_header.php";
-
 ?>
- <style>
-   .mce-notification{
-   
-       display:none;
-   }
-   .message{
-       color: #FF0000;
-   }
-   
-    </style>
     <div class="Polaris-Page login-frm max_width_change">
         <div class="Polaris-Page__Content">
             <div class="Polaris-Layout">
@@ -32,18 +22,17 @@ include "dashboard_header.php";
                                                 <span class="Polaris-Breadcrumbs__Content">Back</span>
                                             </a>
                                         </nav>
-                                      <div>
+                                        <div>
                                            <h2 class="Polaris-Heading editor-label">Article</h2>
-                                       </div>
+                                        </div>
                                     <form class="m-t formforparent" id="addblog_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
-                                          
-
                                         <div>
                                             <div class="">
                                                 <div class="Polaris-Labelled__LabelWrapper">
                                                     <div class="Polaris-Label"><label id="PolarisSelect10Label" for="PolarisSelect10" class="Polaris-Label__Text">Select Blog</label></div>
                                                 </div>
-                                                <div class="Polaris-Select"><select id="select10" class="Polaris-Select__Input" aria-invalid="false" name="blog">
+                                                <div class="Polaris-Select">
+                                                    <select id="select10" class="Polaris-Select__Input" aria-invalid="false" name="blog">
                                                        <?php
                                                         $api = array('api_name' => 'blogs');
                                                         $blogs = $functions->cls_get_shopify_list($api, array(), 'GET');
@@ -67,7 +56,7 @@ include "dashboard_header.php";
                                                             </span>
                                                         </span>
                                                     </div>
-                                                    <span class="message blogselect"></span> 
+                                                    <span class="error-message blogselect"></span>
                                                     <div class="Polaris-Select__Backdrop"></div>
                                                 </div>
                                             </div>
@@ -88,7 +77,7 @@ include "dashboard_header.php";
                                                     </div>
                                                 </div>
                                             </div>
-                                             <span class="message title"></span> 
+                                             <span class="error-message title"></span>
                                         </div>
                                         <div class="Polaris-Card__Header">
                                             <h2 class="Polaris-Heading">Images</h2>
@@ -112,22 +101,20 @@ include "dashboard_header.php";
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                           
                                                     </div>
                                                 </div>
                                                 <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary" style="width: 50%;">
                                                         <div class=" ">
                                                             <div class="Polaris-DropZone Polaris-DropZone--hasOutline Polaris-DropZone--sizeExtraLarge" >
                                                                 <div class="Polaris-DropZone__Container ">
-                                                                            <img id="ImagePreview" class="imagepre newone" src="<?php echo CLS_SITE_URL; ?>/assets/images/drag_drop.jpg" alt="your image" />
-                                                                    </div>
+                                                                    <img id="ImagePreview" class="imagepre newone" src="<?php echo CLS_SITE_URL; ?>/assets/images/drag_drop.jpg" alt="your image" />
+                                                                </div>
                                                             </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             <div class="d-flex-alert-box">
                                                 <button class="Polaris-Button Polaris-Button--success get_content_drop" type="button">
-                                                  
                                                     <span class="Polaris-Button__Content">
                                                         <span class="Polaris-Button__Text">Generate By ChatGPT</span>
                                                     </span>
@@ -142,7 +129,6 @@ include "dashboard_header.php";
                                                         </span>
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
-                                                        <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
                                                         <p class="Polaris-Heading">Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
@@ -159,23 +145,20 @@ include "dashboard_header.php";
                                                     </div>
                                                     <div><button class="Polaris-Button Polaris-Button--primary save_loader_show chatGPTBtn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Search</button></div>
                                                 </div>
-                                                <span class="message chatgpterror"></span> 
+                                                <span class="error-message chatgpterror"></span>
                                             </div>
                                         </div>
                                         </div>
                                         <div class="Polaris-Layout padd_2rem_addblog">
                                             <div class="Polaris-Layout__Section">
-                                                    <h2 class="Polaris-Heading text-left text-editer" id="title"></h2> 
-                                                        <input type="hidden" id="" name="store" value="<?php echo $store; ?>">
-                                                        <textarea class="textdetails" name="description" value="">                                          
-                                                        </textarea>
+                                                <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>
+                                                <input type="hidden" id="" name="store" value="<?php echo $store; ?>">
+                                                <textarea class="textdetails" name="description" value="">
+                                                </textarea>
                                             </div>
                                         </div>
                                         <button type="submit" name="submit" id="addblog"  data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px; margin-bottom: 10px;">Save</button>                                                    
-                                        <a href ="pages.php?store=<?php echo $_SESSION['store'];?>">
-                                            <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--success  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
-                                            </button>
-                                        </a>  
+                                        <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--success  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel</button>
                                     </form>
                                 </div>
                             </div>
