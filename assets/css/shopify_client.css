@@ -838,9 +838,14 @@ nav.prdocut-detail-view a {
    }
 
    .mce-notification{
-          display:none;
+        display:none;
    }
-    .SettingToggle_Title .iocon-set{
+
+   .error-message{
+        color: #FF0000;
+   }
+
+   .SettingToggle_Title .iocon-set{
            display: inline-block;
 
    }

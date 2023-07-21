@@ -1194,7 +1194,7 @@ class Client_functions extends common_function {
         $api_fields = $error_array = $response_data = array();
         if (isset($_POST['store']) && $_POST['store'] != '') {
             if (isset($_POST['title']) && $_POST['title'] == '') {
-                $error_array['title'] = "Please Enter title";
+                $error_array['title'] = "Please enter title";
             }
             if (empty($error_array)) {
                 $shopinfo = $this->current_store_obj;
