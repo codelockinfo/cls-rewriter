@@ -98,12 +98,16 @@
                                             </div>
                                         </div>
                                         <button type="submit" name="submit" id="addblog" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px; margin-bottom: 10px;">Save</button>                                                    
+                                        <a href ="pages.php?store=<?php echo $_SESSION['store'];?>">
+                                            <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--success  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
+                                            </button>
+                                        </a>                                                    
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>

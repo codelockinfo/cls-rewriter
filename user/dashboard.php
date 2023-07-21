@@ -66,7 +66,16 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                             <div class="Polaris-Card">
                                 <div class="Polaris-Card__Section">
                                     <div class="hover01 column">
-                                        <div class="Polaris-Card__Header"></div>
+                                    
+                                        <div class="Polaris-Card__Header">
+                                            <div class="howusebtn">
+                                                <a href="help.php?store=<?php echo $store; ?>"  class="Polaris-Button  Polaris-Button--success" style="text-decoration: none;" >
+                                                    <span class="Polaris-Button__Content">
+                                                    <span>How to Use </span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
                                         <div class="Polaris-Layout">
                                             <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
                                                 <div>
