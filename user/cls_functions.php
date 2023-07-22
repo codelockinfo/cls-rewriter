@@ -1210,7 +1210,7 @@ class Client_functions extends common_function {
                     if (isset($_FILES['upload_file']['name']) && ($_FILES['upload_file']['name'] != "")) {
                         $api_fields = array("image" => array("attachment" => trim(end($image_path)), "filename" => $_FILES['upload_file']['name']));
                         $api_articles = array("name" => "products", "id" => $set_position->product->id, "api_name" => "images");
-                        $set_image = $this->cls_get_shopify_list($api_articles, $api_fields, 'POST', 1, array("Content-Type: application/json"));
+                        $set_image = $this->cls_get_shopify_list($api_articles, $api_fields, 'PUT', 1, array("Content-Type: application/json"));
                         if (isset($set_image->image->src)) {
                             $fields_arr['`image`'] = $set_image->image->src;
                         }
