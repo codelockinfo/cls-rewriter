@@ -97,6 +97,8 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         }
         $c = 0;
         while ($cls_rows = $sql->fetch_object()) {
+            generate_log('cls_function' , json_encode($cls_rows)  . " ... CLS ROWS");
+
             if ($format == "object") {
                 if ($single) {
                     $return_data = $cls_rows;
