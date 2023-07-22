@@ -1215,10 +1215,7 @@ class Client_functions extends common_function {
                             $fields_arr['`image`'] = $set_image->image->src;
                         }
                     }
-                    generate_log('cls_function' , json_encode($fields_arr)  . " ... ADD PRODUCT");
                     $response_data = $this->post_data(TABLE_PRODUCT_MASTER, array($fields_arr));
-                    generate_log('cls_function' , json_encode($response_data)  . " ... ADD PRODUCT RESULT");
-                  
                 }
             } else {
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
