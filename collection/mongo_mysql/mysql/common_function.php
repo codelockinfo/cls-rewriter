@@ -96,6 +96,7 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         }
         $c = 0;
         while ($cls_rows = $sql->fetch_object()) {
+
             if ($format == "object") {
                 if ($single) {
                     $return_data = $cls_rows;
@@ -144,7 +145,6 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         }
         $values = rtrim($values, ",");
         try {
-             
             $sql = "INSERT INTO $tbl_name ( " . implode(",", $columns) . ") VALUES " . $values . "";
             $sql = str_replace(array("'NULL'", "'null'"), 'NULL', $sql);
             if ($on_duplicate_update) {

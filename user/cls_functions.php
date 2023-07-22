@@ -1181,7 +1181,7 @@ class Client_functions extends common_function {
 
     function addproduct() {
         $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
-        $api_fields = $error_array = $response_data = array();
+        $api_fields = $error_array = $response_data = $fields_arr = array();
         if (isset($_POST['store']) && $_POST['store'] != '') {
             if (isset($_POST['title']) && $_POST['title'] == '') {
                 $error_array['title'] = "Please Enter title";
@@ -1203,7 +1203,7 @@ class Client_functions extends common_function {
                         '`store_user_id`' => $shopinfo->store_user_id,
                         '`vendor`' => $set_position->product->vendor,
                         '`description`' => str_replace("'", "\'", $set_position->product->body_html),
-                        'handle' => $set_position->product->handle,
+                        '`handle`' => $set_position->product->handle,
                         '`created_at`' => $mysql_date,
                         '`updated_at`' => $mysql_date
                     );
@@ -1215,9 +1215,7 @@ class Client_functions extends common_function {
                             $fields_arr['`image`'] = $set_image->image->src;
                         }
                     }
-                    
                     $response_data = $this->post_data(TABLE_PRODUCT_MASTER, array($fields_arr));
-                  
                 }
             } else {
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
