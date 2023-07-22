@@ -137,7 +137,7 @@ include "dashboard_header.php";
                                                 </div>
                                             </div>
                                             <div class="content_gtp">
-                                                <input type="hidden"  class="chatGPT_Prerequest" value="Can you write blog description for"/>
+                                                <input type="hidden"  class="chatGPT_Prerequest" value="Can you write blog post description for"/>
                                                 <div class="Polaris-Connected">
                                                     <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
                                                         <div class="Polaris-TextField">
