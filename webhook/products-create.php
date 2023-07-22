@@ -30,18 +30,13 @@ if($verified == true){
 			$productid = isset($product->id) ? $product->id : '';
 			$store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : '';
 
-			generate_log('Product_create' , json_encode($productid)  . " ...  PRO ID");
-			generate_log('Product_create' , json_encode($store_user_id)  . " ...  STORE USER ID");
-			generate_log('Product_create' , json_encode(TABLE_PRODUCT_MASTER)  . " ...  TABLE_PRODUCT_MASTER");
 			if($store_user_id == ''){
 				generate_log('product_create-webhook' , "STORE USER ID"); 
 			}
 			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$store_user_id"]);
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
 
-			generate_log('Product_create' , json_encode($comeback)  . " ...  COMEBACK");
-			$ProductId = isset($comeback['data']->product_id) ? $comeback['data']->product_id : '';
-			generate_log('Product_create' , json_encode($ProductId)  . " ...  PRODUCT ID");
+			$ProductId = isset($comeback['data']['product_id']) ? $comeback['data']['product_id'] : '';
 
 			if(empty($ProductId)){
 				$field_array = array();
