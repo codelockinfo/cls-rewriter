@@ -35,9 +35,11 @@ if($verified == true){
 			}
 			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$store_user_id"]);
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
+			$productData = (object)$comeback->data;
+			$clsProductId = isset($productData->['product_id']) ? $productData->['product_id'] : '';
 			$ProductId = isset($comeback->data['product_id']) ? $comeback->data['product_id'] : '';
 
-			if(empty($ProductId)){
+			if(empty($clsProductId)){
 				$field_array = array();
 				foreach ($product->variants as $i => $variants) {
 					$main_price = ($variants->price != '') ? $variants->price : "";
