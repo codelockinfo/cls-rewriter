@@ -97,7 +97,7 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         }
         $c = 0;
         while ($cls_rows = $sql->fetch_object()) {
-            generate_log('cls_function' , json_encode($cls_rows)  . " ... CLS ROWS");
+            generate_log('Product_create' , json_encode($cls_rows)  . " ... CLS ROWS");
 
             if ($format == "object") {
                 if ($single) {
@@ -127,7 +127,7 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         if ($format == "object") {
             return json_encode($final_arr);
         }
-        generate_log('cls_function' , json_encode($final_arr)  . " ... FINAL ARRAY");
+        generate_log('Product_create' , json_encode($final_arr)  . " ... FINAL ARRAY");
 
         return $final_arr;
     }
