@@ -1317,37 +1317,20 @@ class Client_functions extends common_function {
     
     function enable_disable(){
         $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
-            if (isset($_POST['store']) && $_POST['store'] != '') {
-                $shop = $_POST['store'];
-                $where_query = array(["", "shop_name", "=", "$shop"]);
-                $comeback_client = $this->select_result(TABLE_USER_SHOP, '*', $where_query);
-                $btnval = (isset($_POST['btnval']) && $_POST['btnval'] !== '') ? $_POST['btnval'] : '';
-            if($btnval == 1){
-                    $fields = array(
-                        'status' => 1
-                    );
-                    $where_query = array(["", "shop_name", "=", "$shop"]);
-                    $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
-                    $response = array(
-                        "result" => 'success',
-                        "message" => 'data update successfully',
-                        "outcome" => $comeback,
-                    );
-                }else{
-                $fields = array(
-                        'status' => 0,
-                    );
-                    $where_query = array(["", "shop_name", "=", "$shop"]);
-                    $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
-                    $response = array(
-                        "result" => 'success',
-                        "message" => 'data update successfully',
-                        "outcome" => $comeback,
-                    );
-                }
-            }
-            return $response;
-    
+        $fields = array();
+        if (isset($_POST['store']) && $_POST['store'] != '') {
+            $shop = $_POST['store'];
+            $where_query = array(["", "shop_name", "=", "$shop"]);
+            $btnval = (isset($_POST['btnval']) && $_POST['btnval'] !== '') ? $_POST['btnval'] : 0;
+            $fields['status'] = ($btnval == 1) ? 1 : 0 ;
+            $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
+            $response = array(
+                "result" => 'success',
+                "message" => 'data update successfully',
+                "outcome" => $comeback,
+            );
+        }
+        return $response;
     }
 
     function btn_enable_disable(){

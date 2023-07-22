@@ -402,36 +402,42 @@ $.ajax({
     });
 }
 function seeting_enable_disable(){
-$.ajax({
+    $.ajax({
         url: "ajax_call.php",
         type: "post",
         dataType: "json",
         data: {'routine_name': 'btn_enable_disable' ,'store' : store},
-        success: function (comeback) {
-                if (comeback['outcome']['data']['status'] != undefined && comeback['outcome']['data']['status'] == 0) {
-                    $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
-                    $(".app-setting-msg").show();
-                    $(".enable-btn").val(1);
-                    $(".enable-btn").html("Enable");
-                    $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorGreenDark");
-                    $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorYellowDark");
-                    $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusWarning");
-                    $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
-                    $(".clsdesign_for_msg").css("background-color","#fdf7e3");
-                } else {
-                    $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
-                        $(".enable-btn").val(0);
-                        $(".enable-btn").html("Disable");
-                        $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorGreenDark");
-                        $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorYellowDark");
-                        $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusWarning");
-                        $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
-                        $(".clsdesign_for_msg").css("background-color","#eff7ed");
-                }
+        success: function (comeback)
+        {
+            if (comeback['outcome']['data']['0']['status'] != undefined && comeback['outcome']['data']['0']['status'] == "0") {
+                $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
+                $(".app-setting-msg").show();
+                $(".enable-btn").val(1);
+                $(".enable-btn").html("Enable");
+                $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorGreenDark");
+                $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorYellowDark");
+                $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusWarning");
+                $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
+                $(".clsdesign_for_msg").css("background-color","#fdf7e3");
+                $("#toggleButton").removeClass("on");
+            } else { 
+                $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
+                $(".enable-btn").val(0);
+                $(".enable-btn").html("Disable");
+                $(".app-setting-msg .Polaris-Icon").addClass("Polaris-Icon--colorGreenDark");
+                $(".app-setting-msg .Polaris-Icon").removeClass("Polaris-Icon--colorYellowDark");
+                $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusWarning");
+                $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
+                $(".clsdesign_for_msg").css("background-color","#eff7ed");
+                $("#toggleButton").addClass("on");
             }
+        }
     });
 }
-seeting_enable_disable();
+setTimeout(function(){
+    seeting_enable_disable();
+},50);
+
 function get_api_data(routineName,shopify_api){
     var routineName = routineName;
     var shopify_api = shopify_api;
@@ -704,13 +710,19 @@ function preview_image(selector,page)
 $(document).on("click", ".enable-btn", function(event) {
     event.preventDefault();
     var btnval = $(this).val();
+    app_enable_disable(btnval,1);
+});
+
+function app_enable_disable(btnval,call_from){
     $.ajax({
         url: "ajax_call.php",
         type: "post",
         dataType: "json",
         data: {'store': store,'routine_name' : 'enable_disable','btnval':btnval}, 
-            beforeSend: function () {
-            loading_show('.save_loader_show');
+        beforeSend: function () {
+            if(call_from == 1){
+                loading_show('.save_loader_show');
+            }
         },
         success: function (response) {
                 if (response['code'] != undefined && response['code'] == '403') {
@@ -726,6 +738,8 @@ $(document).on("click", ".enable-btn", function(event) {
                     $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
                     $(".clsdesign_for_msg").css("background-color","#fdf7e3");
                     $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
+                    $(".clsdesign_for_msg  #toggleButton").removeClass('on');
+                    
                 } else {
                     $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
                     $(".enable-btn").val(0);
@@ -735,12 +749,16 @@ $(document).on("click", ".enable-btn", function(event) {
                     $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusWarning");
                     $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
                     $(".clsdesign_for_msg").css("background-color","#eff7ed");
+                    $(".clsdesign_for_msg  #toggleButton").addClass('on');
                 }
             }
-            loading_hide('.save_loader_show', 'Save');
+            if(call_from == 1){
+                loading_hide('.save_loader_show', 'Save');
+            }
         }
     });
-});
+}
+
 $(document).on("click", ".chatGPTBtn", function(event) {
     event.preventDefault();
     var chatGPT_Prerequest = $(".chatGPT_Prerequest").val();
@@ -774,4 +792,12 @@ $(document).on("click", ".chatGPTBtn", function(event) {
 $(document).on("click",".get_content_drop",function(){
     console.log("start chat gpt");
     $(".content_gtp").toggleClass("content_gtp_block");
+});
+$(document).ready(function() {
+    $("#toggleButton").on("click", function() {
+        $(this).toggleClass("on");
+        const value = $(this).hasClass("on") ? 1 : 0;
+        $("#toggleValue").val(value);
+        app_enable_disable(value);
+    });
 });

@@ -876,6 +876,9 @@ nav.prdocut-detail-view a {
         margin-top: -3%;
     margin-left: 10%;
     width: 80%;
+    /* margin-top: -3%;
+    margin-left: 8%;
+    width: 45%; */
 }
 .cls_header_css{
     display: flex;
@@ -1404,10 +1407,59 @@ body .space-y-4 > * + * {
     display: block;
     overflow-y: scroll;
 }
-a.Polaris-Button.Polaris-Button--success {
-    margin-top: 1%;
-}
+
 .card-header.accordion-header {
 background: transparent!important;
     color: #000!important;
 }
+@media (max-width: 768px) {
+    a.Polaris-Button.Polaris-Button--success:nth-child(3) {
+        margin-top: 1.4%;
+    }
+}
+@media (max-width: 520px) {
+    a.Polaris-Button.Polaris-Button--success:nth-child(3) {
+        margin-top: 2.4%;
+    }
+}
+@media (max-width: 460px) {
+    .footermargin{
+        flex-wrap: wrap;
+    }
+    .Polaris-FooterHelp__Text{
+        padding: 10px 40px;
+    }
+}
+
+#toggleButton {
+    width: 50px;
+    height: 25px;
+    background-color: #e6391a;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 5%;
+  }
+  
+  #toggleButton .handle {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+    transition: all 0.2s;
+  }
+  
+  #toggleButton.on {
+    background-color: #5cb85c; /* Green color when the button is ON */
+  }
+  
+  #toggleButton.on .handle {
+    left: calc(100% - 22px);
+  }
+  
+
+/* togge menu end */
