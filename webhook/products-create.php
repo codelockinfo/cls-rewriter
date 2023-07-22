@@ -29,6 +29,10 @@ if($verified == true){
 			$shopinfo = $cls_functions->get_store_detail_obj();
 			$productid = isset($product->id) ? $product->id : '';
 			$store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : '';
+
+			generate_log('Product_create' , json_encode($productid)  . " ...  PRO ID");
+			generate_log('Product_create' , json_encode($store_user_id)  . " ...  STORE USER ID");
+			generate_log('Product_create' , json_encode(TABLE_PRODUCT_MASTER)  . " ...  TABLE_PRODUCT_MASTER");
 			if($store_user_id == ''){
 				generate_log('product_create-webhook' , "STORE USER ID"); 
 			}
