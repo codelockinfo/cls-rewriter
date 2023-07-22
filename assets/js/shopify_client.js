@@ -420,6 +420,9 @@ function seeting_enable_disable(){
                 $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
                 $(".clsdesign_for_msg").css("background-color","#fdf7e3");
                 $("#toggleButton").removeClass("on");
+                $(".enable-btn").removeClass("Polaris-Button--destructive");
+                $(".enable-btn").addClass(" Polaris-Button--success")
+
             } else { 
                 $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
                 $(".enable-btn").val(0);
@@ -430,6 +433,8 @@ function seeting_enable_disable(){
                 $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
                 $(".clsdesign_for_msg").css("background-color","#eff7ed");
                 $("#toggleButton").addClass("on");
+                $(".enable-btn").addClass("Polaris-Button--destructive");
+                $(".enable-btn").removeClass(" Polaris-Button--success");
             }
         }
     });
@@ -738,7 +743,9 @@ function app_enable_disable(btnval,call_from){
                     $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusSuccess");
                     $(".clsdesign_for_msg").css("background-color","#fdf7e3");
                     $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is disabled");
-                    $(".clsdesign_for_msg  #toggleButton").removeClass('on');
+                    $("#toggleButton").removeClass('on');
+                    $(".enable-btn").removeClass("Polaris-Button--destructive");
+                    $(".enable-btn").addClass(" Polaris-Button--success")
                     
                 } else {
                     $(".clsdesign_for_msg .Polaris-Heading").html("ReWriter app is enabled");
@@ -749,7 +756,9 @@ function app_enable_disable(btnval,call_from){
                     $(".app-setting-msg .Polaris-Banner").removeClass("Polaris-Banner--statusWarning");
                     $(".app-setting-msg .Polaris-Banner").addClass("Polaris-Banner--statusSuccess");
                     $(".clsdesign_for_msg").css("background-color","#eff7ed");
-                    $(".clsdesign_for_msg  #toggleButton").addClass('on');
+                    $(" #toggleButton").addClass('on');
+                    $(".enable-btn").addClass("Polaris-Button--destructive");
+                    $(".enable-btn").removeClass(" Polaris-Button--success")
                 }
             }
             if(call_from == 1){

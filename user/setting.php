@@ -15,7 +15,7 @@
                                         <div class="Polaris-Stack__Item">
                                                 <div class="Polaris-Stack Polaris-Stack--spacingTight">
                                                     <div class="Polaris-Stack__Item cls_design_enaDisa">
-                                                        <button data-polaris-unstyled="true" class="Polaris-Button Polaris-Button--primary  enable-btn"  value=""></button>
+                                                        <button data-polaris-unstyled="true" class="Polaris-Button  Polaris-Button--success  enable-btn"  value=""></button>
                                                         <!--<button  data-polaris-unstyled="true" class="Polaris-Button Polaris-Button--primary  enable-btn" value="0" style="display:none;" >Disable</button>-->
                                                       
                                                     </div>
