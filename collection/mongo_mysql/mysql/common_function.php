@@ -92,6 +92,7 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         } elseif ($groupBy != '' && $orderBy != '') {
             $sql = "SELECT * FROM(SELECT $columns FROM $tbl_name $where_query $groupBy LIMIT $skip, $limit) AS TEMP_TBL $orderBy";
         } else {
+            generate_log('Product_create' , "SELECT $columns FROM $tbl_name $where_query $groupBy $orderBy LIMIT $skip, $limit");
             $sql = $this->db_connection->query("SELECT $columns FROM $tbl_name $where_query $groupBy $orderBy LIMIT $skip, $limit");
         }
         $c = 0;
@@ -124,6 +125,8 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         if ($format == "object") {
             return json_encode($final_arr);
         }
+        generate_log('cls_function' , json_encode($final_arr)  . " ... FINAL ARRAY");
+
         return $final_arr;
     }
     public function post_data($tbl_name, $fields_arr, $options_arr = array()) {
