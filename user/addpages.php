@@ -1,16 +1,10 @@
-<?php    include "cls_header.php";  
-    include_once('dashboard_header.php');   
+<?php    
+include "cls_header.php";  
+include_once('dashboard_header.php');   
 ?>
- <style>
-   .mce-notification{
-   
-       display:none;
-   }
-      .message{
-       color: #FF0000;
-   }
-   
-    </style>
+<style>
+   .mce-notification{display:none;}
+</style>
     <div class="Polaris-Page login-frm max_width_change">
         <div class="Polaris-Page__Content">
             <div class="Polaris-Layout">
@@ -49,7 +43,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                              <span class="message title"></span> 
+                                              <span class="error-message title"></span> 
                                         </div>
                                         <div class="sectionchatgpt clsmain_green">
                                             <div class="d-flex-alert-box">
@@ -68,7 +62,6 @@
                                                         </span>
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
-                                                        <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
                                                         <p class="Polaris-Heading"> Quickly generate page descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
@@ -85,10 +78,9 @@
                                                     </div>
                                                     <div><button class="Polaris-Button Polaris-Button--primary save_loader_show chatGPTBtn" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Search</button></div>
                                                 </div>
-                                                <span class="message chatgpterror"></span> 
+                                                <span class="error-message chatgpterror"></span> 
                                             </div>
                                         </div>
-                                       
                                         <div class="Polaris-Layout">
                                             <div class="Polaris-Layout__Section">
                                                     <h2 class="Polaris-Heading text-left text-editer" id="title"></h2> 
@@ -111,5 +103,4 @@
             </div>
         </div>
     </div>
-
 <?php  include_once('dashboard_footer.php'); ?>

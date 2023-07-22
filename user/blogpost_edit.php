@@ -1,19 +1,16 @@
 <?php
-include "cls_header.php"; 
+    include "cls_header.php"; 
     include_once('dashboard_header.php');   
-    
-$blogpost_id = isset($_GET['blogpost_id']) ? $_GET['blogpost_id'] : '';
-
- $url = $_SERVER['HTTP_REFERER'];
-$url_components = parse_url($url);
-parse_str($url_components['query'], $params);
-$store = ($params['store']);
+    $blogpost_id = isset($_GET['blogpost_id']) ? $_GET['blogpost_id'] : '';
+    $url = $_SERVER['HTTP_REFERER'];
+    $url_components = parse_url($url);
+    parse_str($url_components['query'], $params);
+    $store = ($params['store']);
 ?>
 <script>
     var blogpost_id = "<?php echo $blogpost_id; ?>";
     var store = "<?php echo $store;?>"
 </script>
-
 <div class="Polaris-Page login-frm max_width_change">
     <div class="Polaris-Page__Content">
         <div class="Polaris-Layout">
@@ -34,9 +31,9 @@ $store = ($params['store']);
                                         <span class="Polaris-Breadcrumbs__Content">Back</span>
                                     </a>
                                 </nav>
-                                       <div>
-                                           <h2 class="Polaris-Heading editor-label">Article</h2>
-                                       </div>
+                                <div>
+                                    <h2 class="Polaris-Heading editor-label">Article</h2>
+                                </div>
                                 <form class="m-t formforparent" id="register_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
                                     <div class="clsmain_green">
                                         <div class="Polaris-Labelled__LabelWrapper">
@@ -69,7 +66,6 @@ $store = ($params['store']);
                                                         </span>
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
-                                                        <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
                                                         <p class="Polaris-Heading">Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
@@ -92,7 +88,6 @@ $store = ($params['store']);
                                     </div>
                                     <div class="Polaris-Layout">
                                         <div class="Polaris-Layout__Section">
-
                                             <input type="hidden" id="" name="blogpost_id" value="<?php echo $blogpost_id; ?>">
                                             <input type="hidden" id="" name="for_data" value="<?php echo 'blogpost'; ?>">
                                             <textarea class="textdetails" name="description" value="">                                          
@@ -101,7 +96,6 @@ $store = ($params['store']);
                                         </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -114,6 +108,5 @@ $store = ($params['store']);
     var routine_name = 'blogpost_select';
     get_textarea_value(routine_name, store, blogpost_id, "blog");
     btn_enable_disable(store);
-    
 </script>
 <?php  include_once('dashboard_footer.php'); ?>

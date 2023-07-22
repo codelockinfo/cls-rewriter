@@ -140,59 +140,6 @@ class Client_functions extends common_function {
         return $html;
     }
 
-    function make_api_data_orderData($api_data_list) {
-        $shopinfo = $this->current_store_obj;
-        $shopinfo = (object)$shopinfo;
-        $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="5"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Data not found</p></center></td></tr>';
-        $prifix = '<td>';
-        $sufix = '</td>';
-        $html = '';
-        foreach ($api_data_list as $detail_obj) {
-            foreach ($detail_obj as $i => $orders) {
-                $html .= '<tr>';
-                $html .= $prifix . $orders->name . $sufix;
-                $html .= $prifix . $orders->email . $sufix;
-                $html .= $prifix . $orders->checkout_id . $sufix;
-                $html .= $prifix . $orders->current_subtotal_price . $sufix;
-                $html .= $prifix . $orders->currency . $sufix;
-                $html .= $prifix . $orders->gateway . $sufix;
-                $html .= $prifix .
-                        '<div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented">
-                                        <div class="Polaris-ButtonGroup__Item">
-                                            <a href="' . SITE_CLIENT_URL . 'order_detail.php?order_id=' . $orders->id . '" class="Polaris-Button">
-                                                <span class="Polaris-Button__Content tip" data-hover="View">
-                                                    <span class="Polaris-Icon">
-                                                        <svg class="Polaris-Icon__Svg" viewBox="0 0 20 20"><path d="M17.928 9.628c-.092-.229-2.317-5.628-7.929-5.628s-7.837 5.399-7.929 5.628c-.094.239-.094.505 0 .744.092.229 2.317 5.628 7.929 5.628s7.837-5.399 7.929-5.628c.094-.239.094-.505 0-.744m-7.929 4.372c-2.209 0-4-1.791-4-4s1.791-4 4-4c2.21 0 4 1.791 4 4s-1.79 4-4 4m0-6c-1.104 0-2 .896-2 2s.896 2 2 2c1.105 0 2-.896 2-2s-.895-2-2-2" fill="#000" fill-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="Polaris-ButtonGroup__Item">
-                                            <a href="" class="Polaris-Button">
-                                                <span class="Polaris-Button__Content tip" data-hover="Edit">
-                                                    <span class="Polaris-Icon">
-                                                        <svg class="Polaris-Icon__Svg" viewBox="0 0 469.331 469.331"><path d="M438.931,30.403c-40.4-40.5-106.1-40.5-146.5,0l-268.6,268.5c-2.1,2.1-3.4,4.8-3.8,7.7l-19.9,147.4   c-0.6,4.2,0.9,8.4,3.8,11.3c2.5,2.5,6,4,9.5,4c0.6,0,1.2,0,1.8-0.1l88.8-12c7.4-1,12.6-7.8,11.6-15.2c-1-7.4-7.8-12.6-15.2-11.6   l-71.2,9.6l13.9-102.8l108.2,108.2c2.5,2.5,6,4,9.5,4s7-1.4,9.5-4l268.6-268.5c19.6-19.6,30.4-45.6,30.4-73.3   S458.531,49.903,438.931,30.403z M297.631,63.403l45.1,45.1l-245.1,245.1l-45.1-45.1L297.631,63.403z M160.931,416.803l-44.1-44.1   l245.1-245.1l44.1,44.1L160.931,416.803z M424.831,152.403l-107.9-107.9c13.7-11.3,30.8-17.5,48.8-17.5c20.5,0,39.7,8,54.2,22.4   s22.4,33.7,22.4,54.2C442.331,121.703,436.131,138.703,424.831,152.403z" fill="#000" fill-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="Polaris-ButtonGroup__Item">
-                                         <a href="" class="Polaris-Button">
-                                                <span class="Polaris-Button__Content tip" data-hover="Delete">
-                                                    <span class="Polaris-Icon">
-                                                        <svg class="Polaris-Icon__Svg" viewBox="0 0 20 20"><path d="M16 6a1 1 0 1 1 0 2h-1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8H4a1 1 0 1 1 0-2h12zM9 4a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2H9zm2 12h2V8h-2v8zm-4 0h2V8H7v8z" fill="#000" fill-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </span>
-                                         </a>       
-                                        </div>
-                    </div> ' . $sufix;
-
-                $html .= '</tr>';
-            }
-        }
-        return $html;
-    }
-
     function make_api_data_orders_products($api_data_list) {
         $items = count($api_data_list->order->line_items);
         $payment_html = $product_html = $table_html = $customer_html = '';
@@ -729,6 +676,7 @@ class Client_functions extends common_function {
         );
         return $response;
     }
+    
     function get_store_blog(){
         $shopinfo = $this->current_store_obj;
         $shopinfo = (object)$shopinfo;
@@ -902,8 +850,8 @@ class Client_functions extends common_function {
     }
 
    function make_table_data_blogpostData($table_data_arr, $pageno, $table_name) {
-     $shopinfo = $this->current_store_obj;
-     $shopinfo = (object)$shopinfo;
+        $shopinfo = $this->current_store_obj;
+        $shopinfo = (object)$shopinfo;
         $total_record = $table_data_arr->num_rows;
         $tr_html = '<tr class="Polaris-ResourceList__ItemWrapper"> <td colspan="7"><center><p class="Polaris-ResourceList__AttributeOne Records-Not-Found">Records not found</p></center></td></tr>';
         if ($table_data_arr->num_rows > 0) {
@@ -973,7 +921,6 @@ class Client_functions extends common_function {
                 }
             }
         }
-    
         return $tr_html;
     }
 
@@ -1231,6 +1178,7 @@ class Client_functions extends common_function {
         $response = json_encode($response_data);
         return $response;
     }
+
     function addproduct() {
         $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
         $api_fields = $error_array = $response_data = array();
@@ -1278,6 +1226,7 @@ class Client_functions extends common_function {
         $response = json_encode($response_data);
         return $response;
     }
+
     function addpages() {
         $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
         if (isset($_POST['store']) && $_POST['store'] != '') {
@@ -1366,119 +1315,121 @@ class Client_functions extends common_function {
         return $response;
     }
     
-function enable_disable(){
-    $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
-        if (isset($_POST['store']) && $_POST['store'] != '') {
-            $shop = $_POST['store'];
-            $where_query = array(["", "shop_name", "=", "$shop"]);
-            $comeback_client = $this->select_result(TABLE_USER_SHOP, '*', $where_query);
-            $btnval = (isset($_POST['btnval']) && $_POST['btnval'] !== '') ? $_POST['btnval'] : '';
-          if($btnval == 1){
+    function enable_disable(){
+        $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
+            if (isset($_POST['store']) && $_POST['store'] != '') {
+                $shop = $_POST['store'];
+                $where_query = array(["", "shop_name", "=", "$shop"]);
+                $comeback_client = $this->select_result(TABLE_USER_SHOP, '*', $where_query);
+                $btnval = (isset($_POST['btnval']) && $_POST['btnval'] !== '') ? $_POST['btnval'] : '';
+            if($btnval == 1){
+                    $fields = array(
+                        'status' => 1
+                    );
+                    $where_query = array(["", "shop_name", "=", "$shop"]);
+                    $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
+                    $response = array(
+                        "result" => 'success',
+                        "message" => 'data update successfully',
+                        "outcome" => $comeback,
+                    );
+                }else{
                 $fields = array(
-                    'status' => 1
-                );
-                $where_query = array(["", "shop_name", "=", "$shop"]);
-                $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
-                $response = array(
-                    "result" => 'success',
-                    "message" => 'data update successfully',
-                    "outcome" => $comeback,
-                );
-            }else{
-               $fields = array(
-                    'status' => 0,
-                );
-                $where_query = array(["", "shop_name", "=", "$shop"]);
-                $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
-                $response = array(
-                    "result" => 'success',
-                    "message" => 'data update successfully',
-                    "outcome" => $comeback,
-                );
-            }
-        }
-        return $response;
-  
-}
-function btn_enable_disable(){
-    $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
-        if (isset($_POST['store']) && $_POST['store'] != '') {
-            $store= $_POST['store'];
-            $where_query = array(["", "shop_name", "=", "$store"]);
-            $comeback= $this->select_result(TABLE_USER_SHOP, '*', $where_query);
-            $response = array('data' => 'success', 'msg' => 'select successfully','outcome' => $comeback);
-        }
-        
-        return $response;
-}
-function chatgpt_req_res(){
-    $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
-        if (isset($_POST['store']) && $_POST['store'] != '') {
-            $error_array = array();
-            $shopinfo = $this->current_store_obj;
-            $shopinfo = (object)$shopinfo;
-            $store= $_POST['store'];
-            $chatGPT_Prerequest = (isset($_POST['chatGPT_Prerequest']) && $_POST['chatGPT_Prerequest'] !== '') ? $_POST['chatGPT_Prerequest'] : '';
-            $chatgptreq = (isset($_POST['chatgptreq']) && $_POST['chatgptreq'] != '' )  ? $_POST['chatgptreq'] : $error_array["chatgpt"] = 'Please Enter Request';
-            if (empty($error_array)) {
-                $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "ChatGPT"]);
-                $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
-                $apikey = (isset($comeback['data'][0]['thirdparty_apikey']) && $comeback['data'][0]['thirdparty_apikey'] !== '') ? $comeback['data'][0]['thirdparty_apikey'] : '';
-                $url = 'https://api.openai.com/v1/chat/completions';
-                $data = array(
-                    'model' => 'gpt-3.5-turbo', // Specify the model to use
-                    'messages' => array(
-                        array('role' => 'user', 'content' => "' $chatGPT_Prerequest.$chatgptreq .'")
-                    ),
-                    'max_tokens' => 100,
-                    'temperature' => 0.8
-                );
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                  'Content-Type: application/json',
-                  'Authorization: Bearer '.$apikey,
-                  'OpenAI-Organization: org-O1tNBiMDfv05FSn5qmgj5VQ2'
-                ));
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-                $response = curl_exec($ch);
-                if(curl_errno($ch)){
-                    $message = curl_error($ch);
-                    $to = "codelockinfo@gmail.com";	
-                    $subject="Rewriter App"; 
-                    $headers ="From:". $shopinfo->email ." \r\n";     
-                    $headers = "MIME-Version: 1.0\r\n";
-                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                    $flgchk = mail ($to, $subject, $message, $headers);	
-                    echo 'Error: ' . curl_error($ch);
+                        'status' => 0,
+                    );
+                    $where_query = array(["", "shop_name", "=", "$shop"]);
+                    $comeback = $this->put_data(TABLE_USER_SHOP, $fields, $where_query);
+                    $response = array(
+                        "result" => 'success',
+                        "message" => 'data update successfully',
+                        "outcome" => $comeback,
+                    );
                 }
-                
-                curl_close($ch);
-                if ($response) {
-                    $response = json_decode($response);
-                    $response_data = (isset($response->choices[0]->message->content) && $response->choices[0]->message->content !== '') ? $response->choices[0]->message->content : '';
-                    if(empty($response_data)){
-                        $message = (isset($response->error->message) && $response->error->message !== '') ? $response->error->message : '';
+            }
+            return $response;
+    
+    }
+
+    function btn_enable_disable(){
+        $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
+            if (isset($_POST['store']) && $_POST['store'] != '') {
+                $store= $_POST['store'];
+                $where_query = array(["", "shop_name", "=", "$store"]);
+                $comeback= $this->select_result(TABLE_USER_SHOP, '*', $where_query);
+                $response = array('data' => 'success', 'msg' => 'select successfully','outcome' => $comeback);
+            }
+            
+            return $response;
+    }
+
+    function chatgpt_req_res(){
+        $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
+            if (isset($_POST['store']) && $_POST['store'] != '') {
+                $error_array = array();
+                $shopinfo = $this->current_store_obj;
+                $shopinfo = (object)$shopinfo;
+                $store= $_POST['store'];
+                $chatGPT_Prerequest = (isset($_POST['chatGPT_Prerequest']) && $_POST['chatGPT_Prerequest'] !== '') ? $_POST['chatGPT_Prerequest'] : '';
+                $chatgptreq = (isset($_POST['chatgptreq']) && $_POST['chatgptreq'] != '' )  ? $_POST['chatgptreq'] : $error_array["chatgpt"] = 'Please Enter Request';
+                if (empty($error_array)) {
+                    $where_query = array(["", "status", "=", "1"], ["AND", "thirdparty_name", "=", "ChatGPT"]);
+                    $comeback= $this->select_result(CLS_TABLE_THIRDPARTY_APIKEY, '*',$where_query);
+                    $apikey = (isset($comeback['data'][0]['thirdparty_apikey']) && $comeback['data'][0]['thirdparty_apikey'] !== '') ? $comeback['data'][0]['thirdparty_apikey'] : '';
+                    $url = 'https://api.openai.com/v1/chat/completions';
+                    $data = array(
+                        'model' => 'gpt-3.5-turbo', // Specify the model to use
+                        'messages' => array(
+                            array('role' => 'user', 'content' => "' $chatGPT_Prerequest.$chatgptreq .'")
+                        ),
+                        'max_tokens' => 100,
+                        'temperature' => 0.8
+                    );
+                    $ch = curl_init($url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Authorization: Bearer '.$apikey,
+                    'OpenAI-Organization: org-O1tNBiMDfv05FSn5qmgj5VQ2'
+                    ));
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+                    $response = curl_exec($ch);
+                    if(curl_errno($ch)){
+                        $message = curl_error($ch);
                         $to = "codelockinfo@gmail.com";	
-                        $subject="Rewriter App - ".$store; 
-                        
-                        $headers ="From:". $shopinfo->email ." \r\n";
+                        $subject="Rewriter App"; 
+                        $headers ="From:". $shopinfo->email ." \r\n";     
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                         $flgchk = mail ($to, $subject, $message, $headers);	
-                        $response_data = array('data' => 'Fail', 'data'=>$data , 'outcome' => 'Our server is busy at this moment ,Please try again later');
-                    }else{
-                        $response_data = array('data' => 'success', 'msg' => 'select successfully','outcome' => $response_data);
+                        echo 'Error: ' . curl_error($ch);
                     }
-                }
-            }else{
-                $response_data = array('data' => 'Fail', 'outcome' => $error_array);
-            }    
-            
-        }
-        return $response_data;
-}
+                    
+                    curl_close($ch);
+                    if ($response) {
+                        $response = json_decode($response);
+                        $response_data = (isset($response->choices[0]->message->content) && $response->choices[0]->message->content !== '') ? $response->choices[0]->message->content : '';
+                        if(empty($response_data)){
+                            $message = (isset($response->error->message) && $response->error->message !== '') ? $response->error->message : '';
+                            $to = "codelockinfo@gmail.com";	
+                            $subject="Rewriter App - ".$store; 
+                            
+                            $headers ="From:". $shopinfo->email ." \r\n";
+                            $headers = "MIME-Version: 1.0\r\n";
+                            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                            $flgchk = mail ($to, $subject, $message, $headers);	
+                            $response_data = array('data' => 'Fail', 'data'=>$data , 'outcome' => 'Our server is busy at this moment ,Please try again later');
+                        }else{
+                            $response_data = array('data' => 'success', 'msg' => 'select successfully','outcome' => $response_data);
+                        }
+                    }
+                }else{
+                    $response_data = array('data' => 'Fail', 'outcome' => $error_array);
+                }    
+                
+            }
+            return $response_data;
+    }
 
 }

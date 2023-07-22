@@ -1,9 +1,8 @@
 <?php 
     include "cls_header.php"; 
-        include_once('dashboard_header.php');   
+    include_once('dashboard_header.php');   
     $blogpost_id = isset($_GET['blogpost_id']) ? $_GET['blogpost_id'] : ''; 
 ?>
-    </style>
     <div class="Polaris-Page login-frm max_width_change">
         <div class="Polaris-Page__Content">
             <div class="Polaris-Layout">
@@ -82,4 +81,4 @@
     var blogpost_id = "<?php echo $blogpost_id; ?>";
     get_textarea_value(routine_name,store,blogpost_id,"blog");
 </script>
-    <?php  include_once('dashboard_footer.php'); ?>
+<?php  include_once('dashboard_footer.php'); ?>

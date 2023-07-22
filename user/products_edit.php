@@ -1,19 +1,16 @@
 <?php
-$product_id = isset($_GET['product_id']) ? $_GET['product_id'] : '';
- $url = $_SERVER['HTTP_REFERER'];
-$url_components = parse_url($url);
-parse_str($url_components['query'], $params);
-$store = ($params['store']);
+    include "cls_header.php";
+    include_once('dashboard_header.php');   
+    $product_id = isset($_GET['product_id']) ? $_GET['product_id'] : '';
+    $url = $_SERVER['HTTP_REFERER'];
+    $url_components = parse_url($url);
+    parse_str($url_components['query'], $params);
+    $store = ($params['store']);
 ?>
 <script>
     var product_id = "<?php echo $product_id; ?>";
     var store = "<?php echo $store;?>"
 </script>
-<?php
-include "cls_header.php";
-include_once('dashboard_header.php');   
-?>
-
 <div class="Polaris-Page login-frm max_width_change">
     <div class="Polaris-Page__Content">
         <div class="Polaris-Layout">
@@ -34,9 +31,9 @@ include_once('dashboard_header.php');
                                         <span class="Polaris-Breadcrumbs__Content">Back</span>
                                     </a>
                                 </nav>
-                                    <div>
-                                           <h2 class="Polaris-Heading editor-label">Product</h2>
-                                       </div>
+                                <div>
+                                    <h2 class="Polaris-Heading editor-label">Product</h2>
+                                </div>
                                 <form class="m-t formforparent" id="register_frm" name="register_frm" method="POST"  enctype="multipart/form-data" onsubmit="">
                                     <div class="clsmain_green">
                                         <div class="Polaris-Labelled__LabelWrapper">
@@ -69,7 +66,6 @@ include_once('dashboard_header.php');
                                                         </span>
                                                     </div>
                                                     <div class="Polaris-Banner__Heading">
-                                                        <!-- <p class="Polaris-Heading">cls-rewriter app provide features add list of  ponts to get automatic product description</p> -->
                                                         <p class="Polaris-Heading">Quickly generate blog descriptions by leveraging the power of Chat GPT, saving time and effort for businesses.</p>
                                                     </div>
                                                 </div>
@@ -90,7 +86,6 @@ include_once('dashboard_header.php');
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="Polaris-Layout">
                                         <div class="Polaris-Layout__Section">
                                             <input type="hidden" id="" name="product_id" value="<?php echo $product_id; ?>">
@@ -98,7 +93,7 @@ include_once('dashboard_header.php');
                                             <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>                                          
                                             <textarea class="textdetails" name="description">                                          
                                             </textarea>
-                                                <button type="submit" name="sign_up" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn"  style="float: right; margin-top: 20px;">Save</button>
+                                            <button type="submit" name="sign_up" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn"  style="float: right; margin-top: 20px;">Save</button>
                                         </div>
                                     </div>
                                 </form>
