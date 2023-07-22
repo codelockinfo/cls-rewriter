@@ -29,13 +29,17 @@ if($verified == true){
 			$shopinfo = $cls_functions->get_store_detail_obj();
 			$productid = isset($product->id) ? $product->id : '';
 			$store_user_id = isset($shopinfo["store_user_id"]) ? $shopinfo["store_user_id"] : '';
+
 			if($store_user_id == ''){
 				generate_log('product_create-webhook' , "STORE USER ID"); 
 			}
 			$where_query = array(["", "product_id", "=", "$productid"], ["AND", "store_user_id", "=", "$store_user_id"]);
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
-			$ProductId = isset($comeback['data']->product_id) ? $comeback['data']->product_id : '';
-			if(empty($ProductId)){
+			$productData = (object)$comeback->data;
+			$clsProductId = isset($productData->['product_id']) ? $productData->['product_id'] : '';
+			$ProductId = isset($comeback->data['product_id']) ? $comeback->data['product_id'] : '';
+
+			if(empty($clsProductId)){
 				$field_array = array();
 				foreach ($product->variants as $i => $variants) {
 					$main_price = ($variants->price != '') ? $variants->price : "";
