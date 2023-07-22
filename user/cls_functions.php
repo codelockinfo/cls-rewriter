@@ -1181,7 +1181,7 @@ class Client_functions extends common_function {
 
     function addproduct() {
         $response_data = array('result' => 'fail', 'msg' => __('Something went wrong'));
-        $api_fields = $error_array = $response_data = array();
+        $api_fields = $error_array = $response_data = $fields_arr = array();
         if (isset($_POST['store']) && $_POST['store'] != '') {
             if (isset($_POST['title']) && $_POST['title'] == '') {
                 $error_array['title'] = "Please Enter title";
