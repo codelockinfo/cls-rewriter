@@ -88,14 +88,12 @@
                                     </div>
                                     <div class="Polaris-Layout">
                                         <div class="Polaris-Layout__Section">
-                                            <input type="hidden" id="" name="product_id" value="<?php echo $product_id; ?>">
-                                            <input type="hidden" id="" name="for_data" value="<?php echo 'product'; ?>">
+                                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                            <input type="hidden" name="for_data" value="<?php echo 'product'; ?>">
                                             <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>                                          
-                                            <textarea class="textdetails" name="description">                                          
-                                            </textarea>
+                                            <textarea class="textdetails" name="description"></textarea>
                                             <button type="submit" name="sign_up" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn"  style="float: right; margin-top: 20px;">Save</button>
-                                            <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--destructive  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
-                                            </button>
+                                            <button type="cancel" name="cancel" class="Polaris-Button Polaris-Button--destructive cancelRequest" data-page="products" style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel</button>
                                         </div>
                                     </div>
                                 </form>

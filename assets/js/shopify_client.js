@@ -457,6 +457,14 @@ function get_api_data(routineName,shopify_api){
             }
     })
 }
+
+$(document).on("click",".cancelRequest",function(e){
+    e.preventDefault();
+    var return_page = $(this).data("page");
+    window.location.href = return_page+".php?store="+ store;
+    return false;
+})
+
 $(document).on("submit", "#addblog_frm", function (e) {
         e.preventDefault();       
         var form_data = $("#addblog_frm")[0];
@@ -489,6 +497,7 @@ $(document).on("submit", "#addblog_frm", function (e) {
             }
         });
 });
+
 $(document).on("submit", "#addproduct_frm", function (e) {
         e.preventDefault();       
         var form_data = $("#addproduct_frm")[0];

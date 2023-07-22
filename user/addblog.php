@@ -155,13 +155,13 @@ include "dashboard_header.php";
                                         <div class="Polaris-Layout padd_2rem_addblog">
                                             <div class="Polaris-Layout__Section">
                                                 <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>
-                                                <input type="hidden" id="" name="store" value="<?php echo $store; ?>">
+                                                <input type="hidden" name="store" value="<?php echo $store; ?>">
                                                 <textarea class="textdetails" name="description" value="">
                                                 </textarea>
                                             </div>
                                         </div>
                                         <button type="submit" name="submit" id="addblog"  data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px; margin-bottom: 10px;">Save</button>                                                    
-                                        <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--destructive  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel</button>
+                                        <button type="cancel" name="cancel" class="Polaris-Button Polaris-Button--destructive cancelRequest" data-page="blog_post" style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel</button>
                                     </form>
                                 </div>
                             </div>

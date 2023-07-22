@@ -89,13 +89,11 @@
                                 <div class="Polaris-Layout">
                                     <div class="Polaris-Layout__Section">
                                             <h2 class="Polaris-Heading text-left text-editer" id="title"></h2>
-                                        <input type="hidden" id="" name="collection_id" value="<?php echo $collection_id; ?>">
-                                        <input type="hidden" id="" name="for_data" value="<?php echo 'collections'; ?>">
-                                        <textarea class="textdetails" name="description" value="">                                          
-                                        </textarea>
+                                        <input type="hidden" name="collection_id" value="<?php echo $collection_id; ?>">
+                                        <input type="hidden" name="for_data" value="<?php echo 'collections'; ?>">
+                                        <textarea class="textdetails" name="description" value=""></textarea>
                                         <button type="submit" name="submit" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px;">Save</button>                                                    
-                                        <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--destructive  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
-                                        </button>
+                                        <button type="cancel" name="cancel" class="Polaris-Button Polaris-Button--destructive cancelRequest" data-page="pages" style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel</button>
                                     </div>
                                 </div>
                             </form>
