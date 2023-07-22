@@ -6,7 +6,7 @@
             <div class="space-y-4">
                 <div class="box text-center space-y-2 py-6">
                     <h2 class="text-2xl">Still need help?</h2>
-                    <p class="text-lg text-gray-500">Email us at <strong class="font-semibold">codelocksolutions.in</strong>. Remember to include your myshopify.com domain.</p>
+                    <p class="text-lg text-gray-500">Email us at <strong class="font-semibold">codelock2021@gmail.com</strong>. Remember to include your myshopify.com domain.</p>
                 </div>
                 <div id="accordion" class="accordion">
                     <div class=" box card mb-2  px-5 pt-5 pb-0">
@@ -111,7 +111,7 @@
                                         <p><h3 id="step-1-go-to-customize-theme">Step 1: Click Add /Edit Page button.</h3></p>
                                         <p><h3 id="step-2-select-the-product-page">Step 2:Click Add Page button for add page content.</h3></p>
                                         <p>Step by step Add information in to form . Choose from a wide selection of font families to give your page descriptions a unique and personalized look that aligns with your brand's style. Enhance page descriptions with vibrant colors: Use a color picker tool to select eye-catching colors that make your descriptions visually appealing and highlight important details.</p>
-                                        <p>Hit save and then test your  page. If you need any help please email us at <a href="mailto:codelocksolutions.in">codelocksolutions.in</a> .</p>
+                                        <p>Hit save and then test your  page. If you need any help please email us at <a href="mailto:codelock2021@gmail.com">codelock2021@gmail.com</a> .</p>
                                     </div>            
                                 </div>
                             </div>
