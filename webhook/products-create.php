@@ -42,7 +42,7 @@ if($verified == true){
             generate_log('Product_create' , json_encode($clsProductId)  . " ... DATABASE PRODUCT ID");
 			$ProductId = isset($comeback->data['product_id']) ? $comeback->data['product_id'] : '';
 
-			if(empty($clsProductId)){
+			if(empty($ProductId)){
 				$field_array = array();
 				foreach ($product->variants as $i => $variants) {
 					$main_price = ($variants->price != '') ? $variants->price : "";
