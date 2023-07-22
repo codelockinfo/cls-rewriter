@@ -37,6 +37,8 @@ if($verified == true){
 			$comeback = $cls_functions->select_result(TABLE_PRODUCT_MASTER, '*', $where_query);
 			generate_log('Product_create' , json_encode($comeback)  . " ...  COMEBACK");
 			generate_log('Product_create' , json_encode($comeback['data'])  . " ...  COMEBACK DATA");
+			generate_log('Product_create' , json_encode($comeback['data']['product_id'])  . " ...  COMEBACK DATA");
+			generate_log('Product_create' , json_encode($comeback['data']->product_id)  . " ...  COMEBACK DATA PRODUCT ID ");
 			generate_log('Product_create' , json_encode($comeback->data)  . " ...  COMEBACK DATA");
 
 			$ProductId = isset($comeback->data['product_id']) ? $comeback->data['product_id'] : '';
