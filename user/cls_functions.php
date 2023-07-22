@@ -1142,7 +1142,8 @@ class Client_functions extends common_function {
                 // $tr_html.='<td>' . $dataObj->product_id . '</td>';
                 $tr_html .= '<td>' . '<img src="' . $image . '" alt="' . $dataObj->title . '" width="50px" height="50px" >' . '</td>';
                 $tr_html.='<td>' . $dataObj->title . '</td>';
-                $tr_html.='<td>' . $dataObj->description . '</td>';
+                // $tr_html.='<td>' . $dataObj->description . '</td>';
+                $tr_html.='<td><div class="product-description-cls">' . $dataObj->description . '</div></td>';
                 $tr_html.='<td>' . $dataObj->price . '</td>';
                 $after_delete_pageno = $pageno;
                 if ($dataObj->status == '1') {

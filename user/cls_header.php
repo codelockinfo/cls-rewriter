@@ -26,7 +26,7 @@ $view = (isset($_GET["view"]) && $_GET["view"]) ? $_GET["view"] : FALSE;
         <link rel="stylesheet" href="<?php echo main_url('assets/css/polaris.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('assets/css/shopify_clients.css'); ?>" />
         <link rel="stylesheet" href="<?php echo main_url('assets/css/shopify_client.css'); ?>" />
-        <link rel="stylesheet" href="<?php // echo main_url('assets/css/polaris.min.css'); ?>" rel="stylesheet"> 
+        <link rel="stylesheet" href="<?php //echo main_url('assets/css/polaris.min.css'); ?>" rel="stylesheet"> 
         
         <link rel="icon" type="image/png" href="<?php echo CLS_SITE_URL; ?>/assets/images/logo-icons.svg.png"/>
         <link rel="stylesheet" href="<?php // echo main_url('assets/css/shopify_css.css'); ?>" />

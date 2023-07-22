@@ -1390,3 +1390,15 @@ body .space-y-4 > * + * {
     color: #050607;
 }
 /* feature page css end  */ 
+
+
+.product-description-cls {
+    width: 100%;
+   max-height: 100px;
+    min-height: 10px;
+    display: block;
+    overflow-y: scroll;
+}
+a.Polaris-Button.Polaris-Button--success {
+    margin-top: 1%;
+}

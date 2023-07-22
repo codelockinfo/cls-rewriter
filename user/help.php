@@ -79,6 +79,7 @@
                                         <div style="position:relative;padding-top:56.25%;">
                                             <iframe src="https://screenpal.com/player/c0iIjFVgHL2?width=100%&height=100%&ff=1&title=0" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
                                         </div>
+                                        https://screenpal.com/watch/c0i3fUVkQ58
                                         <div class="videocontent">
                                             <ul>
                                                 <li>Click <b>Add /Edit  Product</b> button.</li>
@@ -184,6 +185,29 @@
                                             <div class="col-sm-12">
                                                 The fonts family created by using ReWriter only show in ReWriter app. It will not show on Theme customize. To change or update the fonts, Please using ReWriter  app instead go to Theme customize
                                             </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-2">
+                                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefour">
+                                    <a class="card-title">
+                                       How  I can create size chart?
+                                    </a>
+                                </div>
+                                <div id="collapsefour" class="collapse" data-parent="#accordion" >
+                                    <div class="card-body">
+                                        <div style="position:relative;padding-top:56.25%;">
+                                           <iframe src="https://screenpal.com/player/c0i3fUVkQ58?width=100%&height=100%&ff=1&title=0" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                                        </div>
+                                        <div class="videocontent">
+                                            <ul>
+                                                <li>Click <b>Add /Edit  Product</b> button.</li>
+                                                <li>Find <b> Product</b>  for add Size chart.</li>
+                                                <li>Click on edit button.Then Search table on topbar click on Table and Select Row and </li>
+                                                <li>After add Heading and value in Table.</li>
+                                                <li>Click on <b>Save</b> button.</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
