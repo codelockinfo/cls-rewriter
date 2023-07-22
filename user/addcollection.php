@@ -126,10 +126,9 @@ include_once('dashboard_header.php');
                                             </div>
                                         </div>
                                         <button type="submit" name="submit" id="addcollection" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px; margin-bottom: 10px;">Save</button>                                                    
-                                        <a href ="pages.php?store=<?php echo $_SESSION['store'];?>">
-                                            <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--success  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
-                                            </button>
-                                        </a>  
+                                        <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--destructive  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
+                                        </button>
+                                         
                                     </form>
                                 </div>
                             </div>

@@ -93,6 +93,8 @@
                                             <textarea class="textdetails" name="description" value="">                                          
                                             </textarea>
                                             <button type="submit" name="submit" btnId="submitbtn" id="register_frm_btn" class="Polaris-Button Polaris-Button--primary save_loader_show saveBtn" style="float: right; margin-top: 20px;">Save</button>                                                    
+                                            <button type="cancel" name="cancel" id="" class="Polaris-Button Polaris-Button--destructive  " style="float: right; margin-top: 20px; margin-bottom: 10px;">Cancel
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

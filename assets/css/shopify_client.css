@@ -1407,3 +1407,7 @@ body .space-y-4 > * + * {
 a.Polaris-Button.Polaris-Button--success {
     margin-top: 1%;
 }
+.card-header.accordion-header {
+background: transparent!important;
+    color: #000!important;
+}

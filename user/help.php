@@ -21,7 +21,7 @@
                     <div class="Polaris-Card__Section">
                         <div id="accordion" class="accordion">
                         <div class="card mb-2">
-                                <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                                <div class="card-header " data-toggle="collapse" href="#collapseOne">
                                     <a class="card-title">
                                       How I can create and update Blog articals?
                                     </a>

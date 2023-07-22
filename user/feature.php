@@ -10,15 +10,11 @@
                 </div>
                 <div id="accordion" class="accordion">
                     <div class=" box card mb-2  px-5 pt-5 pb-0">
-                        <div class="accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" href="#collapseOne">
+                        <div class="card-header  accordion-header cursor-pointer pb-5" data-toggle="collapse" href="#collapseOne">
                             <h2 class="card-title">
                             Getting started with Advanced Product Descriptions
                             </h2>
-                            <div>
-                                <svg viewBox="0 0 20 20">
-                                    <path d="M10 14a.997.997 0 0 1-.707-.293l-5-5a.999.999 0 1 1 1.414-1.414L10 11.586l4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5A.997.997 0 0 1 10 14z"></path>
-                                </svg>
-                            </div>
+                           
                         </div>
                         <div id="collapseOne" class="collapse show" data-parent="#accordion" >
                             <div class="card-body">
@@ -35,15 +31,11 @@
                         </div>
                     </div>
                     <div class="box card mb-2 px-5 pt-5 pb-0">
-                        <div class="accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" href="#collapsefive">
+                        <div class="card-header   accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" href="#collapsefive">
                             <h2 class="card-title">
                                 How do I create a Product description?
                             </h2>
-                            <div>
-                                <svg viewBox="0 0 20 20">
-                                    <path d="M10 14a.997.997 0 0 1-.707-.293l-5-5a.999.999 0 1 1 1.414-1.414L10 11.586l4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5A.997.997 0 0 1 10 14z"></path>
-                                </svg>
-                            </div>
+                            
                         </div>
                         <div id="collapsefive" class="collapse" data-parent="#accordion" >
                             <div class="card-body">
@@ -64,15 +56,11 @@
                         </div>
                     </div>
                     <div class="box card mb-2 px-5 pt-5 pb-0">
-                        <div class="accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" href="#collapsesix">
+                        <div class="card-header   accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" href="#collapsesix">
                             <h2 class="card-title">
                                 How do I delete an advanced article?
                             </h2>
-                            <div>
-                                <svg viewBox="0 0 20 20">
-                                    <path d="M10 14a.997.997 0 0 1-.707-.293l-5-5a.999.999 0 1 1 1.414-1.414L10 11.586l4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5A.997.997 0 0 1 10 14z"></path>
-                                </svg>
-                            </div>
+                           
                         </div>
                         <div id="collapsesix" class="collapse" data-parent="#accordion" >
                             <div class="card-body">
@@ -91,15 +79,11 @@
                     </div>
                 
                     <div class="box card mb-2 px-5 pt-5 pb-0">
-                        <div class="accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                        <div class="card-header   accordion-header cursor-pointer pb-5 collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
                             <h2 class="card-title">
                             I can create and update Page on online store 8.9.0 themes
                             </h2>
-                            <div>
-                                <svg viewBox="0 0 20 20">
-                                    <path d="M10 14a.997.997 0 0 1-.707-.293l-5-5a.999.999 0 1 1 1.414-1.414L10 11.586l4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5A.997.997 0 0 1 10 14z"></path>
-                                </svg>
-                            </div>
+                           
                         </div>
                         <div id="collapseFour" class="collapse" data-parent="#accordion" >
                             <div class="card-body">
