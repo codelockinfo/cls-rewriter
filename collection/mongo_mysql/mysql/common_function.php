@@ -144,15 +144,19 @@ include dirname(dirname(__FILE__)). "/base_function.php";
         }
         $values = rtrim($values, ",");
         try {
-             
+            generate_log('common_unction' , "INSERT INTO $tbl_name ( " . implode(",", $columns) . ") VALUES " . $values . "");
+
             $sql = "INSERT INTO $tbl_name ( " . implode(",", $columns) . ") VALUES " . $values . "";
             $sql = str_replace(array("'NULL'", "'null'"), 'NULL', $sql);
             if ($on_duplicate_update) {
                 $update_query = "UPDATE " . implode(",", $update_columns);
                 $sql .= " ON DUPLICATE KEY " . $update_query . ";";
             }  
+            generate_log('common_unction' , json_encode($sql)  . " ...  SQL");
             $query = $this->db_connection->prepare($sql);
+            generate_log('common_unction' , json_encode($query)  . " ...  QUERY");
             $return_data = $query->execute();
+            generate_log('common_unction' , json_encode($return_data)  . " ...  RETURN DATA");
             $return_data = $this->db_connection->insert_id;
         } catch (Exception $error) {
             $status = '0';
