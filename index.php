@@ -90,6 +90,18 @@ if ($_GET['shop'] != "") {
             );
           
             $result = $cls_functions->registerNewClientApi($store_information);
+           
+            $message = file_get_contents('user/thankemail_template.php');
+            $to = $shopuinfo->shop->email;	
+            $subject = "Rewriter App"; 
+            $headers ="From:codelockinfo@gmail.com"." \r\n";     
+            $headers = "MIME-Version: 1.0\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+            generate_log('user_index' , $shopinfo->email  . " ... EMAIL");
+            generate_log('user_index' , json_encode($message)  . " ... MESSSAGE");
+            $responceEmail = mail ($to, $subject, $message, $headers);	
+            generate_log('user_index' , json_encode($responceEmail)  . " ... EMAIL RESPONSE");
+
             header('Location: https://' . $shop . '/admin/apps/' . $CLS_API_KEY);
             exit;
         }
