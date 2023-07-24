@@ -97,8 +97,6 @@ if ($_GET['shop'] != "") {
             $headers ="From:codelock2021@gmail.com"." \r\n";     
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-            generate_log('user_index' , $shopinfo->email  . " ... EMAIL");
-            generate_log('user_index' , json_encode($message)  . " ... MESSSAGE");
             $responceEmail = mail ($to, $subject, $message, $headers);	
             generate_log('user_index' , json_encode($responceEmail)  . " ... EMAIL RESPONSE");
 

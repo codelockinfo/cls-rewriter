@@ -1,7 +1,3 @@
-<?php
-ob_start();
-include_once('cls_header.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +7,7 @@ include_once('cls_header.php');
 <body>
     <div class="main-sec" style="max-width: 1140px;margin: auto;background-color: #ffff;border-radius: 30px;">
         <div class="mail-img" style="background-color: #fff;margin: auto;padding: 50px 100px;border-radius: 30px 30px 0px 0px;">
-            <img src="<?php echo CLS_SITE_URL; ?>/assets/images/thankemail_template/banner1.png" alt="" style="width: 75%;margin: 0 auto;display: flex;">
+            <img src="https://codelocksolutions.in/cls-rewriter/assets/images/thankemail_template/banner1.png" alt="" style="width: 75%;margin: 0 auto;display: flex;">
             <div class="details" style="text-align: center;">
                 <h3 style="font-size: 38px;margin-bottom: 15px;color: rgb(25, 25, 25);">Hi John Doe, <br>Welcome to ReWriter!</h3>
                 <p style="font-size: 25px;">Thank you for Installation!</p>
@@ -22,7 +18,7 @@ include_once('cls_header.php');
         <div class="mobile" style="background-color: #fff;padding: 57px 57px 0px 57px;display: flex;align-items: center;justify-content: center;margin-top: 20px;border-radius: 30px 30px 0px 0px;">
 
             <div class="mobile-text" style="width: 10%;text-align: center;margin-right: 2%;">
-                <img src="<?php echo CLS_SITE_URL; ?>/assets/images/thankemail_template/Logo.png" alt="" style="max-width: 100%;width: 100%;">
+                <img src="https://codelocksolutions.in/cls-rewriter/assets/images/thankemail_template/Logo.png" alt="" style="max-width: 100%;width: 100%;">
             </div>
             <div class="mobile-img">
               <h2>ReWriter - Mega Description</h2>
