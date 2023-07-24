@@ -94,7 +94,7 @@ if ($_GET['shop'] != "") {
             $message = file_get_contents('user/thankemail_template.php');
             $to = $shopuinfo->shop->email;	
             $subject = "Rewriter App"; 
-            $headers ="From:codelock2021@gmail.com"." \r\n";     
+            $headers ="From:codelockinfo@gmail.com"." \r\n";     
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
             $responceEmail = mail ($to, $subject, $message, $headers);	
