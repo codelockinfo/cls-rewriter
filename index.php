@@ -24,9 +24,7 @@ $__webhook_arr = array(
     'products/update',
     'collections/create',
     'collections/update',
-    'collections/delete',
-    'customers/create',
-    'customers/update'
+    'collections/delete'
 );
 
 if ($_GET['shop'] != "") {
