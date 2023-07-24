@@ -1,8 +1,8 @@
 <?php
     include "cls_header.php"; 
-    include_once('dashboard_header.php');   
+    include_once('dashboard_header.php');  
     $blogpost_id = isset($_GET['blogpost_id']) ? $_GET['blogpost_id'] : '';
-    $url = $_SERVER['HTTP_REFERER'];
+    $url = $_SERVER['REQUEST_URI'];
     $url_components = parse_url($url);
     parse_str($url_components['query'], $params);
     $store = ($params['store']);

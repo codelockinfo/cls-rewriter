@@ -2,7 +2,7 @@
     include "cls_header.php";
     include_once('dashboard_header.php');   
     $collection_id = isset($_GET['collection_id']) ? $_GET['collection_id'] : '';
-    $url = $_SERVER['HTTP_REFERER'];
+    $url = $_SERVER['REQUEST_URI'];
     $url_components = parse_url($url);
     parse_str($url_components['query'], $params);
     $store = ($params['store']);
