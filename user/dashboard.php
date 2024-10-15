@@ -60,6 +60,90 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                 </a>
                                             </div>
                                         </div>
+                                                                   
+                                        <div class="Polaris-Layout">
+                                            <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
+                                                <div>
+                                                    <div class="Polaris-Card">
+                                                        <div class="Polaris-CalloutCard__Container">
+                                                            <div class="Polaris-Card__Section">
+                                                                <div class="Polaris-CalloutCard">
+                                                                    <div class="Polaris-CalloutCard__Content min_height120">
+                                                                        <div class="Polaris-CalloutCard__Title">
+                                                                            <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
+                                                                        </div>
+                                                                        <div class="Polaris-Card__Header header-data">
+                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button  Polaris-Button--primary" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Product</span></span></a>
+                                                                       
+                                                                                <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Products</a>
+                                                                                (<span class="Polaris-Heading-number numberConvertProduct">0</span>)</h2>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="Polaris-Card__Section">
+                                                                            <a href="products.php?store=<?php echo $_SESSION['store']; ?>" style="display:block; width:100%; height:100%;">
+                                                                                <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><img src="<?php echo CLS_SITE_URL; ?>/assets/images/home_page/Purple_Modern_Login_Page_Desktop_Prototype.png" style="width:100%;height:100%;"> </p>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto description  for your Product</span></div>
+                                                                        
+                                                                        <h2 class="Polaris-Heading">
+                                                                            <p>Product Description Enhancement: ReWriter takes your product descriptions to the next level. It provides intelligent suggestions and alternatives to help you craft compelling and persuasive descriptions. </p>
+                                                                        </h2>
+                                                                        <!-- <img src="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg" alt="" class="Polaris-CalloutCard__Image"> -->
+                                                                   
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="PolarisPortalsContainer"></div>
+                                                </div>
+                                                <div class="Polaris-Card">                                            
+                                                   
+                                                </div>
+                                            </div>                                 
+                                            <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
+                                                <div>
+                                                    <div class="Polaris-Card">
+                                                        <div class="Polaris-CalloutCard__Container">
+                                                            <div class="Polaris-Card__Section">
+                                                                <div class="Polaris-CalloutCard">
+                                                                    <div class="Polaris-CalloutCard__Content min_height120">
+                                                                        <div class="Polaris-CalloutCard__Title">
+                                                                            <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
+                                                                        </div>
+                                                                        <div class="Polaris-Card__Header header-data">
+                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button Polaris-Button--primary" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Collection</span></span></a>
+                                                                                <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Collections</a>
+                                                                                (<span class="Polaris-Heading-number numberConvertCollection">0</span>)</h2>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="Polaris-Card__Section">
+                                                                            <a href="collection.php?store=<?php echo $_SESSION['store']; ?>" style="display:block; width:100%; height:100%;">
+                                                                                <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><img src="<?php echo CLS_SITE_URL; ?>/assets/images/home_page/Blue_and_White Gradient_fashion_Enthausiast_Desktop_Mockup.png"  style="width:100%;height:100%;"></p>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto description  for your Collection</span></div>
+                                                                        
+                                                                        <h2 class="Polaris-Heading">
+                                                                            <p>Collection Descriptions: With ReWriter, you can effortlessly enhance your collection descriptions, making them more informative and enticing. Utilize the power of intelligent suggestions to create collections that resonate with your target audience and drive more sales.</p>
+                                                                        </h2>
+                                                                        <!-- <img src="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg" alt="" class="Polaris-CalloutCard__Image"> -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="PolarisPortalsContainer"></div>
+                                                </div>
+                                                <div class="Polaris-Card">                                            
+                                                   
+                                                </div>
+                                            </div>                     
+                                        </div>
+                                        
+                                        <div class="Polaris-Card__Header"></div>
+                                        
                                         <div class="Polaris-Layout">
                                             <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
                                                 <div>
@@ -143,88 +227,8 @@ if (isset($_GET['store']) && $_GET['store'] != '') {
                                                     
                                                 </div>
                                             </div> 
-                                        </div>                               
-                                        <div class="Polaris-Card__Header"></div>
-                                        <div class="Polaris-Layout">
-                                            <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
-                                                <div>
-                                                    <div class="Polaris-Card">
-                                                        <div class="Polaris-CalloutCard__Container">
-                                                            <div class="Polaris-Card__Section">
-                                                                <div class="Polaris-CalloutCard">
-                                                                    <div class="Polaris-CalloutCard__Content min_height120">
-                                                                        <div class="Polaris-CalloutCard__Title">
-                                                                            <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
-                                                                        </div>
-                                                                        <div class="Polaris-Card__Header header-data">
-                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button  Polaris-Button--primary" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Product</span></span></a>
-                                                                       
-                                                                                <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="products.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Products</a>
-                                                                                (<span class="Polaris-Heading-number numberConvertProduct">0</span>)</h2>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="Polaris-Card__Section">
-                                                                            <a href="products.php?store=<?php echo $_SESSION['store']; ?>" style="display:block; width:100%; height:100%;">
-                                                                                <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><img src="<?php echo CLS_SITE_URL; ?>/assets/images/home_page/Purple_Modern_Login_Page_Desktop_Prototype.png" style="width:100%;height:100%;"> </p>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto description  for your Product</span></div>
-                                                                        
-                                                                        <h2 class="Polaris-Heading">
-                                                                            <p>Product Description Enhancement: ReWriter takes your product descriptions to the next level. It provides intelligent suggestions and alternatives to help you craft compelling and persuasive descriptions. </p>
-                                                                        </h2>
-                                                                        <!-- <img src="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg" alt="" class="Polaris-CalloutCard__Image"> -->
-                                                                   
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="PolarisPortalsContainer"></div>
-                                                </div>
-                                                <div class="Polaris-Card">                                            
-                                                   
-                                                </div>
-                                            </div>                                 
-                                            <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
-                                                <div>
-                                                    <div class="Polaris-Card">
-                                                        <div class="Polaris-CalloutCard__Container">
-                                                            <div class="Polaris-Card__Section">
-                                                                <div class="Polaris-CalloutCard">
-                                                                    <div class="Polaris-CalloutCard__Content min_height120">
-                                                                        <div class="Polaris-CalloutCard__Title">
-                                                                            <!--<h2 class="Polaris-Heading">Customize the style of your checkout</h2>-->
-                                                                        </div>
-                                                                        <div class="Polaris-Card__Header header-data">
-                                                                            <div class="Polaris-CalloutCard__Buttons"><a class="Polaris-Button Polaris-Button--primary" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Add /Edit Collection</span></span></a>
-                                                                                <h2 class="Polaris-Heading head-title"><a class="Polaris-Link" href="collection.php?store=<?php echo $_SESSION['store']; ?>" data-polaris-unstyled="true">Collections</a>
-                                                                                (<span class="Polaris-Heading-number numberConvertCollection">0</span>)</h2>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="Polaris-Card__Section">
-                                                                            <a href="collection.php?store=<?php echo $_SESSION['store']; ?>" style="display:block; width:100%; height:100%;">
-                                                                                <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><img src="<?php echo CLS_SITE_URL; ?>/assets/images/home_page/Blue_and_White Gradient_fashion_Enthausiast_Desktop_Mockup.png"  style="width:100%;height:100%;"></p>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div style="text-align: center; font-size: larger;font-weight: 600;"><span>Generate auto description  for your Collection</span></div>
-                                                                        
-                                                                        <h2 class="Polaris-Heading">
-                                                                            <p>Collection Descriptions: With ReWriter, you can effortlessly enhance your collection descriptions, making them more informative and enticing. Utilize the power of intelligent suggestions to create collections that resonate with your target audience and drive more sales.</p>
-                                                                        </h2>
-                                                                        <!-- <img src="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg" alt="" class="Polaris-CalloutCard__Image"> -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="PolarisPortalsContainer"></div>
-                                                </div>
-                                                <div class="Polaris-Card">                                            
-                                                   
-                                                </div>
-                                            </div>                     
-                                        </div>
+                                        </div>  
+                                        
                                     </div>
                                 </div>
                             </div>
