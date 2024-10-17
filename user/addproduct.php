@@ -36,16 +36,41 @@ include_once('dashboard_header.php');
                                                 </div>
                                             </div>
                                             <div class="Polaris-Connected"><div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary">
-                                                    <div class="Polaris-TextField">
-                                                        <input id="title" name="title" placeholder="e.g. Product about your latest products or deals" class="Polaris-TextField__Input" maxlength="255" aria-labelledby="PolarisTextField11Label" aria-invalid="false" value="">
-                                                        <div class="Polaris-TextField__Backdrop">
+                                                <div class="Polaris-TextField">
+                                                    <input id="title" name="title" placeholder="e.g. Product about your latest products or deals" class="Polaris-TextField__Input" maxlength="255" aria-labelledby="PolarisTextField11Label" aria-invalid="false" value="">
+                                                    <div class="Polaris-TextField__Backdrop">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="error-message title"></span> 
-                                            <div class="Polaris-Card__Header">
+                                        
+                                        <div class="Polaris-Card__Header">
+                                            <div class="">OR</div>
+                                        </div>
+                                        
+                                        <div class="clsmain_green ">
+                                        <input type="hidden"  class="chatGPT_Prerequesttitle" value="Can you write product title for"/>
+                                            <div class="Polaris-Connected alignitems-center">
+                                                <div class="Polaris-Connected__Item_yiyol Polaris-Connected__Item--primary mr-10">
+                                                    <div class="Polaris-TextField">
+                                                        <input placeholder="Generate auto title by ChatGPT" class="Polaris-TextField__Input tagforgeneratetitle" maxlength="255" aria-labelledby="" aria-invalid="false" value="">
+                                                        <div class="Polaris-TextField__Backdrop">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="Polaris-Button Polaris-Button--success generateTitle" type="button">
+                                                        <span class="Polaris-Button__Content">
+                                                            <span class="Polaris-Icon Polaris-Icon--isColored Polaris-Icon--hasBackdrop"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.702 4.253a.625.625 0 0 1 1.096 0l.196.358c.207.378.517.688.895.895l.358.196a.625.625 0 0 1 0 1.097l-.358.196a2.25 2.25 0 0 0-.895.894l-.196.359a.625.625 0 0 1-1.096 0l-.196-.359a2.25 2.25 0 0 0-.895-.894l-.358-.196a.625.625 0 0 1 0-1.097l.358-.196a2.25 2.25 0 0 0 .895-.895l.196-.358Z"></path><path fill-rule="evenodd" d="M12.948 7.89c-.18-1.167-1.852-1.19-2.064-.029l-.03.164a3.756 3.756 0 0 1-3.088 3.031c-1.15.189-1.173 1.833-.03 2.054l.105.02a3.824 3.824 0 0 1 3.029 3.029l.032.165c.233 1.208 1.963 1.208 2.196 0l.025-.129a3.836 3.836 0 0 1 3.077-3.045c1.184-.216 1.12-1.928-.071-2.107a3.789 3.789 0 0 1-3.18-3.154Zm-.944 6.887a5.34 5.34 0 0 1 2.542-2.647 5.305 5.305 0 0 1-2.628-2.548 5.262 5.262 0 0 1-2.488 2.508 5.329 5.329 0 0 1 2.574 2.687Z"></path></svg></span>
+                                                            <span class="Polaris-Button__Text">Generate Title</span>
+                                                        </span>
+                                                </button>
+                                            </div>
+                                            <span class="error-message chatgpttitleerror"></span> 
+                                        </div>
+                                        
+                                        <div class="Polaris-Card__Header">
                                             <h2 class="Polaris-Heading">Images</h2>
                                         </div>
                                         <div class="clsmain_green ">

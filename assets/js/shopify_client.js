@@ -798,10 +798,42 @@ $(document).on("click", ".chatGPTBtn", function(event) {
         }
     })
 });
+
+$(document).on("click", ".generateTitle", function(event) {
+    event.preventDefault();
+    var chatGPT_Prerequest = $(".chatGPT_Prerequesttitle").val();
+    var chatgptreq = $(this).closest(".Polaris-Connected").find(".tagforgeneratetitle").val();
+    $.ajax({
+        url: "ajax_call.php",
+        type: "post",
+        dataType: "json",
+        data: {'store': store,'routine_name' : 'chatgpt_req_res','chatgptreq':chatgptreq,'chatGPT_Prerequest':chatGPT_Prerequest}, 
+            beforeSend: function () {
+            loading_show('.chatGPTBtn.save_loader_show');
+        },
+        success: function (response) {
+            console.log(response);
+            console.log(response['data']);
+            console.log(response['outcome']);
+            if (response['code'] != undefined && response['code'] == '403') {
+                redirect403();
+            }else if(response['data'] == "success"){
+                $(".chatgpttitleerror").html("");
+                var result_title = response["outcome"].replace(/^"|"$/g, "");
+                $('input[name="title"]').val(result_title);
+            }else{ 
+                response['outcome']['chatgpt'] !== undefined ? $(".chatgpttitleerror").html(response['outcome']['chatgpt']) : $(".chatgpttitleerror").html(response['outcome']);
+            }
+            loading_hide('.chatGPTBtn.save_loader_show','save');
+        }
+    })
+});
+
 $(document).on("click",".get_content_drop",function(){
     console.log("start chat gpt");
     $(".content_gtp").toggleClass("content_gtp_block");
 });
+
 $(document).ready(function() {
     $("#toggleButton").on("click", function() {
         $(this).toggleClass("on");
