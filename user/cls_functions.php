@@ -1369,12 +1369,11 @@ class Client_functions extends common_function {
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                     'Content-Type: application/json',
-                    'Authorization: Bearer '.$apikey,
-                    'OpenAI-Organization: org-O1tNBiMDfv05FSn5qmgj5VQ2'
+                    'Authorization: Bearer '.$apikey
                     ));
                     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                     curl_setopt($ch, CURLOPT_POST, true);
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(value: $data));
                     $response = curl_exec($ch);
                     if(curl_errno($ch)){
                         $message = curl_error($ch);
