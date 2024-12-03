@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/polaris.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/styles.css" rel="stylesheet">  
+    <link rel="stylesheet" href="../assets/css/style1.css" rel="stylesheet">  
     </head>    
 <body>
 <div class="Polaris-Page max_width_change">
