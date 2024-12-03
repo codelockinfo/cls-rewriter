@@ -31,7 +31,7 @@
         <link rel="stylesheet" href="<?php echo main_url('assets/css/font-awesome/css/font-awesome.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('assets/css/bootstrap-tagsinput.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('assets/css/select2.min.css'); ?>" rel="stylesheet"> 
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/stylenew.css">
          <style>
             @import url('https://fonts.googleapis.com/css2?family=Oi&display=swap&family=Goblin+One&display=swap&family=Dancing+Script&display=swap&family=Dancing+Script&family=Goblin+One&family=Pacifico&display=swap&family=Caveat&display=swap&family=Martel:wght@200&display=swap&family=Satisfy&display=swap&family=Courgette&display=swap&family=Secular+One&display=swap&family=Limelight&display=swap&family=Odibee+Sans&display=swap&family=Sigmar+One&display=swap&family=Mate+SC&display=swap&family=Pattaya&display=swap&amily=Cinzel&display=swap&family=Great+Vibes&display=swap&family=Sacramento&display=swap&family=Monoton&display=swap&family=Cookie&display=swap&family=Damion&display=swap');  
         </style>
