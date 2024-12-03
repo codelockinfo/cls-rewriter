@@ -1,4 +1,8 @@
 body {
   padding: 5px;
-  margin-right: 10%;
+}
+@media (max-width: 768px){
+  body {
+    margin-right: 200px;
+  }
 }
